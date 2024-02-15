@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "CarTroubleSolver.Logic/1.0.0": {
+        "runtime": {
+          "CarTroubleSolver.Logic.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CarTroubleSolver.Logic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
