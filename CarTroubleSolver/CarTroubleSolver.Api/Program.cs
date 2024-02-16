@@ -1,4 +1,10 @@
 using CarTroubleSolver.Data.Data;
+using CarTroubleSolver.Data.Models;
+using CarTroubleSolver.Data.Repositories;
+using CarTroubleSolver.Data.Repositories.Interfaces;
+using CarTroubleSolver.Logic.Services;
+using CarTroubleSolver.Logic.Services.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -16,6 +22,14 @@ var connectionString = builder.Configuration.GetConnectionString("Connection");
 builder.Services.AddDbContext<CarTroubleSolverDbContext>(options => options.UseSqlServer(connectionString), ServiceLifetime.Transient);
 
 
+//DI
+//Services
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+//Repos
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 
