@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarTroubleSolver.Data.Migrations
 {
     [DbContext(typeof(CarTroubleSolverDbContext))]
-    [Migration("20240215174530_init")]
-    partial class init
+    [Migration("20240216143845_init2")]
+    partial class init2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,6 +45,9 @@ namespace CarTroubleSolver.Data.Migrations
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PhoneNumber")
+                        .HasColumnType("int");
 
                     b.Property<string>("Surname")
                         .IsRequired()

@@ -1,5 +1,6 @@
 using CarTroubleSolver.Data.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,7 @@ builder.Services.AddSwaggerGen();
 
 //DbContext
 var connectionString = builder.Configuration.GetConnectionString("Connection");
-builder.Services.AddDbContext<CarTroubleSolverDbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<CarTroubleSolverDbContext>(options => options.UseSqlServer(connectionString), ServiceLifetime.Transient);
 
 
 
