@@ -25,10 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\CarTroubleSolver.Data\CarTroubleSolver.Data.csproj" />
     <ProjectReference Include="..\CarTroubleSolver.Logic\CarTroubleSolver.Logic.csproj" />
   </ItemGroup>

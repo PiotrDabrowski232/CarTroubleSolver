@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarTroubleSolver.Logic.Dto.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,12 @@ namespace CarTroubleSolver.Logic.Services.Interfaces
 {
     public interface IUserService
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string PasswordConfirmed { get; set; }
-        public int PhoneNumber { get; set; }
-        public DateOnly DateOfBirth { get; set; }
+        public RegisterUserDto RegisterUser(RegisterUserDto user);
+        public RegisterUserDto GetUser(string username);
+        public void UpdateUserData(UpdateUserDto user);
+        public void ChangePassword(ChangePasswordUserDto user);
+        public void DeleteUser(Guid id);
+        public IQueryable<UserDto> GetUsers();
+
     }
 }
