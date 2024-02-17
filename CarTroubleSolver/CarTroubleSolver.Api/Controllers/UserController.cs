@@ -1,41 +1,63 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CarTroubleSolver.Logic.Dto.User;
+using CarTroubleSolver.Logic.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CarTroubleSolver.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
+        public IUserService _userService;
+        public UserController(IUserService userService) 
+        {
+            _userService = userService;
+        }
+
+
         // GET: api/<UserController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        [Route("/GetAllUsers")]
+        public ActionResult<IEnumerable<UserDto>> GetAll()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                var users = _userService.GetUsers();
+                return users.Any() ? Ok(users) : NotFound("There is no Users");
+            }
+            catch (Exception ex)
+            {
+                return NotFound("There is no Users");
+            }
         }
 
         // GET api/<UserController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet]
+        [Route("/User")]
+        public ActionResult<UserDto> Get([FromQuery]Guid id)
         {
-            return "value";
+            var user = _userService.GetUser(id);
+            return user != null ?  Ok(user) : NotFound("There is no User with provide id");
         }
 
         // POST api/<UserController>
         [HttpPost]
+        [Route("/Register")]
         public void Post([FromBody] string value)
         {
         }
 
         // PUT api/<UserController>/5
-        [HttpPut("{id}")]
+        [HttpPut]
+        [Route("/UpdateUserData")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
         // DELETE api/<UserController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete]
+        [Route("/RemoveAccount")]
         public void Delete(int id)
         {
         }

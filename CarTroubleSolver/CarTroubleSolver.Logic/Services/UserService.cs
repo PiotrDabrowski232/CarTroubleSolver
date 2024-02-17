@@ -20,7 +20,7 @@ namespace CarTroubleSolver.Logic.Services
             throw new NotImplementedException();
         }
 
-        public RegisterUserDto GetUser(string username)
+        public UserDto? GetUser(Guid id)
         {
             throw new NotImplementedException();
         }
