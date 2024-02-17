@@ -1,4 +1,5 @@
-﻿using CarTroubleSolver.Logic.Dto.User;
+﻿using CarTroubleSolver.Data.Models;
+using CarTroubleSolver.Logic.Dto.User;
 using CarTroubleSolver.Logic.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,16 +8,10 @@ namespace CarTroubleSolver.Api.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserController(IUserService userService) : ControllerBase
     {
-        public IUserService _userService;
-        public UserController(IUserService userService) 
-        {
-            _userService = userService;
-        }
+        public IUserService _userService = userService;
 
-
-        // GET: api/<UserController>
         [HttpGet]
         [Route("/GetAllUsers")]
         public ActionResult<IEnumerable<UserDto>> GetAll()
@@ -32,34 +27,79 @@ namespace CarTroubleSolver.Api.Controllers
             }
         }
 
-        // GET api/<UserController>/5
         [HttpGet]
         [Route("/User")]
         public ActionResult<UserDto> Get([FromQuery]Guid id)
         {
+            try 
+            { 
             var user = _userService.GetUser(id);
             return user != null ?  Ok(user) : NotFound("There is no User with provide id");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        // POST api/<UserController>
         [HttpPost]
         [Route("/Register")]
-        public void Post([FromBody] string value)
+        public ActionResult Post([FromBody] RegisterUserDto registerUser)
         {
+            try
+            {
+                _userService.RegisterUser(registerUser);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        // PUT api/<UserController>/5
+        [HttpPost]
+        [Route("/ChangePassword")]
+        public ActionResult Post2([FromBody] ChangePasswordUserDto user)
+        {
+            try
+            {
+                _userService.ChangePassword(user);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPut]
         [Route("/UpdateUserData")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult Put([FromBody] UpdateUserDto user)
         {
+            try
+            {
+                _userService.UpdateUserData(user);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        // DELETE api/<UserController>/5
         [HttpDelete]
         [Route("/RemoveAccount")]
-        public void Delete(int id)
+        public ActionResult Delete(Guid id)
         {
+            try
+            {
+                _userService.DeleteUser(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

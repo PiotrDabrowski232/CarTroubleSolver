@@ -16,11 +16,11 @@ namespace CarTroubleSolver.Data.Repositories
         {
             _context = context;
         }
-        public async Task<T> Add(T entity)
+        public Task<T> Add(T entity)
         {
-            await _context.Set<T>().AddAsync(entity);
-            await _context.SaveChangesAsync();
-            return entity;
+             _context.Set<T>().Add(entity);
+             _context.SaveChanges();
+            return Task.FromResult(entity);
         }
 
         public async Task<T> Get(Guid id)

@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 
 namespace CarTroubleSolver.Data.Repositories
 {
-    public class UserRepository : GenericRepository<User>, IGenericRepository<User>, IUserRepository
+    public class UserRepository(CarTroubleSolverDbContext dbContext) : GenericRepository<User>(dbContext), IGenericRepository<User>, IUserRepository
     {
-        public UserRepository(CarTroubleSolverDbContext dbContext) : base(dbContext) { }
     }
 }
