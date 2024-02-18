@@ -14,7 +14,7 @@ namespace CarTroubleSolver.Logic.Services.Interfaces
         public void UpdateUserData(UpdateUserDto user);
         public void ChangePassword(ChangePasswordUserDto user);
         public void DeleteUser(Guid id);
-        public IQueryable<UserDto> GetUsers();
-
+        public IEnumerable<UserDto> GetUsers();
+        public string GenerateJwt(LoginDto login);
     }
 }

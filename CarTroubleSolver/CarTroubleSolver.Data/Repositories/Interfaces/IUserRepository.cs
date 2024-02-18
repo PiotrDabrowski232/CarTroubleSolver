@@ -9,5 +9,6 @@ namespace CarTroubleSolver.Data.Repositories.Interfaces
 {
     public interface IUserRepository : IGenericRepository<User>
     {
+        public void UpdatePassword(Guid id, string password);
     }
 }

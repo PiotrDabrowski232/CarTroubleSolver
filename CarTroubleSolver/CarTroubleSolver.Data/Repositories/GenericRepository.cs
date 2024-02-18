@@ -1,4 +1,5 @@
 ﻿using CarTroubleSolver.Data.Data;
+using CarTroubleSolver.Data.Models;
 using CarTroubleSolver.Data.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -23,9 +24,9 @@ namespace CarTroubleSolver.Data.Repositories
             return Task.FromResult(entity);
         }
 
-        public async Task<T> Get(Guid id)
+        public Task<T> Get(Guid id)
         {
-            return await _context.Set<T>().FindAsync(id);
+            return Task.FromResult(_context.Set<T>().Find(id));
         }
 
         public IQueryable<T>? GetAll()
@@ -33,15 +34,15 @@ namespace CarTroubleSolver.Data.Repositories
             return _context.Set<T>();
         }
 
-        public void Remove(T entity)
+        public void Remove(Guid id)
         {
-             _context.Remove(entity);
+            var entity = _context.Set<T>().Find(id);
+            if (entity != null)
+            {
+                _context.Set<T>().Remove(entity);
+                _context.SaveChanges();
+            }
         }
 
-        public async void Update(T entity)
-        {
-            _context.Set<T>().Update(entity);
-            await _context.SaveChangesAsync();
-        }
     }
 }

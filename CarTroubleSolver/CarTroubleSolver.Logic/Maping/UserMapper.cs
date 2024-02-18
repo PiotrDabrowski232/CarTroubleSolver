@@ -21,7 +21,8 @@ namespace CarTroubleSolver.Logic.Maping
             CreateMap<ChangePasswordUserDto, User>();
 
             CreateMap<User, UpdateUserDto>();
-            CreateMap<UpdateUserDto, User>();
+            CreateMap<UpdateUserDto, User>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.Parse(src.Id)));
 
             CreateMap<User, UserDto>();
             CreateMap<UserDto, User>();

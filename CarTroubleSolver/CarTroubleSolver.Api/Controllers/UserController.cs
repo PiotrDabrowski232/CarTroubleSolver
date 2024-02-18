@@ -1,6 +1,8 @@
 ﻿using CarTroubleSolver.Data.Models;
 using CarTroubleSolver.Logic.Dto.User;
 using CarTroubleSolver.Logic.Services.Interfaces;
+using CarTroubleSolver.Logic.Validation.UserValidators;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -33,8 +35,8 @@ namespace CarTroubleSolver.Api.Controllers
         {
             try 
             { 
-            var user = _userService.GetUser(id);
-            return user != null ?  Ok(user) : NotFound("There is no User with provide id");
+                var user = _userService.GetUser(id);
+                return Ok(user);
             }
             catch (Exception ex)
             {
@@ -44,12 +46,12 @@ namespace CarTroubleSolver.Api.Controllers
 
         [HttpPost]
         [Route("/Register")]
-        public ActionResult Post([FromBody] RegisterUserDto registerUser)
+        public ActionResult<UserDto> Post([FromBody] RegisterUserDto registerUser)
         {
             try
             {
-                _userService.RegisterUser(registerUser);
-                return Ok();
+                var userResult =_userService.RegisterUser(registerUser);
+                return Ok(userResult);
             }
             catch (Exception ex)
             {
@@ -57,9 +59,9 @@ namespace CarTroubleSolver.Api.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("/ChangePassword")]
-        public ActionResult Post2([FromBody] ChangePasswordUserDto user)
+        public ActionResult ChangePassword([FromBody] ChangePasswordUserDto user)
         {
             try
             {
@@ -72,13 +74,13 @@ namespace CarTroubleSolver.Api.Controllers
             }
         }
 
-        [HttpPut]
-        [Route("/UpdateUserData")]
-        public ActionResult Put([FromBody] UpdateUserDto user)
+        [HttpDelete]
+        [Route("/RemoveAccount")]
+        public ActionResult Delete(string id)
         {
             try
             {
-                _userService.UpdateUserData(user);
+                _userService.DeleteUser(Guid.Parse(id));
                 return Ok();
             }
             catch (Exception ex)
@@ -87,19 +89,11 @@ namespace CarTroubleSolver.Api.Controllers
             }
         }
 
-        [HttpDelete]
-        [Route("/RemoveAccount")]
-        public ActionResult Delete(Guid id)
+        [HttpPost("login")]
+        public ActionResult Login([FromBody] LoginDto login)
         {
-            try
-            {
-                _userService.DeleteUser(id);
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            string token = _userService.GenerateJwt(login);
+            return Ok();
         }
     }
 }

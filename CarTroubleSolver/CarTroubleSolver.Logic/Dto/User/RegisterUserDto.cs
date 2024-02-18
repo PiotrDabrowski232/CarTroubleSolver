@@ -8,7 +8,6 @@ namespace CarTroubleSolver.Logic.Dto.User
 {
     public class RegisterUserDto
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }
