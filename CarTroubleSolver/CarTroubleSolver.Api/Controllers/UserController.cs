@@ -3,6 +3,7 @@ using CarTroubleSolver.Logic.Dto.User;
 using CarTroubleSolver.Logic.Services.Interfaces;
 using CarTroubleSolver.Logic.Validation.UserValidators;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -10,6 +11,7 @@ namespace CarTroubleSolver.Api.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [Authorize]
     public class UserController(IUserService userService) : ControllerBase
     {
         public IUserService _userService = userService;
@@ -93,7 +95,7 @@ namespace CarTroubleSolver.Api.Controllers
         public ActionResult Login([FromBody] LoginDto login)
         {
             string token = _userService.GenerateJwt(login);
-            return Ok();
+            return Ok(token);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CarTroubleSolver.Api.Authentication;
 using CarTroubleSolver.Data.Models;
 using CarTroubleSolver.Data.Repositories.Interfaces;
 using CarTroubleSolver.Logic.Dto.User;
@@ -6,8 +7,9 @@ using CarTroubleSolver.Logic.Exceptions;
 using CarTroubleSolver.Logic.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
-using System.Runtime.CompilerServices;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace CarTroubleSolver.Logic.Services
@@ -128,7 +130,18 @@ namespace CarTroubleSolver.Logic.Services
                 new Claim(ClaimTypes.Name, user.Name),
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes());
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_authenticationSettings.JwtKey));
+            var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var expires = DateTime.Now.AddDays(_authenticationSettings.JwtExpiredDays);
+
+
+            var token = new JwtSecurityToken(_authenticationSettings.JwtIssuer, _authenticationSettings.JwtIssuer,
+                claims, expires: expires, signingCredentials: cred);
+
+            var tokenHendler = new JwtSecurityTokenHandler();
+
+
+            return tokenHendler.WriteToken(token);
         }
     }
 }
