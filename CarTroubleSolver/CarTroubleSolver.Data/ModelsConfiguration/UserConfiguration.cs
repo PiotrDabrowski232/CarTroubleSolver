@@ -1,4 +1,5 @@
-﻿using CarTroubleSolver.Data.Models;
+﻿using CarTroubleSolver.Data.Extensions;
+using CarTroubleSolver.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -20,6 +21,8 @@ namespace CarTroubleSolver.Data.ModelsConfiguration
         .Property(u => u.DateOfBirth)
         .HasColumnType("date");
 
+            builder.Property(u => u.RoleId)
+                .HasDefaultValue(1.ToGuid());
         }
     }
 }

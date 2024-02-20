@@ -14,9 +14,10 @@ using System.Text;
 
 namespace CarTroubleSolver.Logic.Services
 {
-    public class UserService(IUserRepository userRepository, IMapper mapper, IPasswordHasher<User> passwordHasher, AuthenticationSettings authenticationSettings) : IUserService
+    public class UserService(IUserRepository userRepository, IRoleService roleService, IMapper mapper, IPasswordHasher<User> passwordHasher, AuthenticationSettings authenticationSettings) : IUserService
     {
         private readonly IUserRepository _userRepository = userRepository;
+        private readonly IRoleService _roleService = roleService;
         private readonly IMapper _mapper = mapper;
         private readonly IPasswordHasher<User> _passwordHasher = passwordHasher;
         private readonly AuthenticationSettings _authenticationSettings = authenticationSettings;
@@ -116,6 +117,7 @@ namespace CarTroubleSolver.Logic.Services
         public string GenerateJwt(LoginDto login)
         {
             var user = _userRepository.GetAll().FirstOrDefault(u => u.Email == login.Email);
+            user.Role = _roleService.GetRole(user.RoleId);
 
             if (user == null)
             {
@@ -128,6 +130,7 @@ namespace CarTroubleSolver.Logic.Services
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.Name),
+                new Claim(ClaimTypes.Role, user.Role.Name)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_authenticationSettings.JwtKey));

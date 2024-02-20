@@ -11,7 +11,7 @@ namespace CarTroubleSolver.Api.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    [Authorize]
+    // [Authorize]
     public class UserController(IUserService userService) : ControllerBase
     {
         public IUserService _userService = userService;
@@ -77,6 +77,7 @@ namespace CarTroubleSolver.Api.Controllers
         }
 
         [HttpDelete]
+        //[Authorize(Roles ="Admin, Manager")]
         [Route("/RemoveAccount")]
         public ActionResult Delete(string id)
         {

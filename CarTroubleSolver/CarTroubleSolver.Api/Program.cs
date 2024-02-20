@@ -64,6 +64,8 @@ builder.Services.AddAuthentication(option =>
     };
 });
 
+builder.Services.AddAuthorization();
+
 //Repos
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 

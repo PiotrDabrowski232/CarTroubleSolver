@@ -29,7 +29,7 @@ namespace CarTroubleSolver.Data.Repositories
             return Task.FromResult(_context.Set<T>().Find(id));
         }
 
-        public IQueryable<T>? GetAll()
+        public IQueryable<T> GetAll()
         {
             return _context.Set<T>();
         }
