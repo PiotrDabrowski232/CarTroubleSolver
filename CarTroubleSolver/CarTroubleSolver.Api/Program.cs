@@ -36,6 +36,7 @@ builder.Services.AddDbContext<CarTroubleSolverDbContext>(options => options.UseS
 
 //DI
 //Services
+builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -68,6 +69,7 @@ builder.Services.AddAuthorization();
 
 //Repos
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 
 var app = builder.Build();
 

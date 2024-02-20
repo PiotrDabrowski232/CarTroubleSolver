@@ -11,13 +11,14 @@ namespace CarTroubleSolver.Api.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    // [Authorize]
     public class UserController(IUserService userService) : ControllerBase
     {
         public IUserService _userService = userService;
-
+        
+        
         [HttpGet]
         [Route("/GetAllUsers")]
+        [Authorize]
         public ActionResult<IEnumerable<UserDto>> GetAll()
         {
             try
@@ -33,6 +34,7 @@ namespace CarTroubleSolver.Api.Controllers
 
         [HttpGet]
         [Route("/User")]
+        [Authorize]
         public ActionResult<UserDto> Get([FromQuery]Guid id)
         {
             try 
@@ -63,6 +65,7 @@ namespace CarTroubleSolver.Api.Controllers
 
         [HttpPut]
         [Route("/ChangePassword")]
+        [Authorize]
         public ActionResult ChangePassword([FromBody] ChangePasswordUserDto user)
         {
             try
@@ -77,7 +80,7 @@ namespace CarTroubleSolver.Api.Controllers
         }
 
         [HttpDelete]
-        //[Authorize(Roles ="Admin, Manager")]
+        [Authorize(Roles = "Admin, BasicUser")]
         [Route("/RemoveAccount")]
         public ActionResult Delete(string id)
         {
