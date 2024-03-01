@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\CarTroubleSolver"
+    "\\CarTroubleSolver",
+    "\\CarTroubleSolver\\CarTroubleSolver.Data",
+    "\\CarTroubleSolver\\CarTroubleSolver.Data\\Migrations"
   ],
-  "SelectedNode": "\\CarTroubleSolver\\CarTroubleSolver.sln",
+  "SelectedNode": "\\CarTroubleSolver\\CarTroubleSolver.Data\\Migrations\\CarTroubleSolverDbContextModelSnapshot.cs",
   "PreviewInSolutionExplorer": false
 }
