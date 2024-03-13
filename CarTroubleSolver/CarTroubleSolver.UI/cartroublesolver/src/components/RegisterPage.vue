@@ -1,39 +1,26 @@
 <template>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
-    
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Register</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    
     
       <div class="main">
-        <h1>Login Vue</h1>
+    
+        <h1>register page</h1>
+        
+
       </div>
-    
-    
-    
-      <div class="footer">
-    
-      </div>
+
     
     
     </template>
     
     <script>
-    
+
     export default {
-      name: 'Login'
+  name: 'RegisterPage',
+  data(){
+    return {
+      component:''
     }
+  }
+}
     </script>
     
     <style>
