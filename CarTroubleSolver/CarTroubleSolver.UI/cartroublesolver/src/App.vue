@@ -1,32 +1,27 @@
 <template>
-<component v-bind:is="component"></component>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
 
   <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" v-on:click="component='LoginPage'" href="#">Login</a>
+        <router-link class="router-link" to="/Login"  exact-path>Login</router-link>
       </li>
       <li class="nav-item">
-        <a class="nav-link" v-on:click="component='RegisterPage'" href="#">Register</a>
+        <router-link class="router-link" to="/Register" exact-path>Register</router-link>
       </li>
     </ul>
   </div>
 </nav>
 
-<nav>
-                    <router-link to="/Register"  exact-path>Contact</router-link>
-                    <router-link to="/Login"  exact-path>Contact</router-link>
-</nav>  
-<div class="rout-content">
-                    <router-view v-slot="{Component}">
-                        <transition name="slide-fade" mode='out-in'>
-                            <Component :is="Component"/>
-                        </transition>
-                    </router-view>
-                </div>
+
   <div class="main">
+      
+    <router-view class="router-view" v-slot="{Component}">
+      <transition name="slide-fade" mode='out-in'>
+        <Component :is="Component"/>
+      </transition>
+    </router-view>
 
   </div>
 
@@ -40,16 +35,12 @@
 </template>
 
 <script>
-import LoginPage from './components/LoginPage.vue'
-import RegisterPage from './components/RegisterPage.vue'
 
 
 
 export default {
   name: 'App',
   components:{
-    'LoginPage': LoginPage,
-    'RegisterPage': RegisterPage,
   },
   data(){
     return {
@@ -91,15 +82,22 @@ nav{
   margin-top: 1.2vh;
   padding-right: 2vw;
 }
-
+.nav-item .router-link{
+  color:black;
+  padding-left: 2vw;
+  text-decoration: none;
+}
 .main{
   width: 100%;
-  height: 87vh;
+  min-height: 87vh;
 }
-
+.router-view{
+  height: 100%;
+  width: 100%;
+}
 .footer{
   background-color: rgb(0, 0, 0);
   width: 100%;
   height: 5vh;
 }
-</style>./components/LoginPage.vue
+</style>./components/LoginPage.vue./Views/LoginPage.vue./Views/RegisterPage.vue
