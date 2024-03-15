@@ -1,6 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CarTroubleSolver",
+    "\\CarTroubleSolver\\CarTroubleSolver.Data",
+    "\\CarTroubleSolver\\CarTroubleSolver.Data\\Migrations",
+    "\\CarTroubleSolver\\CarTroubleSolver.Logic",
+    "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Authentication"
   ],
+  "SelectedNode": "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Authentication\\AuthenticationSettings.cs",
   "PreviewInSolutionExplorer": false
 }
