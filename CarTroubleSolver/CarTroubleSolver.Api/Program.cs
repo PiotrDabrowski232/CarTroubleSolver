@@ -23,6 +23,11 @@ builder.Services.AddControllers()
     .AddFluentValidation(c => 
     c.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly()));
 
+builder.Services.AddCors(c =>
+{
+    c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -74,7 +79,7 @@ builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-
+app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 if (app.Environment.IsDevelopment())
 {
