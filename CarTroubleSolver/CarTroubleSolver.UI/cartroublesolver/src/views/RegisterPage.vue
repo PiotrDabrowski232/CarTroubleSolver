@@ -92,9 +92,14 @@ export default {
         DateOfBirth: this.date
       })
       .then(response => {console.log(response)})
-      .catch(e => {
-        this.errors.push(e)
-        console.log(this.errors);
+      .catch(error => {
+        if(error.response && error.response.status === 400){
+          console.log("Validation errors:");
+            console.log(error.response.data);
+        }
+        else{
+          console.error("Error occurred:", error);
+        }
       })
     }
     }
