@@ -2,11 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\CarTroubleSolver",
+    "\\CarTroubleSolver\\CarTroubleSolver.Api",
+    "\\CarTroubleSolver\\CarTroubleSolver.Api\\Controllers",
     "\\CarTroubleSolver\\CarTroubleSolver.Data",
     "\\CarTroubleSolver\\CarTroubleSolver.Data\\Migrations",
     "\\CarTroubleSolver\\CarTroubleSolver.Logic",
     "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Authentication"
   ],
-  "SelectedNode": "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Authentication\\AuthenticationSettings.cs",
+  "SelectedNode": "\\CarTroubleSolver\\CarTroubleSolver.Api\\Controllers\\UserController.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
 
-    <form>
+    
 
       <div class="d-flex">
         <div class="form-floating">
@@ -37,35 +37,27 @@
         </div>
       </div>
 
-      <VueDatePicker v-model="date" teleport-center  :format="format" />
+      <div class="form-floating">
+          <input v-model="User.DateOfBirth" type="date" class="form-control" id="Date Of Birth" placeholder="Date Of Birth">
+          <label for="Date Of Birth">Date Of Birth</label>
+        </div>
 
       <div class="form-floating">
         <input v-model="User.PhoneNumber"  type="number" :minlength="9" :maxlength="9" class="form-control" id="PhoneNumber" placeholder="PhoneNumber">
         <label for="PhoneNumber">Phone Number</label>
       </div>
 
-      <button type="submit">Add item</button>
+      <button @click="postPost" type="button">Add item</button>
 
-    </form>
+    
 
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue';
 
-const date = ref(new Date());
-const format = (date) => {
-  const day = date.getDate();
-  const month = date.getMonth() + 1;
-  const year = date.getFullYear();
-  return `Selected date is ${day}/${month}/${year}`;
-}
 
-</script>
 
 <script>
-import VueDatePicker from '@vuepic/vue-datepicker';
 import axios from 'axios';
 
 export default {
@@ -73,34 +65,49 @@ export default {
   data() {
     return {
       User:{
-        UserName:"",
-        Name: "",
-        Surname: "",
-        Email:"",
-        Password: "",
-        PhoneNumber:0,
-        DateOfBirth: this.date,
-        ConfirmedPassword:"",
+        UserName:null,
+        Name: null,
+        Surname: null,
+        Email:null,
+        Password: null,
+        PhoneNumber:null,
+        DateOfBirth: null,
+        ConfirmedPassword:null,
       },
       errors: []
     }
   },
 
   methods: {
-    // Pushes posts to the server when called.
     async postPost() {
-      console.log(this.User)
+      if(this.User.UserName==null || this.User.Name==null || this.User.Surname==null || this.User.Email==null || this.User.Password==null || this.User.PhoneNumber==null || this.User.ConfirmedPassword==null)
+      {
+        console.log("empty values")
+        console.log(this.User)
+
+
+      }
+      else{
       await axios.post(`http://localhost:5113/Register`, {
-        body: this.User
+        Name: this.User.Name,
+        Surname: this.User.Surname,
+        Email: this.User.Email,
+        Password: this.User.Password,
+        PasswordConfirmed: this.User.ConfirmedPassword,
+        PhoneNumber: this.User.PhoneNumber,
+        DateOfBirth: this.date
       })
       .then(response => {console.log(response)})
       .catch(e => {
         this.errors.push(e)
+        console.log(this.errors);
       })
+    }
     }
   }
 }
 </script>
+
 
 
 
