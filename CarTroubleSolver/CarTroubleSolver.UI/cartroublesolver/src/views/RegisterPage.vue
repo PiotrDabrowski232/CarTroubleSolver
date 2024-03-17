@@ -1,8 +1,6 @@
 <template>
   <div class="container">
 
-    
-
       <div class="d-flex">
         <div class="form-floating">
           <input v-model="User.Surname" type="text" class="form-control" id="floatingSurname" placeholder="Surname">
@@ -47,9 +45,7 @@
         <label for="PhoneNumber">Phone Number</label>
       </div>
 
-      <button @click="postPost" type="button">Add item</button>
-
-    
+        <button @click="postPost" type="button" class="btn btn-primary mt-5">Create Account</button>
 
   </div>
 </template>
@@ -84,8 +80,6 @@ export default {
       {
         console.log("empty values")
         console.log(this.User)
-
-
       }
       else{
       await axios.post(`http://localhost:5113/Register`, {
@@ -119,7 +113,9 @@ export default {
 }
 
 .form-floating {
-  margin-right: 10px;
+  width: 20vw;
+  margin-top:4vh;
+  margin-left: 2vw;
 }
 
 .d-flex {

@@ -1,46 +1,20 @@
 <template>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
 
-  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <router-link class="router-link" to="/Login"  exact-path>Login</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link class="router-link" to="/Register" exact-path>Register</router-link>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-
-  <div class="main">
-      
-    <router-view class="router-view" v-slot="{Component}">
-      <transition name="slide-fade" mode='out-in'>
-        <Component :is="Component"/>
-      </transition>
-    </router-view>
-
-  </div>
-
-
-
-  <div class="footer">
-
-  </div>
-
+  <NavigationBar/>
+  <MainContent/>
+  <Footer/>
 
 </template>
 
 <script>
-
-
+import NavigationBar from './components/NavigationBar.vue';
+import MainContent from './components/MainContent.vue';
+import Footer from './components/Footer.vue';
 
 export default {
   name: 'App',
   components:{
+    NavigationBar, MainContent, Footer
   },
   data(){
     return {
@@ -100,4 +74,4 @@ nav{
   width: 100%;
   height: 5vh;
 }
-</style>./components/LoginPage.vue./Views/LoginPage.vue./Views/RegisterPage.vue
+</style>

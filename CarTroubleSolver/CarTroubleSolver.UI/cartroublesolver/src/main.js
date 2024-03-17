@@ -25,7 +25,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 const app = createApp(App);
 app.use(PrimeVue);
 app.component('VueDatePicker', VueDatePicker);
-app.component('BaseButton', Button);
+app.component('Button', Button);
 app.component('InputText', InputText);
 app.component('FloatLabel', FloatLabel);
 app.component('Calendar', Calendar);
