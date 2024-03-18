@@ -46,6 +46,10 @@ namespace CarTroubleSolver.Logic.Validation.UserValidators
                 .WithMessage("Fill Email Input")
                 .EmailAddress()
                 .WithMessage("Invalid email format. Please enter a valid email address.");
+
+            RuleFor(x => x.PhoneNumber)
+                .Must(x => x.ToString().Length == 9)
+                .WithMessage("telephone number should have 9 digits");
         }
     }
 }

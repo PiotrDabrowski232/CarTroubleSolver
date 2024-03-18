@@ -1,76 +1,79 @@
 <template>
-<form class="needs-validation" novalidate>
+<form id="myForm" class="needs-validation" novalidate @submit.prevent="postPost">
   <div class="container">
    
       <div class="d-flex">
-        <div class="form-floating">
-          <input v-model="User.Surname" type="text" class="form-control" id="floatingSurname" placeholder="Surname">
-          <label for="floatingSurname">Surname</label>
-          <div class="invalid-feedback">
-            {{errorFromApi.Surname}}
-          </div>
-        </div>
 
         <div class="form-floating">
-          <input v-model="User.Name" type="text" class="form-control" id="floatingName" placeholder="Name">
+          <input v-model="User.Name" type="text" class="form-control"  id="floatingName" placeholder="Name" required>
           <label for="floatingName">Name</label>
-          <div class="invalid-feedback">
+          <div v-if="errorFromApi.Name" class="invalid-feedback">
             {{errorFromApi.Name}}
           </div>
         </div>
+
+        <div class="form-floating">
+          <input v-model="User.Surname" type="text" class="form-control" id="floatingSurname" placeholder="Surname" required>
+          <label for="floatingSurname">Surname</label>
+          <div v-if="errorFromApi.Surname" class="invalid-feedback">
+            {{errorFromApi.Surname}}
+          </div>
+        </div>
+        
       </div>
 
-      <div class="form-floating mb-3">
-        <input v-model="User.Email" type="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
+      <div class="form-floating">
+        <input v-model="User.Email" type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" required>
         <label for="floatingEmail">Email address</label>
-        <div class="invalid-feedback">
+   
+        <div v-if="errorFromApi.Email" class="invalid-feedback">
           {{errorFromApi.Email}}
           </div>
       </div>
 
-      <div class="form-floating mb-3">
-        <input v-model="User.UserName" type="text" class="form-control" id="floatingUserName" placeholder="">
+      <div class="form-floating">
+        <input v-model="User.UserName" type="text" class="form-control" id="floatingUserName" placeholder="" required>
         <label for="floatingUserName">User Name</label>
-          <div class="invalid-feedback">
+          <div v-if="errorFromApi.UserName" class="invalid-feedback">
             {{errorFromApi.UserName}}
           </div>
       </div>
 
       <div class="d-flex">
         <div class="form-floating">
-          <input v-model="User.Password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <input v-model="User.Password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
           <label for="floatingPassword">Password</label>
-          <div class="invalid-feedback">
+          <div v-if="errorFromApi.Password" class="invalid-feedback">
             {{errorFromApi.Password}}
           </div>
         </div>
 
         <div class="form-floating">
-          <input v-model="User.ConfirmedPassword" type="password" class="form-control" id="floatingConfirmedPassword" placeholder="Confirm password">
+          <input v-model="User.ConfirmedPassword" type="password" class="form-control" id="floatingConfirmedPassword" placeholder="Confirm password" required>
           <label for="floatingConfirmedPassword">Confirm Password</label>
-          <div class="invalid-feedback">
+          <div v-if="errorFromApi.ConfirmedPassword" class="invalid-feedback">
             {{errorFromApi.ConfirmedPassword}}
           </div>
         </div>
       </div>
 
       <div class="form-floating">
-          <input v-model="User.DateOfBirth" type="date" class="form-control" id="Date Of Birth" placeholder="Date Of Birth">
+          <input v-model="User.DateOfBirth" type="date" class="form-control" id="DateOfBirth" placeholder="Date Of Birth" required>
           <label for="Date Of Birth">Date Of Birth</label>
-          <div class="invalid-feedback">
+          <div v-if="errorFromApi.DateOfBirth" class="invalid-feedback">
             {{errorFromApi.DateOfBirth}}
           </div>
         </div>
 
       <div class="form-floating">
-        <input v-model="User.PhoneNumber"  type="number" :minlength="9" :maxlength="9" class="form-control" id="PhoneNumber" placeholder="PhoneNumber">
+        <input v-model="User.PhoneNumber"  type="number" :minlength="9" :maxlength="9" class="form-control" id="PhoneNumber" placeholder="PhoneNumber" required>
         <label for="PhoneNumber">Phone Number</label>
-          <div class="invalid-feedback">
+          <div v-if="errorFromApi.PhoneNumber" class="invalid-feedback">
             {{errorFromApi.PhoneNumber}}
           </div>
       </div>
 
-        <button @click="postPost" type="button" class="btn btn-primary mt-5">Create Account</button>
+        <button @click="postPost" type="submit" class="btn btn-primary mt-2">Create Account</button>
   </div>  
 </form>
 
@@ -98,7 +101,7 @@ export default {
       },
       errorFromApi:{
         UserName:null,
-        Name: null,
+        Name: "some text",
         Surname: null,
         Email:null,
         Password: null,
@@ -130,8 +133,15 @@ export default {
       .then(response => {console.log(response)})
       .catch(error => {
         if(error.response && error.response.status === 400){
-          console.log("Validation errors:");
-            console.log(error.response.data.errors.Email);
+
+          var NameInput = document.getElementById("floatingName");
+          var UserNameInput = document.getElementById("floatingSurname");
+          var EmailInput = document.getElementById("floatingEmail");
+          var PasswordInput = document.getElementById("floatingPassword");
+          var PhoneNumberInput = document.getElementById("PhoneNumber");
+          var DateOfBirthInput = document.getElementById("DateOfBirth");
+          var ConfirmedPasswordInput = document.getElementById("floatingConfirmedPassword");
+
             this.errorFromApi.UserName = error.response.data.errors.UserName,
             this.errorFromApi.Name = error.response.data.errors.Name,
             this.errorFromApi.Email = error.response.data.errors.Email,
@@ -139,6 +149,43 @@ export default {
             this.errorFromApi.PhoneNumber = error.response.data.errors.PhoneNumber,
             this.errorFromApi.DateOfBirth = error.response.data.errors.DateOfBirth,
             this.errorFromApi.ConfirmedPassword = error.response.data.errors.ConfirmedPassword
+            console.log(error.response.data.errors)
+
+            if(this.errorFromApi.UserName != null &&  this.errorFromApi.UserName != "")
+              UserNameInput.classList.add("is-invalid")
+            else
+              UserNameInput.classList.add("is-valid")
+
+            if(this.errorFromApi.Name != null &&  this.errorFromApi.Name != "")
+              NameInput.classList.add("is-invalid")
+            else
+              NameInput.classList.add("is-valid")
+            
+            if(this.errorFromApi.Email != null &&  this.errorFromApi.Email != "")
+              EmailInput.classList.add("is-invalid")
+            else
+              EmailInput.classList.add("is-valid")
+            
+            if(this.errorFromApi.Password != null &&  this.errorFromApi.Password != "")
+              PasswordInput.classList.add("is-invalid")
+            else
+              PasswordInput.classList.add("is-valid")
+            
+            if(this.errorFromApi.PhoneNumber != null &&  this.errorFromApi.PhoneNumber != "")
+              PhoneNumberInput.classList.add("is-invalid")
+            else
+              PhoneNumberInput.classList.add("is-valid")
+            
+            if(this.errorFromApi.DateOfBirth != null &&  this.errorFromApi.DateOfBirth != "")
+              DateOfBirthInput.classList.add("is-invalid")
+            else
+              DateOfBirthInput.classList.add("is-valid")
+            
+            if(this.errorFromApi.ConfirmedPassword != null &&  this.errorFromApi.ConfirmedPassword != "")
+              ConfirmedPasswordInput.classList.add("is-invalid")
+            else
+              ConfirmedPasswordInput.classList.add("is-valid")
+            
         }
         else{
           console.error("Error occurred:", error);
@@ -155,6 +202,10 @@ export default {
 
 
 <style scoped>
+.btn{
+  margin-left: 40%;
+}
+
 .container {
   margin: auto;
   width: 50%;
