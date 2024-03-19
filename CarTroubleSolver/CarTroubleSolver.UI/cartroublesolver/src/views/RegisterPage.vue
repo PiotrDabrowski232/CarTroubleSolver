@@ -5,7 +5,7 @@
       <div class="d-flex">
 
         <div class="form-floating">
-          <input v-model="User.Name" type="text" class="form-control"  id="floatingName" placeholder="Name" required>
+          <input v-model="User.Name" type="text" class="form-control"  id="floatingName" placeholder="Name" >
           <label for="floatingName">Name</label>
           <div v-if="errorFromApi.Name" class="invalid-feedback">
             {{errorFromApi.Name}}
@@ -13,7 +13,7 @@
         </div>
 
         <div class="form-floating">
-          <input v-model="User.Surname" type="text" class="form-control" id="floatingSurname" placeholder="Surname" required>
+          <input v-model="User.Surname" type="text" class="form-control" id="floatingSurname" placeholder="Surname" >
           <label for="floatingSurname">Surname</label>
           <div v-if="errorFromApi.Surname" class="invalid-feedback">
             {{errorFromApi.Surname}}
@@ -23,7 +23,7 @@
       </div>
 
       <div class="form-floating">
-        <input v-model="User.Email" type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" required>
+        <input v-model="User.Email" type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" >
         <label for="floatingEmail">Email address</label>
    
         <div v-if="errorFromApi.Email" class="invalid-feedback">
@@ -32,7 +32,7 @@
       </div>
 
       <div class="form-floating">
-        <input v-model="User.UserName" type="text" class="form-control" id="floatingUserName" placeholder="" required>
+        <input v-model="User.UserName" type="text" class="form-control" id="floatingUserName" placeholder="" >
         <label for="floatingUserName">User Name</label>
           <div v-if="errorFromApi.UserName" class="invalid-feedback">
             {{errorFromApi.UserName}}
@@ -41,7 +41,7 @@
 
       <div class="d-flex">
         <div class="form-floating">
-          <input v-model="User.Password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+          <input v-model="User.Password" type="password" class="form-control" id="floatingPassword" placeholder="Password" >
           <label for="floatingPassword">Password</label>
           <div v-if="errorFromApi.Password" class="invalid-feedback">
             {{errorFromApi.Password}}
@@ -49,7 +49,7 @@
         </div>
 
         <div class="form-floating">
-          <input v-model="User.ConfirmedPassword" type="password" class="form-control" id="floatingConfirmedPassword" placeholder="Confirm password" required>
+          <input v-model="User.ConfirmedPassword" type="password" class="form-control" id="floatingConfirmedPassword" placeholder="Confirm password" >
           <label for="floatingConfirmedPassword">Confirm Password</label>
           <div v-if="errorFromApi.ConfirmedPassword" class="invalid-feedback">
             {{errorFromApi.ConfirmedPassword}}
@@ -58,7 +58,7 @@
       </div>
 
       <div class="form-floating">
-          <input v-model="User.DateOfBirth" type="date" class="form-control" id="DateOfBirth" placeholder="Date Of Birth" required>
+          <input v-model="User.DateOfBirth" type="date" class="form-control" id="DateOfBirth" placeholder="DateOfBirth" >
           <label for="Date Of Birth">Date Of Birth</label>
           <div v-if="errorFromApi.DateOfBirth" class="invalid-feedback">
             {{errorFromApi.DateOfBirth}}
@@ -66,20 +66,18 @@
         </div>
 
       <div class="form-floating">
-        <input v-model="User.PhoneNumber"  type="number" :minlength="9" :maxlength="9" class="form-control" id="PhoneNumber" placeholder="PhoneNumber" required>
+        <input v-model="User.PhoneNumber"  type="number" :minlength="9" :maxlength="9" class="form-control" id="PhoneNumber" placeholder="PhoneNumber" >
         <label for="PhoneNumber">Phone Number</label>
           <div v-if="errorFromApi.PhoneNumber" class="invalid-feedback">
             {{errorFromApi.PhoneNumber}}
           </div>
       </div>
 
-        <button @click="postPost" type="submit" class="btn btn-primary mt-2">Create Account</button>
+        <button @click="postPost" type="submit" class="btn btn-primary">Create Account</button>
   </div>  
 </form>
 
 </template>
-
-
 
 
 <script>
@@ -101,7 +99,7 @@ export default {
       },
       errorFromApi:{
         UserName:null,
-        Name: "some text",
+        Name: null,
         Surname: null,
         Email:null,
         Password: null,
@@ -112,13 +110,74 @@ export default {
       
     }
   },
-
   methods: {
+    isEmpty: function(value){
+      return (value == null || (typeof value === "string" && value.trim().length === 0));
+    },
+    ConverString: function(value){
+      console.log(value.length)
+    if (value.length > 1) {
+        let outValue = "";
+        value.forEach(element => {
+            outValue += "\n" + element + "";
+        });
+        return outValue; 
+    } else {
+        return value[0];
+    }
+},
     async postPost() {
-      if(this.User.UserName==null || this.User.Name==null || this.User.Surname==null || this.User.Email==null || this.User.Password==null || this.User.PhoneNumber==null || this.User.ConfirmedPassword==null)
+          var NameInput = document.getElementById("floatingName");
+          var SurnameInput = document.getElementById("floatingSurname");
+          var UserNameInput = document.getElementById("floatingSurname");
+          var EmailInput = document.getElementById("floatingEmail");
+          var PasswordInput = document.getElementById("floatingPassword");
+          var PhoneNumberInput = document.getElementById("PhoneNumber");
+          var DateOfBirthInput = document.getElementById("DateOfBirth");
+          var ConfirmedPasswordInput = document.getElementById("floatingConfirmedPassword");
+
+      if(this.isEmpty(this.User.UserName) || this.isEmpty(this.User.Name) || this.isEmpty(this.User.Surname) || this.isEmpty(this.User.Email) || this.isEmpty(this.User.Password) || this.isEmpty(this.User.PhoneNumber) || this.isEmpty(this.User.ConfirmedPassword) || this.isEmpty(this.User.DateOfBirth))
       {
-        console.log("empty values")
-        console.log(this.User)
+        if(this.isEmpty(this.User.UserName))
+          UserNameInput.classList.add("is-invalid")
+        else
+          UserNameInput.classList.replace("is-invalid","is-valid")
+        
+        if(this.isEmpty(this.User.Name))
+          NameInput.classList.add("is-invalid")
+        else
+          NameInput.classList.replace("is-invalid","is-valid")
+        
+        if(this.isEmpty(this.User.Surname))
+          SurnameInput.classList.add("is-invalid")
+        else
+          SurnameInput.classList.replace("is-invalid","is-valid")
+        
+        if(this.isEmpty(this.User.Email))
+          EmailInput.classList.add("is-invalid")
+        else
+          EmailInput.classList.replace("is-invalid","is-valid")
+        
+        if(this.isEmpty(this.User.Password))
+          PasswordInput.classList.add("is-invalid")
+        else
+          PasswordInput.classList.replace("is-invalid","is-valid")
+        
+        if(this.isEmpty(this.User.PhoneNumber))
+          PhoneNumberInput.classList.add("is-invalid")
+        else
+          PhoneNumberInput.classList.replace("is-invalid","is-valid")
+        
+        if(this.isEmpty(this.User.ConfirmedPassword))
+          ConfirmedPasswordInput.classList.add("is-invalid")
+        else
+          ConfirmedPasswordInput.classList.replace("is-invalid","is-valid")
+
+        if(this.isEmpty(this.User.DateOfBirth))
+          DateOfBirthInput.classList.add("is-invalid")
+        else
+          DateOfBirthInput.classList.replace("is-invalid","is-valid")
+        
       }
       else{
       await axios.post(`http://localhost:5113/Register`, {
@@ -133,59 +192,49 @@ export default {
       .then(response => {console.log(response)})
       .catch(error => {
         if(error.response && error.response.status === 400){
-
-          var NameInput = document.getElementById("floatingName");
-          var UserNameInput = document.getElementById("floatingSurname");
-          var EmailInput = document.getElementById("floatingEmail");
-          var PasswordInput = document.getElementById("floatingPassword");
-          var PhoneNumberInput = document.getElementById("PhoneNumber");
-          var DateOfBirthInput = document.getElementById("DateOfBirth");
-          var ConfirmedPasswordInput = document.getElementById("floatingConfirmedPassword");
-
-            this.errorFromApi.UserName = error.response.data.errors.UserName,
-            this.errorFromApi.Name = error.response.data.errors.Name,
-            this.errorFromApi.Email = error.response.data.errors.Email,
-            this.errorFromApi.Password = error.response.data.errors.Password,
-            this.errorFromApi.PhoneNumber = error.response.data.errors.PhoneNumber,
-            this.errorFromApi.DateOfBirth = error.response.data.errors.DateOfBirth,
-            this.errorFromApi.ConfirmedPassword = error.response.data.errors.ConfirmedPassword
-            console.log(error.response.data.errors)
-
-            if(this.errorFromApi.UserName != null &&  this.errorFromApi.UserName != "")
+          console.log(error.response.data.errors)
+          
+            if(!this.isEmpty(error.response.data.errors.UserName)){
+              this.errorFromApi.UserName = error.response.data.errors.UserName,
               UserNameInput.classList.add("is-invalid")
-            else
-              UserNameInput.classList.add("is-valid")
+            }else
+              UserNameInput.classList.replace("is-invalid","is-valid")
 
-            if(this.errorFromApi.Name != null &&  this.errorFromApi.Name != "")
+            if(!this.isEmpty(error.response.data.errors.Name)){
+              this.errorFromApi.Name = error.response.data.errors.Name,
               NameInput.classList.add("is-invalid")
-            else
-              NameInput.classList.add("is-valid")
+            }else
+              NameInput.classList.replace("is-invalid","is-valid")
             
-            if(this.errorFromApi.Email != null &&  this.errorFromApi.Email != "")
+            if(!this.isEmpty(error.response.data.errors.Email)){
+              this.errorFromApi.Email = error.response.data.errors.Email,
               EmailInput.classList.add("is-invalid")
-            else
-              EmailInput.classList.add("is-valid")
+            }else
+              EmailInput.classList.replace("is-invalid","is-valid")
             
-            if(this.errorFromApi.Password != null &&  this.errorFromApi.Password != "")
+            if(!this.isEmpty(error.response.data.errors.Password)){
+              this.errorFromApi.Password = error.response.data.errors.Password,
               PasswordInput.classList.add("is-invalid")
-            else
-              PasswordInput.classList.add("is-valid")
+            }else
+              PasswordInput.classList.replace("is-invalid","is-valid")
             
-            if(this.errorFromApi.PhoneNumber != null &&  this.errorFromApi.PhoneNumber != "")
+            if(!this.isEmpty(error.response.data.errors.PhoneNumber)){
+              this.errorFromApi.PhoneNumber = error.response.data.errors.PhoneNumber,
               PhoneNumberInput.classList.add("is-invalid")
-            else
-              PhoneNumberInput.classList.add("is-valid")
+            }else
+              PhoneNumberInput.classList.replace("is-invalid","is-valid")
             
-            if(this.errorFromApi.DateOfBirth != null &&  this.errorFromApi.DateOfBirth != "")
+            if(!this.isEmpty(error.response.data.errors.DateOfBirth)){
+              this.errorFromApi.DateOfBirth = error.response.data.errors.DateOfBirth,
               DateOfBirthInput.classList.add("is-invalid")
-            else
-              DateOfBirthInput.classList.add("is-valid")
+            }else
+              DateOfBirthInput.classList.replace("is-invalid","is-valid")
             
-            if(this.errorFromApi.ConfirmedPassword != null &&  this.errorFromApi.ConfirmedPassword != "")
+            if(!this.isEmpty(error.response.data.errors.ConfirmedPassword)){
+              this.errorFromApi.ConfirmedPassword = error.response.data.errors.ConfirmedPassword
               ConfirmedPasswordInput.classList.add("is-invalid")
-            else
-              ConfirmedPasswordInput.classList.add("is-valid")
-            
+            }else
+              ConfirmedPasswordInput.classList.replace("is-invalid","is-valid")
         }
         else{
           console.error("Error occurred:", error);
@@ -219,5 +268,10 @@ export default {
 
 .d-flex {
   display: flex;
+}
+
+.invalid-feedback{
+  font-size: 65%;
+  text-align: left;
 }
 </style>

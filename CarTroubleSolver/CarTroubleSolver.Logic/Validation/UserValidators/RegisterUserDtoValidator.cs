@@ -26,9 +26,9 @@ namespace CarTroubleSolver.Logic.Validation.UserValidators
             RuleFor(x => x.Password)
                 .NotEmpty().WithMessage("Fill Password Input")
                 .MinimumLength(8).WithMessage("Password should be longer than 8 characters")
-                .Matches("[A-Z]").WithMessage("Password should contain at least one uppercase letter")
-                .Matches("[a-z]").WithMessage("Password should contain at least one lowercase letter")
-                .Matches("[!@#$%^&*()_+{}|:;<>,.?~]").WithMessage("Password should contain at least one special character");
+                .Matches("[A-Z]").WithMessage("Password should contain one uppercase letter")
+                .Matches("[a-z]").WithMessage("Password should contain one lowercase letter")
+                .Matches("[!@#$%^&*()_+{}|:;<>,.?~]").WithMessage("Password should contain one special character");
 
             RuleFor(x => x.PasswordConfirmed)
                 .Equal(e => e.Password)
@@ -45,7 +45,7 @@ namespace CarTroubleSolver.Logic.Validation.UserValidators
                 .NotEmpty()
                 .WithMessage("Fill Email Input")
                 .EmailAddress()
-                .WithMessage("Invalid email format. Please enter a valid email address.");
+                .WithMessage("Please enter a valid email address.");
 
             RuleFor(x => x.PhoneNumber)
                 .Must(x => x.ToString().Length == 9)
