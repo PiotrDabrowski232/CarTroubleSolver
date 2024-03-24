@@ -95,11 +95,18 @@ namespace CarTroubleSolver.Api.Controllers
             }
         }
 
-        [HttpPost("login")]
+        [HttpPost("/Login")]
         public ActionResult Login([FromBody] LoginDto login)
         {
-            string token = _userService.GenerateJwt(login);
-            return Ok(token);
+            try
+            {
+                string token = _userService.GenerateJwt(login);
+                return Ok(token);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
         }
     }
 }

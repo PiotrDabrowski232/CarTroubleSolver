@@ -1,9 +1,10 @@
 <template>
   
 <form id="myForm" class="needs-validation" novalidate @submit.prevent="postPost">
+  
 
   <div class="container">
-   
+    <Toast position="top-center" />
       <div class="d-flex">
 
         <div class="form-floating">
@@ -207,7 +208,19 @@ export default {
         PhoneNumber: this.User.PhoneNumber,
         DateOfBirth: this.date
       })
-      .then(response => {console.log(response)})
+      .then(response => {console.log(response)
+        if(response.status ===200){
+          UserNameInput.classList.replace("is-invalid","is-valid")
+          NameInput.classList.replace("is-invalid","is-valid")
+          EmailInput.classList.replace("is-invalid","is-valid")
+          PasswordInput.classList.replace("is-invalid","is-valid")
+          PhoneNumberInput.classList.replace("is-invalid","is-valid")
+          DateOfBirthInput.classList.replace("is-invalid","is-valid")
+          ConfirmedPasswordInput.classList.replace("is-invalid","is-valid")
+
+          this.$toast.add({ severity: 'success', summary: 'Account created correctly', life: 3000 });
+        }
+      })
       .catch(error => {
         if(error.response && error.response.status === 400){
           console.log(error.response.data.errors)
@@ -253,9 +266,6 @@ export default {
               ConfirmedPasswordInput.classList.add("is-invalid")
             }else
               ConfirmedPasswordInput.classList.replace("is-invalid","is-valid")
-        }
-        else{
-          console.error("Error occurred:", error);
         }
       })
     }

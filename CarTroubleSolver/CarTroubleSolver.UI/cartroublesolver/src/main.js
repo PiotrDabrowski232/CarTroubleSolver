@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import PrimeVue from 'primevue/config';
 import router from './router'
+import ToastService from 'primevue/toastservice';
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -10,6 +11,7 @@ import 'primevue/resources/themes/aura-light-green/theme.css'
 
 
 //Primevue Components
+import Toast from 'primevue/toast';
 import FloatLabel from 'primevue/floatlabel';
 import Button from "primevue/button"
 import InputText from 'primevue/inputtext';
@@ -29,10 +31,9 @@ app.component('Button', Button);
 app.component('InputText', InputText);
 app.component('FloatLabel', FloatLabel);
 app.component('Calendar', Calendar);
-
-
-
+app.component('Toast', Toast);
 
 
 app.use(router);
+app.use(ToastService);
 app.mount('#app')

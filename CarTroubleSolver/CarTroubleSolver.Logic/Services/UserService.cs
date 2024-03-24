@@ -117,12 +117,13 @@ namespace CarTroubleSolver.Logic.Services
         public string GenerateJwt(LoginDto login)
         {
             var user = _userRepository.GetAll().FirstOrDefault(u => u.Email == login.Email);
-            user.Role = _roleService.GetRole(user.RoleId);
 
             if (user == null)
             {
                 throw new NotFoundException("Email or Password is wrong");
             }
+
+            user.Role = _roleService.GetRole(user.RoleId);
 
             var result = CheckPasswordCoretness(login.Password, user.Id);
 

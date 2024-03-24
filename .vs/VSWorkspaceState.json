@@ -6,6 +6,6 @@
     "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Validation",
     "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Validation\\UserValidators"
   ],
-  "SelectedNode": "\\CarTroubleSolver\\CarTroubleSolver.sln",
+  "SelectedNode": "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Validation\\UserValidators\\RegisterUserDtoValidator.cs",
   "PreviewInSolutionExplorer": false
 }
