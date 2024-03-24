@@ -1,14 +1,18 @@
 <template>
+  
 <form id="myForm" class="needs-validation" novalidate @submit.prevent="postPost">
+
   <div class="container">
    
       <div class="d-flex">
 
         <div class="form-floating">
-          <input v-model="User.Name" type="text" class="form-control"  id="floatingName" placeholder="Name" >
+          <input v-model="User.Name" type="text" class="form-control" id="floatingName" placeholder="Name">
           <label for="floatingName">Name</label>
           <div v-if="errorFromApi.Name" class="invalid-feedback">
-            {{errorFromApi.Name}}
+            <div v-for="(item, index) in errorFromApi.Name" :key="index">
+              - {{ item }}
+            </div>
           </div>
         </div>
 
@@ -16,7 +20,9 @@
           <input v-model="User.Surname" type="text" class="form-control" id="floatingSurname" placeholder="Surname" >
           <label for="floatingSurname">Surname</label>
           <div v-if="errorFromApi.Surname" class="invalid-feedback">
-            {{errorFromApi.Surname}}
+            <div v-for="(item, index) in errorFromApi.Surname" :key="index">
+              - {{ item }}
+            </div>
           </div>
         </div>
         
@@ -27,7 +33,9 @@
         <label for="floatingEmail">Email address</label>
    
         <div v-if="errorFromApi.Email" class="invalid-feedback">
-          {{errorFromApi.Email}}
+            <div v-for="(item, index) in errorFromApi.Email" :key="index">
+              - {{ item }}
+            </div>
           </div>
       </div>
 
@@ -35,7 +43,9 @@
         <input v-model="User.UserName" type="text" class="form-control" id="floatingUserName" placeholder="" >
         <label for="floatingUserName">User Name</label>
           <div v-if="errorFromApi.UserName" class="invalid-feedback">
-            {{errorFromApi.UserName}}
+            <div v-for="(item, index) in errorFromApi.UserName" :key="index">
+              - {{ item }}
+            </div>
           </div>
       </div>
 
@@ -44,7 +54,9 @@
           <input v-model="User.Password" type="password" class="form-control" id="floatingPassword" placeholder="Password" >
           <label for="floatingPassword">Password</label>
           <div v-if="errorFromApi.Password" class="invalid-feedback">
-            {{errorFromApi.Password}}
+            <div v-for="(item, index) in errorFromApi.Password" :key="index">
+              - {{ item }}
+            </div>
           </div>
         </div>
 
@@ -52,7 +64,9 @@
           <input v-model="User.ConfirmedPassword" type="password" class="form-control" id="floatingConfirmedPassword" placeholder="Confirm password" >
           <label for="floatingConfirmedPassword">Confirm Password</label>
           <div v-if="errorFromApi.ConfirmedPassword" class="invalid-feedback">
-            {{errorFromApi.ConfirmedPassword}}
+            <div v-for="(item, index) in errorFromApi.ConfirmedPassword" :key="index">
+              - {{ item }}
+            </div>
           </div>
         </div>
       </div>
@@ -61,7 +75,9 @@
           <input v-model="User.DateOfBirth" type="date" class="form-control" id="DateOfBirth" placeholder="DateOfBirth" >
           <label for="Date Of Birth">Date Of Birth</label>
           <div v-if="errorFromApi.DateOfBirth" class="invalid-feedback">
-            {{errorFromApi.DateOfBirth}}
+            <div v-for="(item, index) in errorFromApi.DateOfBirth" :key="index">
+              - {{ item }}
+            </div>
           </div>
         </div>
 
@@ -69,11 +85,13 @@
         <input v-model="User.PhoneNumber"  type="number" :minlength="9" :maxlength="9" class="form-control" id="PhoneNumber" placeholder="PhoneNumber" >
         <label for="PhoneNumber">Phone Number</label>
           <div v-if="errorFromApi.PhoneNumber" class="invalid-feedback">
-            {{errorFromApi.PhoneNumber}}
+            <div v-for="(item, index) in errorFromApi.PhoneNumber" :key="index">
+              - {{ item }}
+            </div>
           </div>
       </div>
 
-        <button @click="postPost" type="submit" class="btn btn-primary">Create Account</button>
+        <button type="submit" class="btn btn-primary">Create Account</button>
   </div>  
 </form>
 
@@ -230,8 +248,8 @@ export default {
             }else
               DateOfBirthInput.classList.replace("is-invalid","is-valid")
             
-            if(!this.isEmpty(error.response.data.errors.ConfirmedPassword)){
-              this.errorFromApi.ConfirmedPassword = error.response.data.errors.ConfirmedPassword
+            if(!this.isEmpty(error.response.data.errors.PasswordConfirmed)){
+              this.errorFromApi.ConfirmedPassword = error.response.data.errors.PasswordConfirmed
               ConfirmedPasswordInput.classList.add("is-invalid")
             }else
               ConfirmedPasswordInput.classList.replace("is-invalid","is-valid")
@@ -274,4 +292,5 @@ export default {
   font-size: 65%;
   text-align: left;
 }
+
 </style>
