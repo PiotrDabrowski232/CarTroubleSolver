@@ -100,6 +100,7 @@
 
 
 <script>
+import router from '@/router';
 import axios from 'axios';
 
 export default {
@@ -219,6 +220,8 @@ export default {
           ConfirmedPasswordInput.classList.replace("is-invalid","is-valid")
 
           this.$toast.add({ severity: 'success', summary: 'Account created correctly', life: 3000 });
+
+          router.push("/Login")
         }
       })
       .catch(error => {

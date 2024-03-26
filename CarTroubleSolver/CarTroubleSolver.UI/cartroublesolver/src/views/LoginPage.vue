@@ -59,13 +59,16 @@ methods: {
         Email: this.Email,
         Password: this.Password
       })
-      .then(response => {console.log(response)})
+      .then(response => {
+        console.log(response.data)
+        this.$toast.add({ severity: 'success', summary: 'Login Successfully', life: 3000 });
+          //this.$router.push("/Register")
+          localStorage.setItem('token', response.data)
+      })
       .catch(error => {
         if(error.response && error.response.status === 400){
           console.log("error")
           this.$toast.add({ severity: 'error', summary: 'Email or password invalid', life: 3000 });
-        }else{
-          this.$toast.add({ severity: 'success', summary: 'Login Successfully', life: 3000 });
         }
       })
     }

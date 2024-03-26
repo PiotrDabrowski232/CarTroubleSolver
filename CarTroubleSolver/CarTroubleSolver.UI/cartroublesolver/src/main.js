@@ -4,6 +4,7 @@ import PrimeVue from 'primevue/config';
 import router from './router'
 import ToastService from 'primevue/toastservice';
 
+
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
@@ -32,7 +33,6 @@ app.component('InputText', InputText);
 app.component('FloatLabel', FloatLabel);
 app.component('Calendar', Calendar);
 app.component('Toast', Toast);
-
 
 app.use(router);
 app.use(ToastService);

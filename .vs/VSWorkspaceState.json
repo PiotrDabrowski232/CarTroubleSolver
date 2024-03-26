@@ -1,11 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\CarTroubleSolver",
-    "\\CarTroubleSolver\\CarTroubleSolver.Logic",
-    "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Validation",
-    "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Validation\\UserValidators"
+    ""
   ],
-  "SelectedNode": "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Validation\\UserValidators\\RegisterUserDtoValidator.cs",
+  "SelectedNode": "\\CarTroubleSolver.sln",
   "PreviewInSolutionExplorer": false
 }
