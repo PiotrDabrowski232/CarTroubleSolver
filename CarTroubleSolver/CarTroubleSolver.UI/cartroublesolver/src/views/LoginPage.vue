@@ -26,6 +26,7 @@
   
 <script>
 import axios from 'axios';
+import AuthService from '../services/AuthService';
 
   export default {
 name: 'LoginPage',
@@ -62,8 +63,10 @@ methods: {
       .then(response => {
         console.log(response.data)
         this.$toast.add({ severity: 'success', summary: 'Login Successfully', life: 3000 });
-          //this.$router.push("/Register")
-          localStorage.setItem('token', response.data)
+          AuthService.setToken(response.data)
+          setTimeout(() => {
+            this.$router.push("/")
+          }, 3000);
       })
       .catch(error => {
         if(error.response && error.response.status === 400){

@@ -1,27 +1,36 @@
 <template>
-    
+  
     <div class="MainContent">
-        <h1 v-if="token == null">
+        <h1>
             Home
         </h1>
-        <p  v-if="token != null">welcome logged user: {{ token }}</p>
-        <button :on-click="Logout()">Logout</button>
+        <p v-if="isLoggedIn()">welcome logged user: {{   }}</p>
+        <button v-if="isLoggedIn()" v-on:click="Logout()">Logout</button>
     </div>
   </template>
     
   <script>
+import AuthService from '../services/AuthService';
 
     export default {
   name: 'Home',
   data(){
     return {
-      token:  localStorage.getItem('token')
     }
   },
   methods:{
-    Logout: function(){
-      localStorage.clear()
-    }
+    Logout(){
+      AuthService.removeToken()
+      
+    },
+    isLoggedIn() {
+      if(!AuthService.getToken()){
+        return false;
+      }else{
+        return true;
+      }
+}
+
   }
   }
   </script>
