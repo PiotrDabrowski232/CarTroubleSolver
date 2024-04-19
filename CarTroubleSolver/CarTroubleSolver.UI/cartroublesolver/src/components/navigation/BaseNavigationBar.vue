@@ -41,6 +41,7 @@ export default {
     
     body{
       margin:auto;
+      background-color: white;
     }
     
     #app {

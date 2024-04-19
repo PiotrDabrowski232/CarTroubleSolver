@@ -7,6 +7,9 @@
           <li class="nav-item">
             <button v-on:click="Logout()">Logout</button>
           </li>
+          <li class="nav-item">
+            <router-link class="router-link" to="/UserInfo" exact-path>User Info</router-link>
+          </li>
         </ul>
       </div>
     </nav>
@@ -25,7 +28,7 @@
     methods: {
       Logout() {
         AuthService.removeToken()
-            this.$router.push("/")
+        this.$router.push("/")
         this.$emit('refresh');
       }
     }
@@ -81,6 +84,10 @@
         background-color: rgb(0, 0, 0);
         width: 100%;
         height: 5vh;
+      }
+      button{
+        background-color: white;
+        border: 0px;
       }
       </style>
       
