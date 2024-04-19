@@ -1,19 +1,20 @@
-<template>
-  <NavigationBar/>
+<template >
+  
+  <BaseNavigationBar/>
   <MainContent/>
   <Footer/>
 
 </template>
 
 <script>
-import NavigationBar from './components/NavigationBar.vue';
+import BaseNavigationBar from './components/navigation/BaseNavigationBar';
 import MainContent from './components/MainContent.vue';
 import Footer from './components/Footer.vue';
 
 export default {
   name: 'App',
   components:{
-    NavigationBar, MainContent, Footer
+    BaseNavigationBar, MainContent, Footer
   },
   data(){
     return {

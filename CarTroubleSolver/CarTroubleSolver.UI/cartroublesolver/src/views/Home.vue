@@ -4,13 +4,11 @@
         <h1>
             Home
         </h1>
-        <p v-if="isLoggedIn()">welcome logged user: {{   }}</p>
-        <button v-if="isLoggedIn()" v-on:click="Logout()">Logout</button>
+        <p>welcome logged user:</p>
     </div>
   </template>
     
   <script>
-import AuthService from '../services/AuthService';
 
     export default {
   name: 'Home',
@@ -18,21 +16,7 @@ import AuthService from '../services/AuthService';
     return {
     }
   },
-  methods:{
-    Logout(){
-      AuthService.removeToken()
-      
-    },
-    isLoggedIn() {
-      if(!AuthService.getToken()){
-        return false;
-      }else{
-        return true;
-      }
 }
-
-  }
-  }
   </script>
   
   

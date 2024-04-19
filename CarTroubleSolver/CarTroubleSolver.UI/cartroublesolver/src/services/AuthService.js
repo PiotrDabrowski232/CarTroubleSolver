@@ -10,6 +10,7 @@ export default {
 
   setToken(token) {
     Cookies.set(TOKEN_KEY, token, { expires: 1, sameSite: 'strict' }); 
+    window.location.reload
   },
 
   removeToken() {

@@ -1,34 +1,41 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <router-link class="navbar-brand router-link" to="/"  exact-path>Home</router-link>
-    
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <router-link class="router-link" to="/Login"  exact-path>Login</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="router-link" to="/Register" exact-path>Register</router-link>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
+    <AuthenticatedBar @refresh="refreshParent" v-if="this.isAuthenticated"/>
+    <UnAuthenticatedBar v-if="!this.isAuthenticated"/>
 </template>
     
 <script>
-    
-    export default {
-      name: 'NavigationBar',
-      components:{
-      },
-      data(){
-        return {
-          component:''
-        }
-      }
+import AuthService from '../../services/AuthService';
+import AuthenticatedBar from './AuthenticatedBar.vue';
+import UnAuthenticatedBar from './UnAuthenticatedBar.vue';
+
+export default {
+  name: 'BaseNavigationBar',
+  components:{
+    AuthenticatedBar, UnAuthenticatedBar
+  },
+  data() {
+    return {
+      isAuthenticated: AuthService.getToken() 
+    };
+  },
+  computed: {
+    userComponent(){
+      console.log(this.isAuthenticated)
+      return this.isAuthenticated ;
     }
-    </script>
+  },
+  watch: {
+    '$route'() {
+      this.isAuthenticated = AuthService.getToken();
+    }
+  },
+  methods:{
+    refreshParent() {
+      this.isAuthenticated = AuthService.getToken();
+    }
+  }
+}
+</script>
     
     <style>
     
