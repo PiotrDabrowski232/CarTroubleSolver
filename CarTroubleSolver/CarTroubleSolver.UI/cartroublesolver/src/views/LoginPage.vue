@@ -7,12 +7,12 @@
     <div class="container">
      
         <div class="form-floating">
-          <input v-model="this.Email" type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" required>
+          <input v-model="this.user.Email" type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" required>
           <label for="floatingEmail">Email address</label>
         </div>
   
         <div class="form-floating">
-          <input v-model="this.Password" type="password" class="form-control" id="floatingPassword" placeholder="" >
+          <input v-model="this.user.Password" type="password" class="form-control" id="floatingPassword" placeholder="" >
           <label for="floatingPassword">User Name</label>
         </div>
 
@@ -25,15 +25,17 @@
 
   
 <script>
-import axios from 'axios';
+import {LoginUser} from '../services/ApiCommunication'
 import AuthService from '../services/AuthService';
 
   export default {
 name: 'LoginPage',
 data(){
   return {
+      user:{
         Email:null,
         Password: null,
+      }
   }
 },
 methods: {
@@ -45,22 +47,19 @@ methods: {
         var EmailInput = document.getElementById("floatingEmail");
         var PasswordInput = document.getElementById("floatingPassword");
 
-      if(this.isEmpty(this.Email) || this.isEmpty(this.Password)){
-        if(this.isEmpty(this.Email))
+      if(this.isEmpty(this.user.Email) || this.isEmpty(this.user.Password)){
+        if(this.isEmpty(this.user.Email))
           EmailInput.classList.add("is-invalid")
         else
           EmailInput.classList.replace("is-invalid","is-valid")
         
-        if(this.isEmpty(this.Password))
+        if(this.isEmpty(this.user.Password))
           PasswordInput.classList.add("is-invalid")
         else
           PasswordInput.classList.replace("is-invalid","is-valid")
       }else{
-      await axios.post(`http://localhost:5113/Login`, {
-        Email: this.Email,
-        Password: this.Password
-      })
-      .then(response => {
+        LoginUser(this.user)
+        .then(response => {
         console.log(response.data)
         this.$toast.add({ severity: 'success', summary: 'Login Successfully', life: 3000 });
           AuthService.setToken(response.data)

@@ -26,7 +26,7 @@ namespace CarTroubleSolver.Api.Controllers
                 var users = _userService.GetUsers();
                 return users.Any() ? Ok(users) : NotFound("There is no Users");
             }
-            catch (Exception ex)
+            catch
             {
                 return NotFound("There is no Users");
             }
@@ -103,7 +103,7 @@ namespace CarTroubleSolver.Api.Controllers
                 string token = _userService.GenerateJwt(login);
                 return Ok(token);
             }
-            catch (Exception ex)
+            catch
             {
                 return BadRequest();
             }
