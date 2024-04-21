@@ -63,15 +63,23 @@ namespace CarTroubleSolver.Logic.Services
             }
         }
 
-        public UserDto? GetUser(Guid id)
+        public UserDto? GetUser(Guid? id)
         {
             try
             {
-                var user = _userRepository.Get(id).Result;
-                var userDto = user != null ? _mapper.Map<UserDto>(user) : throw new NotFoundException("There is no user with specified data");
-                return userDto;
+                if (id != null)
+                {
+                    var user = _userRepository.Get((Guid)id).Result;
+                    var userDto = user != null ? _mapper.Map<UserDto>(user) : throw new NotFoundException("There is no user with specified data");
+                    return userDto;
+                }
+                else
+                {
+                    throw new NotFoundException("There is no user with specified data");
+                }
+                
             }
-            catch (Exception ex)
+            catch
             {
                 throw;
             }

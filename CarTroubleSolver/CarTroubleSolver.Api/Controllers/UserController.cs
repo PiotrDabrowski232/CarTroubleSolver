@@ -35,11 +35,11 @@ namespace CarTroubleSolver.Api.Controllers
         [HttpGet]
         [Route("/User")]
         [Authorize]
-        public ActionResult<UserDto> Get([FromQuery]Guid id)
+        public ActionResult<UserDto> Get()
         {
             try 
-            { 
-                var user = _userService.GetUser(id);
+            {
+                var user = _userService.GetUser(Guid.Parse(User.Claims.FirstOrDefault(x => x.Type.Contains("nameidentifier")).Value));
                 return Ok(user);
             }
             catch (Exception ex)

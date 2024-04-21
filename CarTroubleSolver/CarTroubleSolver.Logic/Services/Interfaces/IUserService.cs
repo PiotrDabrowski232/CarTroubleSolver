@@ -10,7 +10,7 @@ namespace CarTroubleSolver.Logic.Services.Interfaces
     public interface IUserService
     {
         public UserDto RegisterUser(RegisterUserDto user);
-        public UserDto? GetUser(Guid id);
+        public UserDto? GetUser(Guid? id);
         public void UpdateUserData(UpdateUserDto user);
         public void ChangePassword(ChangePasswordUserDto user);
         public void DeleteUser(Guid id);

@@ -20,13 +20,12 @@
     </div>  
   </form>
   
-  </template>
+</template>
   
 
   
 <script>
 import {LoginUser} from '../services/ApiCommunication'
-import AuthService from '../services/AuthService';
 
   export default {
 name: 'LoginPage',
@@ -59,17 +58,14 @@ methods: {
           PasswordInput.classList.replace("is-invalid","is-valid")
       }else{
         LoginUser(this.user)
-        .then(response => {
-        console.log(response.data)
+        .then(() => {
         this.$toast.add({ severity: 'success', summary: 'Login Successfully', life: 3000 });
-          AuthService.setToken(response.data)
           setTimeout(() => {
             this.$router.push("/")
           }, 3000);
       })
       .catch(error => {
         if(error.response && error.response.status === 400){
-          console.log("error")
           this.$toast.add({ severity: 'error', summary: 'Email or password invalid', life: 3000 });
         }
       })

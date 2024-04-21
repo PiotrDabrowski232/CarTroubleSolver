@@ -156,7 +156,7 @@ export default {
           var DateOfBirthInput = document.getElementById("DateOfBirth");
           var ConfirmedPasswordInput = document.getElementById("floatingConfirmedPassword");
 
-      if(this.isEmpty(this.User.UserName) || this.isEmpty(this.User.Name) || this.isEmpty(this.User.Surname) || this.isEmpty(this.User.Email) || this.isEmpty(this.User.Password) || this.isEmpty(this.User.PhoneNumber) || this.isEmpty(this.User.ConfirmedPassword) || this.isEmpty(this.User.DateOfBirth))
+      if(this.isEmpty(this.User.UserName) || this.isEmpty(this.User.Name) || this.isEmpty(this.User.Surname) || this.isEmpty(this.User.Email) || this.isEmpty(this.User.Password) || (this.isEmpty(this.User.PhoneNumber) && this.User.PhoneNumber.length === 9) || this.isEmpty(this.User.ConfirmedPassword) || this.isEmpty(this.User.DateOfBirth))
       {
         if(this.isEmpty(this.User.UserName))
           UserNameInput.classList.add("is-invalid")
@@ -207,7 +207,7 @@ export default {
         Password: this.User.Password,
         PasswordConfirmed: this.User.ConfirmedPassword,
         PhoneNumber: this.User.PhoneNumber,
-        DateOfBirth: this.date
+        DateOfBirth: this.User.DateOfBirth
       })
       .then(response => {console.log(response)
         if(response.status ===200){
