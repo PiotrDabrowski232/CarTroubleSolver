@@ -5,6 +5,6 @@
     "\\CarTroubleSolver\\CarTroubleSolver.Api",
     "\\CarTroubleSolver\\CarTroubleSolver.Api\\Controllers"
   ],
-  "SelectedNode": "\\CarTroubleSolver\\CarTroubleSolver.sln",
+  "SelectedNode": "\\CarTroubleSolver\\CarTroubleSolver.Api\\Controllers\\UserController.cs",
   "PreviewInSolutionExplorer": false
 }
