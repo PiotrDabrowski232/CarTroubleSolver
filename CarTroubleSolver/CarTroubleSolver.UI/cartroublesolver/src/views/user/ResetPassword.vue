@@ -57,7 +57,8 @@
   
   
   <script>
-  import axios  from 'axios';
+  import {ResetPassword} from '../../services/ApiCommunication'
+
   export default {
     name: "ResetPassword",
     data() {
@@ -115,12 +116,7 @@
             NewConfirmedPasswordInput.classList.replace("is-invalid","is-valid")
         }
         else{
-        await axios.post(`http://localhost:5113/Register`, {
-          Password: this.User.Password,
-          NewPassword: this.User.NewPassword,
-          NewConfirmedPassword: this.User.NewConfirmedPassword,
-
-        })
+        await ResetPassword(this.User)
         .then(response => {console.log(response)
           if(response.status ===200){
 

@@ -5,6 +5,7 @@ using CarTroubleSolver.Data.Repositories.Interfaces;
 using CarTroubleSolver.Logic.Dto.User;
 using CarTroubleSolver.Logic.Exceptions;
 using CarTroubleSolver.Logic.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -14,13 +15,15 @@ using System.Text;
 
 namespace CarTroubleSolver.Logic.Services
 {
-    public class UserService(IUserRepository userRepository, IRoleService roleService, IMapper mapper, IPasswordHasher<User> passwordHasher, AuthenticationSettings authenticationSettings) : IUserService
+    public class UserService(IUserRepository userRepository, IRoleService roleService, IMapper mapper, IPasswordHasher<User> passwordHasher, AuthenticationSettings authenticationSettings, IHttpContextAccessor httpContextAccessor) : IUserService
     {
         private readonly IUserRepository _userRepository = userRepository;
         private readonly IRoleService _roleService = roleService;
         private readonly IMapper _mapper = mapper;
         private readonly IPasswordHasher<User> _passwordHasher = passwordHasher;
         private readonly AuthenticationSettings _authenticationSettings = authenticationSettings;
+        private readonly IHttpContextAccessor _httpContextAccessor =httpContextAccessor;
+
 
         #region Private
         private bool CheckPasswordCoretness(string providedPassword, Guid id)
@@ -42,8 +45,9 @@ namespace CarTroubleSolver.Logic.Services
         {
             try
             {
-                CheckPasswordCoretness(user.OldPassword, user.Id);
-                _userRepository.UpdatePassword(user.Id, user.NewPassword);
+                user.Id = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                CheckPasswordCoretness(user.OldPassword, Guid.Parse(user.Id));
+                _userRepository.UpdatePassword(Guid.Parse(user.Id), user.NewPassword);
             }
             catch
             {
@@ -63,13 +67,13 @@ namespace CarTroubleSolver.Logic.Services
             }
         }
 
-        public UserDto? GetUser(Guid? id)
+        public UserDto? GetUser()
         {
             try
             {
-                if (id != null)
+                if (_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier) != null)
                 {
-                    var user = _userRepository.Get((Guid)id).Result;
+                    var user = _userRepository.Get(Guid.Parse(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier))).Result;
                     var userDto = user != null ? _mapper.Map<UserDto>(user) : throw new NotFoundException("There is no user with specified data");
                     return userDto;
                 }

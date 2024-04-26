@@ -35,4 +35,22 @@ const fetchUserData = async () => {
     throw error;
   }
 }
-export { getUserInfo, LoginUser, fetchUserData };
+
+const ResetPassword = async (ResetModel) => {
+  await axios.put(`${BASE_URL}/ChangePassword`, {
+    OldPassword: ResetModel.Password,
+    NewPassword: ResetModel.NewPassword,
+    ConfirmedNewPassword: ResetModel.NewConfirmedPassword,
+    Id:""
+    },
+    {
+      headers: {
+        'Authorization': 'Bearer ' + AuthService.getToken(),
+      },
+    }
+  ).then(response => {
+        console.log(response.data)
+    })
+}
+
+export { getUserInfo, LoginUser, fetchUserData, ResetPassword };

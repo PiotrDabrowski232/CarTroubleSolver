@@ -39,7 +39,7 @@ namespace CarTroubleSolver.Api.Controllers
         {
             try 
             {
-                var user = _userService.GetUser(Guid.Parse(User.Claims.FirstOrDefault(x => x.Type.Contains("nameidentifier")).Value));
+                var user = _userService.GetUser();
                 return Ok(user);
             }
             catch (Exception ex)
