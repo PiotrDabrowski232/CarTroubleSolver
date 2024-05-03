@@ -22,7 +22,7 @@ namespace CarTroubleSolver.Logic.Services
         private readonly IMapper _mapper = mapper;
         private readonly IPasswordHasher<User> _passwordHasher = passwordHasher;
         private readonly AuthenticationSettings _authenticationSettings = authenticationSettings;
-        private readonly IHttpContextAccessor _httpContextAccessor =httpContextAccessor;
+        private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
 
 
         #region Private
@@ -30,7 +30,7 @@ namespace CarTroubleSolver.Logic.Services
         {
             var user = _userRepository.Get(id).Result;
 
-            return (_passwordHasher.VerifyHashedPassword(user, user.Password, providedPassword) == PasswordVerificationResult.Failed) ? throw new NotFoundException() :  true;
+            return (_passwordHasher.VerifyHashedPassword(user, user.Password, providedPassword) == PasswordVerificationResult.Failed) ? throw new NotFoundException("Incorrect Password") :  true;
 
         }
 
@@ -47,6 +47,7 @@ namespace CarTroubleSolver.Logic.Services
             {
                 user.Id = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
                 CheckPasswordCoretness(user.OldPassword, Guid.Parse(user.Id));
+                user.NewPassword = HashPassword(user.NewPassword);
                 _userRepository.UpdatePassword(Guid.Parse(user.Id), user.NewPassword);
             }
             catch

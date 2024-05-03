@@ -3,8 +3,12 @@
     "",
     "\\CarTroubleSolver",
     "\\CarTroubleSolver\\CarTroubleSolver.Api",
-    "\\CarTroubleSolver\\CarTroubleSolver.Api\\Controllers"
+    "\\CarTroubleSolver\\CarTroubleSolver.Api\\Controllers",
+    "\\CarTroubleSolver\\CarTroubleSolver.Data",
+    "\\CarTroubleSolver\\CarTroubleSolver.Data\\Models",
+    "\\CarTroubleSolver\\CarTroubleSolver.Logic",
+    "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Services"
   ],
-  "SelectedNode": "\\CarTroubleSolver\\CarTroubleSolver.Api\\Controllers\\UserController.cs",
+  "SelectedNode": "\\CarTroubleSolver\\CarTroubleSolver.Data\\Models\\User.cs",
   "PreviewInSolutionExplorer": false
 }

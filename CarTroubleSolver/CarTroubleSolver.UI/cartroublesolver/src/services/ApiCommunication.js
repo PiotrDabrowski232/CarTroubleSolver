@@ -37,20 +37,24 @@ const fetchUserData = async () => {
 }
 
 const ResetPassword = async (ResetModel) => {
-  await axios.put(`${BASE_URL}/ChangePassword`, {
-    OldPassword: ResetModel.Password,
-    NewPassword: ResetModel.NewPassword,
-    ConfirmedNewPassword: ResetModel.NewConfirmedPassword,
-    Id:""
-    },
-    {
-      headers: {
-        'Authorization': 'Bearer ' + AuthService.getToken(),
+  try {
+    var response = await axios.put(`${BASE_URL}/ChangePassword`, {
+      OldPassword: ResetModel.Password,
+      NewPassword: ResetModel.NewPassword,
+      ConfirmedNewPassword: ResetModel.NewConfirmedPassword,
+      Id:""
       },
-    }
-  ).then(response => {
-        console.log(response.data)
-    })
+      {
+        headers: {
+          'Authorization': 'Bearer ' + AuthService.getToken(),
+        },
+      }
+    )
+    return response;
+    }catch (error) {
+    console.error('Error Reset Password Action');
+    throw error
+  }
 }
 
 export { getUserInfo, LoginUser, fetchUserData, ResetPassword };

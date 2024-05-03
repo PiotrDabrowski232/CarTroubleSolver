@@ -18,7 +18,7 @@ namespace CarTroubleSolver.Logic.Validation.UserValidators
                 .NotEmpty()
                 .WithMessage("Fill Old Password Input")
                 .NotEqual(e => e.NewPassword)
-                .WithMessage("Both passwords should be the same");
+                .WithMessage("Both passwords should not be the same");
 
             RuleFor(x => x.NewPassword)
                 .NotEmpty().WithMessage("Fill Password Input")
