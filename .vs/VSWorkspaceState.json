@@ -9,6 +9,6 @@
     "\\CarTroubleSolver\\CarTroubleSolver.Logic",
     "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Services"
   ],
-  "SelectedNode": "\\CarTroubleSolver\\CarTroubleSolver.Data\\Models\\User.cs",
+  "SelectedNode": "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Services\\UserService.cs",
   "PreviewInSolutionExplorer": false
 }
