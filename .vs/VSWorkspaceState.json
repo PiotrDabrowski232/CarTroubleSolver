@@ -1,14 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\CarTroubleSolver",
-    "\\CarTroubleSolver\\CarTroubleSolver.Api",
-    "\\CarTroubleSolver\\CarTroubleSolver.Api\\Controllers",
-    "\\CarTroubleSolver\\CarTroubleSolver.Data",
-    "\\CarTroubleSolver\\CarTroubleSolver.Data\\Models",
-    "\\CarTroubleSolver\\CarTroubleSolver.Logic",
-    "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Services"
+    ""
   ],
-  "SelectedNode": "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Services\\UserService.cs",
+  "SelectedNode": "\\CarTroubleSolver.sln",
   "PreviewInSolutionExplorer": false
 }
