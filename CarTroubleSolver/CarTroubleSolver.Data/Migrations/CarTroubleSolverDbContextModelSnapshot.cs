@@ -22,6 +22,43 @@ namespace CarTroubleSolver.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("CarTroubleSolver.Data.Models.Role", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Role");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("00000001-0000-0000-0000-000000000000"),
+                            Name = "BasicUser"
+                        },
+                        new
+                        {
+                            Id = new Guid("00000002-0000-0000-0000-000000000000"),
+                            Name = "Mechanic"
+                        },
+                        new
+                        {
+                            Id = new Guid("00000003-0000-0000-0000-000000000000"),
+                            Name = "MechanicalWorkshop"
+                        },
+                        new
+                        {
+                            Id = new Guid("00000004-0000-0000-0000-000000000000"),
+                            Name = "Admin"
+                        });
+                });
+
             modelBuilder.Entity("CarTroubleSolver.Data.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -43,13 +80,34 @@ namespace CarTroubleSolver.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("PhoneNumber")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("RoleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValue(new Guid("00000001-0000-0000-0000-000000000000"));
+
                     b.Property<string>("Surname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("RoleId");
+
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("CarTroubleSolver.Data.Models.User", b =>
+                {
+                    b.HasOne("CarTroubleSolver.Data.Models.Role", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
                 });
 #pragma warning restore 612, 618
         }

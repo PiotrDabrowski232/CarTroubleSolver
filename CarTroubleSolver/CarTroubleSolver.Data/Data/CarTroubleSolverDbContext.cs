@@ -8,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace CarTroubleSolver.Data.Data
 {
-    public class CarTroubleSolverDbContext : DbContext
+    public class CarTroubleSolverDbContext(DbContextOptions<CarTroubleSolverDbContext> options) : DbContext(options)
     {
-        public CarTroubleSolverDbContext(DbContextOptions<CarTroubleSolverDbContext> options) : base(options) { }
-
         public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)

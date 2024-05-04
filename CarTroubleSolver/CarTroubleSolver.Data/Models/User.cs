@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,10 @@ namespace CarTroubleSolver.Data.Models
         public string Surname { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public int PhoneNumber { get; set; }
         public DateOnly DateOfBirth { get; set; }
+
+        public Guid RoleId { get; set; }
+        public virtual Role Role { get; set; }
     }
 }
