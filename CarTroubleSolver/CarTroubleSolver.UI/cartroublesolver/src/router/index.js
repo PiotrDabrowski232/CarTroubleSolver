@@ -2,8 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import RegisterPage from '../views/RegisterPage.vue'
 import LoginPage from '../views/LoginPage.vue'
 import Home from '../views/Home.vue'
-import ResetPassword from '../views/user/ResetPassword'
 import UserInformation from '../views/user/UserInformation'
+import CarForm from '@/views/car/CarForm.vue'
 
 
 const routes = [
@@ -23,15 +23,15 @@ const routes = [
     component: Home
   },
   {
-    path: '/ResetPassword',
-    name: 'ResetPassword',
-    component: ResetPassword
-  },
-  {
     path: '/UserInfo',
     name: 'UserInfo',
     component: UserInformation
-  }
+  },
+  {
+    path: '/CarCreator',
+    name: 'CarCreator',
+    component: CarForm
+  },
 ]
 
 const router = createRouter({

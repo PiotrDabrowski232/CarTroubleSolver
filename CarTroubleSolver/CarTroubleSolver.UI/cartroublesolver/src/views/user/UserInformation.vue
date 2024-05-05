@@ -57,11 +57,13 @@
         </Dialog>
 
         <button type="submit" @click="visible = true" class="btn btn-outline-info">Info</button>
+        <router-link class="router-link" to="/CarCreator" exact-path>Car</router-link>
+
     </div>
 </template>
     
 <script>
-import { fetchUserData, ResetPassword } from '@/services/ApiCommunication';
+import { fetchUserData, ResetPassword } from '@/services/UserApiCommunication.js';
 
 
     export default {

@@ -25,7 +25,7 @@
 
   
 <script>
-import {LoginUser} from '../services/ApiCommunication'
+import {LoginUser} from '../services/UserApiCommunication'
 
   export default {
 name: 'LoginPage',

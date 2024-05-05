@@ -1809,7 +1809,9 @@
           "AutoMapper.Collection": "10.0.0",
           "CarTroubleSolver.Data": "1.0.0",
           "FluentValidation": "11.9.0",
-          "FluentValidation.AspNetCore": "11.3.0"
+          "FluentValidation.AspNetCore": "11.3.0",
+          "MediatR": "12.2.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.1.0"
         },
         "compile": {
           "bin/placeholder/CarTroubleSolver.Logic.dll": {}
@@ -4888,6 +4890,12 @@
     }
   },
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Api\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1608",
       "level": "Warning",

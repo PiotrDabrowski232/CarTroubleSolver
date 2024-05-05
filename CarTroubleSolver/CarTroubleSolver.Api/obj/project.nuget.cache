@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fQ00++RJLSOXXWY57UoqMxMJI5tOFu4gARb8vUliSHqAJch6jZNQHRcdtkMN9fvEUlb0ICzPL+8OYewoY2QYkQ==",
+  "dgSpecHash": "0+hLgbFpdgHy+vpysewUFM9Iw7D/Y3pWWx0j21JVVkh86BVOqkFPnjL21HTb4W0QgwFhB6S4Ifd6DtAinqj2iA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Api\\CarTroubleSolver.Api.csproj",
   "expectedPackageFiles": [
@@ -99,6 +99,12 @@
     "C:\\Users\\Piotr\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Api\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1608",
       "level": "Warning",
