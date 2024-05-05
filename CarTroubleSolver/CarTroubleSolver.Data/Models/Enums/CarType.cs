@@ -2,9 +2,13 @@
 {
     public enum CarType
     {
-        Sedan, 
         Suv,
-        Combi,
-        Cabriolet
+        Hatchback,
+        Sedan,
+        Kombi,
+        Coupe,
+        Van,
+        Minivan,
+        Kabriolet
     }
 }
