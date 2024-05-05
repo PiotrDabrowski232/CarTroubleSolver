@@ -90,6 +90,11 @@ builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<ICarRepository, CarRepository>();
 
 
+var assemblies = Assembly.Load("CarTroubleSolver.Logic");
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assemblies));
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

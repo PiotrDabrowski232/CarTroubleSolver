@@ -1,11 +1,11 @@
-﻿using CarTroubleSolver.Logic.Services;
-using CarTroubleSolver.Logic.Services.Interfaces;
+﻿using CarTroubleSolver.Logic.Services.Interfaces;
+using CarTroubleSolver.Logic.Functions.Car.Query;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarTroubleSolver.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class CarController(IMediator mediator, ICarService carService) : ControllerBase
     {
@@ -13,10 +13,19 @@ namespace CarTroubleSolver.Api.Controllers
         private readonly ICarService _carService = carService;
 
         [HttpGet]
+        [Route("/GetCarData")]
         public async Task<IActionResult> GetCarSpecification()
         {
-            var result = _mediator.Send("asdas");
-            return Ok(result);
+            try
+            {
+
+                var result = _mediator.Send(new GetAllBrandsQuery());
+                return Ok(result);
+
+            }catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

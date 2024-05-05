@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using CarTroubleSolver.Data.Models.Enums;
+using MediatR;
 
 namespace CarTroubleSolver.Logic.Functions.Car.Query
 {
@@ -6,7 +7,8 @@ namespace CarTroubleSolver.Logic.Functions.Car.Query
     {
         public Task<List<string>> Handle(GetAllBrandsQuery request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(new List<string>());
+            var Brands = Enum.GetNames<Brand>().ToList();
+            return Task.FromResult(Brands);
         }
     }
 }

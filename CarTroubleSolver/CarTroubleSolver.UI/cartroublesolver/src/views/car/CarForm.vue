@@ -14,6 +14,7 @@
     
     
 <script>
+    import {fetchCarData} from "../../services/CarApiCommunication"
     
 export default {
     name: "CarForm",
@@ -23,10 +24,15 @@ export default {
 
         }
       },
+
+      mounted(){
+      this.fetchData()
+  },
       methods: {
-        
+        async fetchData(){
+            this.brands = await fetchCarData()
+        },
     },
-      
 }
 
 </script>
