@@ -1,9 +1,15 @@
 <template>
   <form>
 
-    <select v-model="selected" class="form-select" aria-label="Default select example">
+    <select v-model="selectedBrand" class="form-select" aria-label="Default select example">
         <option v-for="(brand, index) in brands" :key="index" :value="brand">
             {{ brand }}
+        </option>
+    </select>
+
+    <select v-model="selectedModel" class="form-select" aria-label="Default select example">
+        <option v-for="(model, index) in models" :key="index" :value="models">
+            {{ model }}
         </option>
     </select>
 
@@ -14,13 +20,14 @@
     
     
 <script>
-    import {fetchCarData} from "../../services/CarApiCommunication"
+    import {fetchCarBrand} from "../../services/CarApiCommunication"
     
 export default {
     name: "CarForm",
       data() {
         return {
             brands:null,
+            models:null,
 
         }
       },
@@ -30,7 +37,7 @@ export default {
   },
       methods: {
         async fetchData(){
-            this.brands = await fetchCarData()
+            this.brands = await fetchCarBrand()
         },
     },
 }
