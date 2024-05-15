@@ -13,16 +13,32 @@ namespace CarTroubleSolver.Api.Controllers
         private readonly ICarService _carService = carService;
 
         [HttpGet]
-        [Route("/GetCarData")]
+        [Route("/Brands")]
         public async Task<IActionResult> GetCarSpecification()
         {
             try
             {
-
                 var result = _mediator.Send(new GetAllBrandsQuery());
                 return Ok(result);
 
             }catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("/Models")]
+        public async Task<IActionResult> GetCarModels([FromQuery] string Brand) 
+        {
+            try
+            {
+
+                var result = _mediator.Send(new GetBrandModelsQuery(Brand));
+                return Ok(result);
+
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }

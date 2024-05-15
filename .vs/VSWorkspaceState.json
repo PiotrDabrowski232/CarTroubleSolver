@@ -3,6 +3,9 @@
     "",
     "\\CarTroubleSolver",
     "\\CarTroubleSolver\\CarTroubleSolver.Logic",
+    "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Functions",
+    "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Functions\\Car",
+    "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Functions\\Car\\Query",
     "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Services"
   ],
   "SelectedNode": "\\CarTroubleSolver\\CarTroubleSolver.sln",

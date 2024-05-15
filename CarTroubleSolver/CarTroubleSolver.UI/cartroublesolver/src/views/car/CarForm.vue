@@ -1,48 +1,48 @@
 <template>
-  <form>
+    <form>
+        <select v-model="selectedBrand" class="form-select" aria-label="Default select example" @change="fetchModels">
+            <option v-for="(brand, index) in brands" :key="index" :value="brand">
+                {{ brand }}
+            </option>
+        </select>
 
-    <select v-model="selectedBrand" class="form-select" aria-label="Default select example">
-        <option v-for="(brand, index) in brands" :key="index" :value="brand">
-            {{ brand }}
-        </option>
-    </select>
-
-    <select v-model="selectedModel" class="form-select" aria-label="Default select example">
-        <option v-for="(model, index) in models" :key="index" :value="models">
-            {{ model }}
-        </option>
-    </select>
-
-  </form>
-
-    
+        <select v-model="selectedModel" class="form-select" aria-label="Default select example">
+            <option v-for="(model, index) in models" :key="index" :value="model">
+                {{ model }}
+            </option>
+        </select>
+    </form>
 </template>
-    
-    
+
 <script>
-    import {fetchCarBrand} from "../../services/CarApiCommunication"
-    
-export default {
-    name: "CarForm",
-      data() {
-        return {
-            brands:null,
-            models:null,
+    import { fetchCarBrand, fetchCarModels } from "../../services/CarApiCommunication"
 
-        }
-      },
-
-      mounted(){
-      this.fetchData()
-  },
-      methods: {
-        async fetchData(){
-            this.brands = await fetchCarBrand()
+    export default {
+        name: "CarForm",
+        data() {
+            return {
+                brands: null,
+                models: null,
+                selectedBrand: null,
+                selectedModel: null
+            }
         },
-    },
-}
-
+        mounted() {
+            this.fetchData()
+        },
+        methods: {
+            async fetchData() {
+                this.brands = await fetchCarBrand()
+            },
+            async fetchModels() {
+                if (this.selectedBrand) {
+                    this.models = await fetchCarModels(this.selectedBrand)
+                }
+            },
+        },
+    }
 </script>
+
     
     
     

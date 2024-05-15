@@ -6,7 +6,7 @@ const BASE_URL = 'http://localhost:5113';
 
 const fetchCarBrand = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/GetCarData`, {
+    const response = await axios.get(`${BASE_URL}/Brands`, {
       headers: {
         'Authorization': 'Bearer ' + AuthService.getToken(),
       }
@@ -19,9 +19,10 @@ const fetchCarBrand = async () => {
   }
 }
 
-const fetchCarData = async () => {
+const fetchCarModels = async (selectedBrand) => {
   try {
-    const response = await axios.get(`${BASE_URL}/GetCarData`, {
+    const response = await axios.get(`${BASE_URL}/Models?Brand=${selectedBrand}`,
+      {
       headers: {
         'Authorization': 'Bearer ' + AuthService.getToken(),
       }
@@ -35,4 +36,4 @@ const fetchCarData = async () => {
 }
 
 
-export {  fetchCarBrand };
+export {  fetchCarBrand,  fetchCarModels };
