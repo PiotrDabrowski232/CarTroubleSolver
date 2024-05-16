@@ -18,7 +18,7 @@ namespace CarTroubleSolver.Api.Controllers
         {
             try
             {
-                var result = _mediator.Send(new GetAllBrandsQuery());
+                var result = _mediator.Send(new GetBasicCarConfigQuery());
                 return Ok(result);
 
             }catch (Exception ex)

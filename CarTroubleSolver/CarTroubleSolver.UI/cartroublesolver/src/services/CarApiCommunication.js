@@ -11,7 +11,6 @@ const fetchCarBrand = async () => {
         'Authorization': 'Bearer ' + AuthService.getToken(),
       }
     });
-    console.log(response)
     return response.data.result;
   } catch (error) {
     console.error('Error fetching car data:', error);

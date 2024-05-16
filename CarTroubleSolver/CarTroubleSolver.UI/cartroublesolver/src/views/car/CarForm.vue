@@ -1,16 +1,65 @@
 <template>
+
     <form>
-        <select v-model="selectedBrand" class="form-select" aria-label="Default select example" @change="fetchModels">
-            <option v-for="(brand, index) in brands" :key="index" :value="brand">
+        <select v-model="this.selectedBrand" class="form-select" aria-label="Default select example" @change="fetchModels">
+            <option v-for="(brand, index) in brands" :key="index" :value="brand" placeholder="Brand">
                 {{ brand }}
             </option>
         </select>
+        
 
-        <select v-model="selectedModel" class="form-select" aria-label="Default select example">
-            <option v-for="(model, index) in models" :key="index" :value="model">
+        <select v-model="this.selectedModel" class="form-select" aria-label="Default select example" :disabled="!this.selectedBrand">
+            <option v-for="(model, index) in models" :key="index" :value="model" >
                 {{ model }}
             </option>
         </select>
+
+        <select v-model="this.selectedType" class="form-select" aria-label="Default select example">
+            <option v-for="(type, index) in types" :key="index" :value="model" > 
+                {{ type }}
+            </option>
+        </select>
+
+        <div class="form-floating">
+        <input v-model="Car.VIN"  type="number" :minlength="9" :maxlength="9" class="form-control" id="VIN" placeholder="VIN" >
+        <label for="PhoneNumber">VIN</label>
+          <div v-if="errorFromApi.VIN" class="invalid-feedback">
+            <div v-for="(item, index) in errorFromApi.VIN" :key="index">
+              - {{ item }}
+            </div>
+          </div>
+      </div>
+
+      <div class="form-floating">
+        <input v-model="Car.DoorCount"  type="number" :minlength="9" :maxlength="9" class="form-control" id="DoorCount" placeholder="DoorCount" >
+        <label for="DoorCount">Door Count</label>
+          <div v-if="errorFromApi.DoorCount" class="invalid-feedback">
+            <div v-for="(item, index) in errorFromApi.DoorCount" :key="index">
+              - {{ item }}
+            </div>
+          </div>
+      </div>
+
+      <div class="form-floating">
+        <input v-model="Car.Color"  type="number" :minlength="9" :maxlength="9" class="form-control" id="Color" placeholder="Color" >
+        <label for="Color">Color</label>
+          <div v-if="errorFromApi.Color" class="invalid-feedback">
+            <div v-for="(item, index) in errorFromApi.Color" :key="index">
+              - {{ item }}
+            </div>
+          </div>
+      </div>
+
+      <div class="form-floating">
+          <input v-model="Car.DateOfProduction" type="date" class="form-control" id="DateOfProduction" placeholder="DateOfProduction" >
+          <label for="DateOfProduction">Date Of Production</label>
+          <div v-if="errorFromApi.DateOfProduction" class="invalid-feedback">
+            <div v-for="(item, index) in errorFromApi.DateOfProduction" :key="index">
+              - {{ item }}
+            </div>
+          </div>
+        </div>
+
     </form>
 </template>
 
@@ -24,7 +73,28 @@
                 brands: null,
                 models: null,
                 selectedBrand: null,
-                selectedModel: null
+                selectedModel: null,
+                types: null,
+                selectedType: null,
+                Car: {
+                    VIN: null,
+                    Brand: null,
+                    Model: null,
+                    Color: null,
+                    DoorCount: null,
+                    DateOfProduction: null,
+                    Type: null,
+                },
+
+                errorFromApi:{
+                    VIN: null,
+                    Brand: null,
+                    Model: null,
+                    Color: null,
+                    DoorCount: null,
+                    DateOfProduction: null,
+                    Type: null,
+                }
             }
         },
         mounted() {
@@ -32,11 +102,15 @@
         },
         methods: {
             async fetchData() {
-                this.brands = await fetchCarBrand()
+                var data = await fetchCarBrand()
+                this.brands = data.brands
+                this.types = data.types
             },
             async fetchModels() {
+                console.log(this.models)
                 if (this.selectedBrand) {
                     this.models = await fetchCarModels(this.selectedBrand)
+                    console.log(this.models)
                 }
             },
         },
