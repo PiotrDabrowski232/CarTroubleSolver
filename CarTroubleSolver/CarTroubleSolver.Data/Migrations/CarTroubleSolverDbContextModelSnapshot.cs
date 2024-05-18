@@ -24,15 +24,12 @@ namespace CarTroubleSolver.Data.Migrations
 
             modelBuilder.Entity("CarTroubleSolver.Data.Models.Car", b =>
                 {
-                    b.Property<long>("VIN")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("uniqueidentifier");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("VIN"));
-
-                    b.Property<string>("BrandName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Brand")
+                        .HasColumnType("int");
 
                     b.Property<int>("CarType")
                         .HasColumnType("int");
@@ -47,18 +44,21 @@ namespace CarTroubleSolver.Data.Migrations
                     b.Property<int>("DoorCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("ModelName")
+                    b.Property<string>("Model")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("OwnerId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("VIN");
+                    b.Property<long>("VIN")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("OwnerId");
 
-                    b.ToTable("Car");
+                    b.ToTable("Cars");
                 });
 
             modelBuilder.Entity("CarTroubleSolver.Data.Models.Role", b =>
@@ -73,7 +73,7 @@ namespace CarTroubleSolver.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Role");
+                    b.ToTable("Roles");
 
                     b.HasData(
                         new

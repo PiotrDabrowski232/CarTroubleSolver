@@ -4,6 +4,7 @@ namespace CarTroubleSolver.Data.Models
 {
     public class Car
     {
+        public Guid Id { get; set; }
         public long VIN { get; set; }
         public Brand Brand { get; set; }
         public string Model { get; set; }

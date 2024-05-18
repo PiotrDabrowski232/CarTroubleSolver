@@ -15,7 +15,7 @@ namespace CarTroubleSolver.Data.ModelsConfiguration
     {
         public void Configure(EntityTypeBuilder<Car> builder)
         {
-            builder.HasKey(u => u.VIN);
+            builder.HasKey(u => u.Id);
 
             builder
         .Property(u => u.DateOfProduction)
