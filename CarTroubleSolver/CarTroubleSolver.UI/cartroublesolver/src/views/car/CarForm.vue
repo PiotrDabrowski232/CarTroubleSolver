@@ -1,6 +1,7 @@
 <template>
 
-    <form>
+    <form id="myForm" class="needs-validation" novalidate @submit.prevent="tryCreate">
+      
         <select v-model="this.selectedBrand" class="form-select" aria-label="Default select example" @change="fetchModels">
             <option v-for="(brand, index) in brands" :key="index" :value="brand" placeholder="Brand">
                 {{ brand }}
@@ -15,7 +16,7 @@
         </select>
 
         <select v-model="this.selectedType" class="form-select" aria-label="Default select example">
-            <option v-for="(type, index) in types" :key="index" :value="model" > 
+            <option v-for="(type, index) in types" :key="index" :value="type" > 
                 {{ type }}
             </option>
         </select>
@@ -41,7 +42,7 @@
       </div>
 
       <div class="form-floating">
-        <input v-model="Car.Color"  type="number" :minlength="9" :maxlength="9" class="form-control" id="Color" placeholder="Color" >
+        <input v-model="Car.Color"  type="text"  class="form-control" id="Color" placeholder="Color" >
         <label for="Color">Color</label>
           <div v-if="errorFromApi.Color" class="invalid-feedback">
             <div v-for="(item, index) in errorFromApi.Color" :key="index">
@@ -60,11 +61,13 @@
           </div>
         </div>
 
+        <button type="submit" class="btn btn-primary">Create Car</button>
+
     </form>
 </template>
 
 <script>
-    import { fetchCarBrand, fetchCarModels } from "../../services/CarApiCommunication"
+    import { fetchCarBrand, fetchCarModels, CreateCar } from "../../services/CarApiCommunication"
 
     export default {
         name: "CarForm",
@@ -112,6 +115,13 @@
                     this.models = await fetchCarModels(this.selectedBrand)
                     console.log(this.models)
                 }
+            },
+            async tryCreate(){
+              this.Car.Brand = this.selectedBrand
+              this.Car.Model = this.selectedModel
+              this.Car.Type = this.selectedType
+              var response = await CreateCar(this.Car)
+              console.log(response)
             },
         },
     }

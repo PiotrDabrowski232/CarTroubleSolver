@@ -2,15 +2,16 @@
 using CarTroubleSolver.Logic.Functions.Car.Query;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using CarTroubleSolver.Logic.Dto.Car;
+using CarTroubleSolver.Logic.Functions.Car.Command;
 
 namespace CarTroubleSolver.Api.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class CarController(IMediator mediator, ICarService carService) : ControllerBase
+    public class CarController(IMediator mediator) : ControllerBase
     {
         private readonly IMediator _mediator = mediator;
-        private readonly ICarService _carService = carService;
 
         [HttpGet]
         [Route("/Brands")]
@@ -33,10 +34,23 @@ namespace CarTroubleSolver.Api.Controllers
         {
             try
             {
-
                 var result = _mediator.Send(new GetBrandModelsQuery(Brand));
                 return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
+        [HttpPost]
+        [Route("/AddCar")]
+        public async Task<IActionResult> Add([FromBody] CarDto Car)
+        {
+            try
+            {
+                var result = _mediator.Send(new AddCarCommand(Car));
+                return Ok(result);
             }
             catch (Exception ex)
             {
