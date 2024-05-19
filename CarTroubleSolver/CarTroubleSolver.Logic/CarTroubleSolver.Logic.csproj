@@ -20,4 +20,8 @@
     <ProjectReference Include="..\CarTroubleSolver.Data\CarTroubleSolver.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Functions\User\Command\" />
+  </ItemGroup>
+
 </Project>

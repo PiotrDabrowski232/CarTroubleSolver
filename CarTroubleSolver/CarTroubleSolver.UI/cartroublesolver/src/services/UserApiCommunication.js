@@ -6,6 +6,7 @@ const BASE_URL = 'http://localhost:5113';
 const getUserInfo = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/User`);
+    console.log(response.data)
     return response.data;
   } catch (error) {
     console.error('Error fetching posts:', error);
@@ -29,7 +30,7 @@ const fetchUserData = async () => {
         'Authorization': 'Bearer ' + AuthService.getToken(),
       }
     });
-    return response.data;
+    return response.data.result;
   } catch (error) {
     console.error('Error fetching user data:', error);
     throw error;

@@ -8,7 +8,7 @@ namespace CarTroubleSolver.Logic.Dto.Car
 {
     public class BasicCarConfig
     {
-        public List<string> Brands { get; set; }
-        public List<string> Types { get; set; }
+        public IList<string> Brands { get; set; }
+        public IList<string> Types { get; set; }
     }
 }

@@ -18,6 +18,10 @@ namespace CarTroubleSolver.Logic.Maping
                 .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => Enum.Parse<Brand>(src.Brand)))
                 .ForMember(dest => dest.CarType, opt => opt.MapFrom(src => Enum.Parse<CarType>(src.CarType)))
                 .ForMember(dest => dest.DateOfProduction, opt => opt.MapFrom(src => src.DateOfProduction.ToDateTime(TimeOnly.MinValue)));
+
+            CreateMap<Car, CarBasicInfoDto>();
+            CreateMap<CarBasicInfoDto, Car>();
+
         }
     }
 }

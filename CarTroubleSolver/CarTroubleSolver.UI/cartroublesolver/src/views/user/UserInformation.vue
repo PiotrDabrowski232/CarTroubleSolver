@@ -76,7 +76,8 @@ import { fetchUserData, ResetPassword } from '@/services/UserApiCommunication.js
         surname:null,
         email:null,
         phoneNumber:null,
-        dateOfBierh:null
+        dateOfBierh:null,
+        cars:null,
       },
       ResetUser:{
           Password: null,
@@ -105,6 +106,7 @@ import { fetchUserData, ResetPassword } from '@/services/UserApiCommunication.js
       this.User.email = this.response.email,
       this.User.phoneNumber = this.response.phoneNumber,
       this.User.dateOfBierh = this.response.dateOfBirth
+      this.User.cars = this.response.cars
     },
     ResetPassword(){
       this.displayFormula = !this.displayFormula
