@@ -9,7 +9,7 @@ namespace CarTroubleSolver.Logic.Dto.Car
     public class CarBasicInfoDto
     {
         public long VIN { get; set; }
-        public string Color { get; set; }
+        public Color Color { get; set; }
         public string CarType { get; set; }
     }
 }

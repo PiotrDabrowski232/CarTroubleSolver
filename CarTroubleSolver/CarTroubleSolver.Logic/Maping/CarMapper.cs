@@ -20,8 +20,6 @@ namespace CarTroubleSolver.Logic.Maping
                 .ForMember(dest => dest.Green, opt => opt.MapFrom(src => src.Green))
                 .ForMember(dest => dest.Blue, opt => opt.MapFrom(src => src.Blue));
 
-            CreateMap<Color, CarColor>();
-            CreateMap<CarColor, Color>();
 
             CreateMap<Car, CarDto>()
                 .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => src.Brand.ToString()))
@@ -33,8 +31,10 @@ namespace CarTroubleSolver.Logic.Maping
                 .ForMember(dest => dest.CarType, opt => opt.MapFrom(src => Enum.Parse<CarType>(src.Type)))
                 .ForMember(dest => dest.Color, opt => opt.MapFrom(src => src.Color));
 
-            CreateMap<Car, CarBasicInfoDto>();
-            CreateMap<CarBasicInfoDto, Car>();
+            CreateMap<Car, CarBasicInfoDto>()
+                .ForMember(dest => dest.Color, opt => opt.MapFrom(src => src.Color));
+            CreateMap<CarBasicInfoDto, Car>()
+                .ForMember(dest => dest.Color, opt => opt.MapFrom(src => src.Color));
 
         }
     }

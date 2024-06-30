@@ -4,6 +4,7 @@ using CarTroubleSolver.Logic.Dto.Car;
 using CarTroubleSolver.Logic.Dto.User;
 using MediatR;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
 namespace CarTroubleSolver.Logic.Functions.User.Querry
@@ -25,20 +26,16 @@ namespace CarTroubleSolver.Logic.Functions.User.Querry
         public Task<UserDto> Handle(GetUserInfoQuerry request, CancellationToken cancellationToken)
         {
             request.Id = Guid.Parse(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+           
             var user = _dbContext.Users
                 .Where(u => u.Id == request.Id)
-                .Select(u => new UserDto
-                    {
-                        Name = u.Name,
-                        Email = u.Email,
-                        Surname = u.Surname,
-                        PhoneNumber = u.PhoneNumber,
-                        DateOfBirth = u.DateOfBirth,
-                        Cars = _mapper.Map<ICollection<CarBasicInfoDto>>(u.Cars)
-                    })
+                .Include(u => u.Cars)
+                    .ThenInclude(c => c.Color)
                 .FirstOrDefault();
 
-            return Task.FromResult(user);
+            var userDto = _mapper.Map<UserDto>(user);
+
+            return Task.FromResult(userDto);
         }
     }
 
