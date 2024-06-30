@@ -45,7 +45,7 @@ namespace CarTroubleSolver.Api.Controllers
 
         [HttpPost]
         [Route("/AddCar")]
-        public async Task<IActionResult> Add([FromBody] CarDto Car)
+        public IActionResult Add([FromBody] CarDto Car)
         {
             try
             {

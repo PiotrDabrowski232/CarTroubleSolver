@@ -34,9 +34,8 @@ namespace CarTroubleSolver.Data.Migrations
                     b.Property<int>("CarType")
                         .HasColumnType("int");
 
-                    b.Property<string>("Color")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("ColorId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("DateOfProduction")
                         .HasColumnType("date");
@@ -56,9 +55,31 @@ namespace CarTroubleSolver.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ColorId");
+
                     b.HasIndex("OwnerId");
 
                     b.ToTable("Cars");
+                });
+
+            modelBuilder.Entity("CarTroubleSolver.Data.Models.CarColor", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Blue")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Green")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Red")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CarColor");
                 });
 
             modelBuilder.Entity("CarTroubleSolver.Data.Models.Role", b =>
@@ -140,11 +161,19 @@ namespace CarTroubleSolver.Data.Migrations
 
             modelBuilder.Entity("CarTroubleSolver.Data.Models.Car", b =>
                 {
+                    b.HasOne("CarTroubleSolver.Data.Models.CarColor", "Color")
+                        .WithMany()
+                        .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("CarTroubleSolver.Data.Models.User", "Owner")
                         .WithMany("Cars")
                         .HasForeignKey("OwnerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Color");
 
                     b.Navigation("Owner");
                 });

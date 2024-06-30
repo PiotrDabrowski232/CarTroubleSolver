@@ -21,6 +21,7 @@ namespace CarTroubleSolver.Data.ModelsConfiguration
         .Property(u => u.DateOfProduction)
         .HasColumnType("date");
 
+
         }
     }
 }

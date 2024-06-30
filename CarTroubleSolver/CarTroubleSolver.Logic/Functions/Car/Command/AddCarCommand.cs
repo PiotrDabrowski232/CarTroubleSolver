@@ -9,9 +9,8 @@ namespace CarTroubleSolver.Logic.Functions.Car.Command
 {
     public class AddCarCommand : IRequest<CarDto>
     {
-        public CarDto CarDto { get; set; }
-        public AddCarCommand() { }
-        public AddCarCommand(CarDto car) {  CarDto = car; }
+        public CarDto Car { get; set; }
+        public AddCarCommand(CarDto car) { Car = car; }
     }
 
     public class AddCarCommandHandler(ICarRepository carRepository, IMapper mapper, IHttpContextAccessor httpContextAccessor) : IRequestHandler<AddCarCommand, CarDto>
@@ -23,13 +22,13 @@ namespace CarTroubleSolver.Logic.Functions.Car.Command
 
         public Task<CarDto> Handle(AddCarCommand request, CancellationToken cancellationToken)
         {
-            var car = _mapper.Map<Data.Models.Car>(request.CarDto);
+            var car = _mapper.Map<Data.Models.Car>(request.Car);
 
             car.OwnerId = (Guid.Parse(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)));
 
             car.Id = Guid.NewGuid();
 
-            return _carRepository.Add(car).IsCompletedSuccessfully ? Task.FromResult(request.CarDto) : throw new Exception();
+            return _carRepository.Add(car).IsCompletedSuccessfully ? Task.FromResult(request.Car) : throw new Exception();
           
         }
     }

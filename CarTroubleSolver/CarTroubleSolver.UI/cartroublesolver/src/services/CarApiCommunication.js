@@ -37,25 +37,16 @@ const fetchCarModels = async (selectedBrand) => {
 
 const CreateCar = async (Car) => {
   try {
-    const response = await axios.post(`${BASE_URL}/AddCar`,{
-        VIN: Car.VIN,
-        Brand:Car.Brand,
-        Model:Car.Model,
-        Color:Car.Color,
-        DoorCount:Car.DoorCount,
-        DateOfProduction:Car.DateOfProduction,
-        CarType:Car.Type,
-    },
-      {
+    const response = await axios.post(`${BASE_URL}/AddCar`, Car, {
       headers: {
-        'Authorization': 'Bearer ' + AuthService.getToken(),
-      }
+        'Authorization': `Bearer ${AuthService.getToken()}`,
+      },
     });
     return response.data.result;
   } catch (error) {
-    console.error('Error fetching car data:', error);
+    console.error('Error creating car:', error);
     throw error;
   }
-}
+};
 
 export {  fetchCarBrand,  fetchCarModels, CreateCar };

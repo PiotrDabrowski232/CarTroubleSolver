@@ -4,6 +4,7 @@ import PrimeVue from 'primevue/config';
 import router from './router'
 import ToastService from 'primevue/toastservice';
 import Dialog from 'primevue/dialog';
+import ColorPicker from 'primevue/colorpicker';
 
 //Primevue Components
 import Toast from 'primevue/toast';
@@ -37,7 +38,7 @@ app.component('FloatLabel', FloatLabel);
 app.component('Calendar', Calendar);
 app.component('Toast', Toast);
 app.component('Dialog', Dialog);
-
+app.component('ColorPicker', ColorPicker);
 
 app.use(router);
 app.use(ToastService);
