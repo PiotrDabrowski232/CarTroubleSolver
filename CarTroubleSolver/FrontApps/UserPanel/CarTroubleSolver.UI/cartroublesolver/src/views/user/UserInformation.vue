@@ -14,8 +14,8 @@
     <div class="car-section">
     <button type="button" @click="AddCar" class="btn btn-outline-info btn-lg addcarButton">Add Car</button>
     <div class="cardSection">
-      <div v-for="(car, index) in User.cars" :key="index" class="card" :class="{'even': index % 2 === 0, 'odd': index % 2 !== 0}" :style="[getBorderColor(car.color)]">
-        <img class="card-img-top" src="car-photo.jpg" alt="Card image cap">
+      <div v-for="(car, index) in this.displayCars()" :key="index"  class="card" :class="{'even': index % 2 === 0, 'odd': index % 2 !== 0}" :style="[getBorderColor(car.color)]">
+        <img class="card-img-top" :src="require('@/assets/pobranyplik.jpg')" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{ car.brand }} {{ car.model }}</h5>
           <p class="card-text">VIN: {{ car.vin }}</p>
@@ -24,8 +24,10 @@
         </div>
       </div>
     </div>
-  </div>
 
+    <Paginator class="paginator" v-model:first="first" :rows="1" :totalRecords="countPageNumber()" @click="nextPage(first)"></Paginator>
+  
+  </div>
         <Dialog v-model:visible="visible" modal header="Change your password" :style="{ width: '27rem' }">
 
           <form id="myForm" class="needs-validation" novalidate @submit.prevent="TryReset">
@@ -74,6 +76,7 @@
 
       <div class="functional-buttons">
         <button type="submit" @click="visible = true" class="btn btn-warning">Reset Password</button>
+        <button type="button" class="btn btn-outline-dark">Accident History</button>
       </div>
 
 
@@ -96,7 +99,7 @@ import router from '@/router';
         email:null,
         phoneNumber:null,
         dateOfBierh:null,
-        cars:null,
+        cars:[],
       },
       ResetUser:{
           Password: null,
@@ -109,12 +112,39 @@ import router from '@/router';
           NewConfirmedPassword: null
         },
         visible: false,
+        paginatedCar:[],
+        firstDisplayed:0,
+        lastDisplayed:3,
     }
   },
   mounted(){
       this.fetchData()
+      this.countPageNumber()
   },
   methods:{
+    displayCars(){
+      if(this.User.cars){
+        this.paginatedCar=[]
+        for(let i=this.firstDisplayed; i<=this.lastDisplayed; i++)
+          if(this.User.cars[i])
+            this.paginatedCar.push(this.User.cars[i])
+      }
+      this.countPageNumber()
+      return this.paginatedCar;
+    },
+    countPageNumber(){
+      if(this.User.cars.length % 4 !== 0){
+        return (this.User.cars.length%4)+1
+      }
+      else{
+        return this.User.cars.length%4
+      }
+    },
+    nextPage(index){
+        this.firstDisplayed = index * 4
+        this.lastDisplayed = index * 4 + 3
+        this.displayCars()
+    },
       isEmpty: function(value){
         return (value == null || (typeof value === "string" && value.trim().length === 0));
       },
@@ -259,10 +289,10 @@ import router from '@/router';
   }
   .car-section{
     position: absolute;
-    top: 12vh;
+    top: 9vh;
     right: 3vw;
     width: 35vw;
-    height: fit-content;
+    height: 86vh;
   }
 
   .addcarButton{
@@ -298,5 +328,19 @@ import router from '@/router';
   padding-top: 2vh;
 }
 
-  
+.functional-buttons .btn-outline-dark{
+  display: block;
+  margin-top: 2vh;
+  width: 21vw;
+  font-size: large;
+  letter-spacing: 2px;
+}
+img{
+  height: 15.5vh;
+}
+
+.paginator{
+position:inherit;
+bottom: -15px;  
+}
 </style>

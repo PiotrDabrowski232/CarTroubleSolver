@@ -14,6 +14,7 @@ import Button from 'primevue/button';
 import InputText from 'primevue/inputtext';
 import Calendar from 'primevue/calendar';
 import Card from 'primevue/card';
+import Paginator from 'primevue/paginator';
 
 
 import 'bootstrap/dist/css/bootstrap.css'
@@ -44,6 +45,7 @@ app.component('Toast', Toast);
 app.component('Dialog', Dialog);
 app.component('ColorPicker', ColorPicker);
 app.component('Card', Card);
+app.component('Paginator', Paginator);
 
 app.use(router);
 app.use(ToastService);
