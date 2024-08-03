@@ -8,9 +8,9 @@ using CarTroubleSolver.Logic.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text;
 
 namespace CarTroubleSolver.Logic.Services
@@ -30,7 +30,7 @@ namespace CarTroubleSolver.Logic.Services
         {
             var user = _userRepository.Get(id).Result;
 
-            return (_passwordHasher.VerifyHashedPassword(user, user.Password, providedPassword) == PasswordVerificationResult.Failed) ? throw new NotFoundException("Incorrect Password") :  true;
+            return (_passwordHasher.VerifyHashedPassword(user, user.Password, providedPassword) == PasswordVerificationResult.Failed) ? throw new NotFoundException("Incorrect Password") : true;
 
         }
 
@@ -38,6 +38,10 @@ namespace CarTroubleSolver.Logic.Services
         {
             string result = _passwordHasher.HashPassword(null, password);
             return result;
+        }
+        private User UserData(Guid Id)
+        {
+            return _userRepository.Get(Id).Result;
         }
         #endregion 
 
@@ -74,7 +78,7 @@ namespace CarTroubleSolver.Logic.Services
             {
                 if (_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier) != null)
                 {
-                    var user = _userRepository.Get(Guid.Parse(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier))).Result;
+                    var user = UserData(Guid.Parse(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)));
                     var userDto = user != null ? _mapper.Map<UserDto>(user) : throw new NotFoundException("There is no user with specified data");
                     return userDto;
                 }
@@ -82,7 +86,7 @@ namespace CarTroubleSolver.Logic.Services
                 {
                     throw new NotFoundException("There is no user with specified data");
                 }
-                
+
             }
             catch
             {
@@ -159,6 +163,11 @@ namespace CarTroubleSolver.Logic.Services
 
 
             return tokenHendler.WriteToken(token);
+        }
+
+        public bool AccessToRemoveObjects(string vin)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -25,11 +25,11 @@ namespace CarTroubleSolver.Logic.Functions.User.Querry
         private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
         public Task<UserDto> Handle(GetUserInfoQuerry request, CancellationToken cancellationToken)
         {
-            request.Id = Guid.Parse(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+            request.Id = Guid.Parse(_httpContextAccessor?.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier) ?? throw new Exception("there is no user with provided data"));
            
             var user = _dbContext.Users
                 .Where(u => u.Id == request.Id)
-                .Include(u => u.Cars)
+                .Include(u => u.Cars.OrderByDescending(x => x.Brand))
                     .ThenInclude(c => c.Color)
                 .FirstOrDefault();
 

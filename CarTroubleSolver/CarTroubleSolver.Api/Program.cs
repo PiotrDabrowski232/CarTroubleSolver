@@ -3,10 +3,12 @@ using CarTroubleSolver.Data.Data;
 using CarTroubleSolver.Data.Models;
 using CarTroubleSolver.Data.Repositories;
 using CarTroubleSolver.Data.Repositories.Interfaces;
+using CarTroubleSolver.Logic.Dto.Car;
 using CarTroubleSolver.Logic.Dto.User;
 using CarTroubleSolver.Logic.Factories.Car.Model.ModelFactory;
 using CarTroubleSolver.Logic.Services;
 using CarTroubleSolver.Logic.Services.Interfaces;
+using CarTroubleSolver.Logic.Validation.CarValidators;
 using CarTroubleSolver.Logic.Validation.UserValidators;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -49,6 +51,7 @@ builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IValidator<RegisterUserDto>, RegisterUserDtoValidator>();
 builder.Services.AddScoped<IValidator<ChangePasswordUserDto>, ChangePasswordUserDtoValidator>();
+builder.Services.AddScoped<IValidator<CarDto>, CarDtoValidator>();
 builder.Services.AddSingleton<ModelFactory>();
 
 builder.Services.AddMediatR(cfg => {

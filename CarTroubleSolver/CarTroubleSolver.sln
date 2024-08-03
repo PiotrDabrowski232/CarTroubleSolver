@@ -5,9 +5,11 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarTroubleSolver.Api", "CarTroubleSolver.Api\CarTroubleSolver.Api.csproj", "{5E0BF721-E952-4347-8B1A-29D6AE1BADFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarTroubleSolver.Logic", "CarTroubleSolver.Logic\CarTroubleSolver.Logic.csproj", "{9A6610C6-EDF1-4843-88EE-9C459DEFE986}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarTroubleSolver.Logic", "CarTroubleSolver.Logic\CarTroubleSolver.Logic.csproj", "{9A6610C6-EDF1-4843-88EE-9C459DEFE986}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarTroubleSolver.Data", "CarTroubleSolver.Data\CarTroubleSolver.Data.csproj", "{6AEE204B-47D8-4736-876A-6DFC6FD28401}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarTroubleSolver.Data", "CarTroubleSolver.Data\CarTroubleSolver.Data.csproj", "{6AEE204B-47D8-4736-876A-6DFC6FD28401}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserPanel", "UserPanel", "{77A2D965-9EE2-47DD-B55A-EC2FE08E334A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +32,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5E0BF721-E952-4347-8B1A-29D6AE1BADFA} = {77A2D965-9EE2-47DD-B55A-EC2FE08E334A}
+		{9A6610C6-EDF1-4843-88EE-9C459DEFE986} = {77A2D965-9EE2-47DD-B55A-EC2FE08E334A}
+		{6AEE204B-47D8-4736-876A-6DFC6FD28401} = {77A2D965-9EE2-47DD-B55A-EC2FE08E334A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8BF0AF27-97E5-4086-B147-50D8613A1DF4}

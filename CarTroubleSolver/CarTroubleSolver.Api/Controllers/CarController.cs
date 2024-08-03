@@ -1,9 +1,8 @@
-﻿using CarTroubleSolver.Logic.Services.Interfaces;
+﻿using CarTroubleSolver.Logic.Dto.Car;
+using CarTroubleSolver.Logic.Functions.Car.Command;
 using CarTroubleSolver.Logic.Functions.Car.Query;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using CarTroubleSolver.Logic.Dto.Car;
-using CarTroubleSolver.Logic.Functions.Car.Command;
 
 namespace CarTroubleSolver.Api.Controllers
 {
@@ -22,7 +21,8 @@ namespace CarTroubleSolver.Api.Controllers
                 var result = _mediator.Send(new GetBasicCarConfigQuery());
                 return Ok(result);
 
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -30,7 +30,7 @@ namespace CarTroubleSolver.Api.Controllers
 
         [HttpGet]
         [Route("/Models")]
-        public async Task<IActionResult> GetCarModels([FromQuery] string Brand) 
+        public async Task<IActionResult> GetCarModels([FromQuery] string Brand)
         {
             try
             {
@@ -50,6 +50,21 @@ namespace CarTroubleSolver.Api.Controllers
             try
             {
                 var result = _mediator.Send(new AddCarCommand(Car));
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("/Delete/{VIN}")]
+        public IActionResult Delete([FromQuery] string VIN)
+        {
+            try
+            {
+                var result = _mediator.Send(new RemoveCarCommand(VIN));
                 return Ok(result);
             }
             catch (Exception ex)

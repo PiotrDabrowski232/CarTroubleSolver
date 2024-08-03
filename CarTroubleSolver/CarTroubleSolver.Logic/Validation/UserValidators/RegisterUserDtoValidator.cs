@@ -1,18 +1,12 @@
 ﻿using CarTroubleSolver.Data.Data;
 using CarTroubleSolver.Logic.Dto.User;
 using FluentValidation;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarTroubleSolver.Logic.Validation.UserValidators
 {
     public class RegisterUserDtoValidator : AbstractValidator<RegisterUserDto>
     {
-        public RegisterUserDtoValidator(){ }
+        public RegisterUserDtoValidator() { }
         public RegisterUserDtoValidator(CarTroubleSolverDbContext dbContext)
         {
             RuleFor(x => x.Name)

@@ -2,13 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\CarTroubleSolver",
-    "\\CarTroubleSolver\\CarTroubleSolver.Api",
-    "\\CarTroubleSolver\\CarTroubleSolver.Api\\Controllers",
-    "\\CarTroubleSolver\\CarTroubleSolver.Logic",
-    "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Functions",
-    "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Functions\\Car",
-    "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Functions\\Car\\Command"
+    "\\CarTroubleSolver\\UserPanel"
   ],
-  "SelectedNode": "\\CarTroubleSolver\\CarTroubleSolver.Logic\\Functions\\Car\\Command\\AddCarCommand.cs",
+  "SelectedNode": "\\CarTroubleSolver\\CarTroubleSolver.sln",
   "PreviewInSolutionExplorer": false
 }
