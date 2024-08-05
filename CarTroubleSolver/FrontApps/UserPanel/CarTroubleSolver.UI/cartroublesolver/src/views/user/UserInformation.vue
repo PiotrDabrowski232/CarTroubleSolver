@@ -12,7 +12,7 @@
     </div>
 
     <div class="car-section">
-    <button type="button" @click="AddCar" class="btn btn-outline-info btn-lg addcarButton">Add Car</button>
+    <button type="button" @click="AddCar()" class="btn btn-outline-info btn-lg addcarButton">Add Car</button>
     <div class="cardSection">
       <div v-for="(car, index) in this.displayCars()" :key="index"  class="card" :class="{'even': index % 2 === 0, 'odd': index % 2 !== 0}" :style="[getBorderColor(car.color)]">
         <img class="card-img-top" :src="require('@/assets/pobranyplik.jpg')" alt="Card image cap">
