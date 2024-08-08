@@ -49,7 +49,18 @@ const CreateCar = async (Car) => {
     throw error;
   }
 };
+const tryDelete = async (vin) => {
+  try {
+     await axios.post(`${BASE_URL}/Delete?VIN=${vin}`, null,{
+      headers: {
+        'Authorization': `Bearer ${AuthService.getToken()}`,
+      },
+    });
+  } catch (error) {
+    console.error('Error creating car:', error);
+    throw error;
+  }
+};
 
 
-
-export {  fetchCarBrand,  fetchCarModels, CreateCar };
+export {  fetchCarBrand,  fetchCarModels, CreateCar, tryDelete };

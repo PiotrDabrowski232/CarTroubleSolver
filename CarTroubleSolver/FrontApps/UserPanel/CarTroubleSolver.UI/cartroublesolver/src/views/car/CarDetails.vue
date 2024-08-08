@@ -1,5 +1,10 @@
 <template>
   <div>
+    <Toast position="top-center" />
+      <Dialog v-model:visible="visible" modal header="Are you sure you want to remove the car?" :style="{ width: '20rem' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
+      <button type="button" class="btn btn-outline-info" @click="visible = false">Cancel</button>
+      <button type="button" class="btn btn-outline-danger" @click="deleteCar()">Delete</button>
+    </Dialog>
 
     <div class="CarDetais">
       <p><strong :style="[getCarColor(this.car.color)]">VIN: </strong> {{ this.car.vin}}</p>
@@ -11,7 +16,8 @@
     </div>
 
     <div class="details-functional-buttons">
-        <button type="button" class="btn btn-outline-danger">Delete Car</button>
+      
+        <button type="button" class="btn btn-outline-danger" @click="visible = true" >Delete Car</button>
         <button type="button" class="btn btn-outline-warning">Update Car Details</button>
     </div>
 
@@ -22,9 +28,9 @@
           <div class="card">
             <div class="card-body" :style="visitStatus(visitationType)">
               <h5 class="card-title"><strong>Type of Visit: Zmiana Oleju</strong></h5>
-              <p class="card-text">Date: </p>
-              <p class="card-text">Time: </p>
-              <p class="card-text">Place: </p>
+              <p class="card-text">Date: 20-12-2020</p>
+              <p class="card-text">Time: 15:20</p>
+              <p class="card-text">Place: Jakaś nazwa warsztatu</p>
             </div>
           </div>
         </div>
@@ -33,16 +39,21 @@
 
     </div>
 
+    
 
   </div>
 </template>
 
 <script>
+import {tryDelete} from "../../services/CarApiCommunication"
+import router from '@/router';
+
 export default {
   name: 'CarDetails',
   data() {
     return {
       car: null,
+      visible:false,
     };
   },
   created() {
@@ -73,8 +84,16 @@ export default {
         return `background-color:  rgb(210, 201, 25);`
       }
       else{
-        return `background-color:  rgb(86, 168, 250);`
+        return `background-color:  rgb(86, 168, 250);` 
       }
+    },
+    deleteCar(){
+      tryDelete(this.car.vin)
+      localStorage.clear()
+      this.$toast.add({ severity: 'success', summary: 'Car removed successfully', life: 3000 });
+          setTimeout(() => {
+            router.push("/UserInfo")
+          }, 3000);      
     }
   }
 }
@@ -137,6 +156,9 @@ export default {
   letter-spacing: 0.125vw;
   display: block;
   margin-top: 2vh;
+}
+.p-dialog-content .btn-outline-danger{
+  margin-left:6vw;
 }
 
 </style>

@@ -2,6 +2,7 @@
 using CarTroubleSolver.Logic.Functions.Car.Command;
 using CarTroubleSolver.Logic.Functions.Car.Query;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarTroubleSolver.Api.Controllers
@@ -45,6 +46,7 @@ namespace CarTroubleSolver.Api.Controllers
 
         [HttpPost]
         [Route("/AddCar")]
+        [Authorize]
         public IActionResult Add([FromBody] CarDto Car)
         {
             try
@@ -59,7 +61,8 @@ namespace CarTroubleSolver.Api.Controllers
         }
 
         [HttpPost]
-        [Route("/Delete/{VIN}")]
+        [Route("/Delete")]
+        [Authorize]
         public IActionResult Delete([FromQuery] string VIN)
         {
             try

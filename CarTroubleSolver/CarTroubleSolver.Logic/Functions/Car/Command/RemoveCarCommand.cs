@@ -22,7 +22,9 @@ namespace CarTroubleSolver.Logic.Functions.Car.Command
 
         public Task Handle(RemoveCarCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();    
+            var result = _carRepository.DeleteCarByVinNumber(long.Parse(request.VIN));
+
+            return Task.FromResult(result);
         }
     }
 }

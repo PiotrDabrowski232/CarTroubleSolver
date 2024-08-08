@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <Paginator class="paginator" v-model:first="first" :rows="1" :totalRecords="countPageNumber()" @click="nextPage(first)"></Paginator>
+    <Paginator v-if="countPageNumber() > 1" class="paginator" v-model:first="first" :rows="1" :totalRecords="countPageNumber()" @click="nextPage(first)"></Paginator>
   
   </div>
         <Dialog v-model:visible="visible" modal header="Change your password" :style="{ width: '27rem' }">
@@ -118,11 +118,11 @@ import router from '@/router';
     }
   },
   mounted(){
-      this.fetchData()
       this.countPageNumber()
   },
   methods:{
     displayCars(){
+      this.fetchData()
       if(this.User.cars){
         this.paginatedCar=[]
         for(let i=this.firstDisplayed; i<=this.lastDisplayed; i++)
@@ -132,12 +132,13 @@ import router from '@/router';
       this.countPageNumber()
       return this.paginatedCar;
     },
-    countPageNumber(){
-      if(this.User.cars.length % 4 !== 0){
-        return (this.User.cars.length%4)+1
-      }
-      else{
-        return this.User.cars.length%4
+    countPageNumber() {
+      const carsCount = this.User.cars.length;
+      
+      if (carsCount % 4 === 0) {
+        return carsCount / 4;
+      } else {
+        return Math.floor(carsCount / 4) + 1;
       }
     },
     nextPage(index){
