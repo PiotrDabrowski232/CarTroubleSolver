@@ -9,5 +9,7 @@
         public int DoorCount { get; set; }
         public DateTime DateOfProduction { get; set; }
         public string Type { get; set; }
+        public long Mileage { get; set; }
+        public string Engine { get; set; }
     }
 }

@@ -15,17 +15,17 @@
     <button type="button" @click="AddCar()" class="btn btn-outline-info btn-lg addcarButton">Add Car</button>
     <div class="cardSection">
       <div v-for="(car, index) in this.displayCars()" :key="index"  class="card" :class="{'even': index % 2 === 0, 'odd': index % 2 !== 0}" :style="[getBorderColor(car.color)]">
-        <img class="card-img-top" :src="require('@/assets/pobranyplik.jpg')" alt="Card image cap">
+        <img class="card-img-top" :src="car.imageUrl" alt="Car image cap">
         <div class="card-body">
           <h5 class="card-title">{{ car.brand }} {{ car.model }}</h5>
           <p class="card-text">VIN: {{ car.vin }}</p>
-          <p class="card-text">Car Type: {{ car.carType }}</p>
+          <p class="card-text">Car Type: {{ car.type }}</p>
           <a href="#" class="btn" :style="getButtonStyle(car.color)" @click="CarDetails(car.vin)">Car Details</a>
-        </div>
+        </div>  
       </div>
     </div>
 
-    <Paginator v-if="countPageNumber() > 1" class="paginator" v-model:first="first" :rows="1" :totalRecords="countPageNumber()" @click="nextPage(first)"></Paginator>
+    <Paginator v-if="countPageNumber() > 1" class="paginator" v-model:first="this.first" :rows="1" :totalRecords="countPageNumber()" @click="nextPage(first)"></Paginator>
   
   </div>
         <Dialog v-model:visible="visible" modal header="Change your password" :style="{ width: '27rem' }">
@@ -85,13 +85,15 @@
     
 <script>
 import { fetchUserData, ResetPassword } from '@/services/UserApiCommunication.js';
-import router from '@/router';
+import { CarImage } from '@/services/CarApiCommunication.js';
 
+import router from '@/router';
 
     export default {
   name: 'UserInformation',
   data(){
     return {
+      images: {},
       response:null,
       User:{
         name:null,
@@ -115,36 +117,41 @@ import router from '@/router';
         paginatedCar:[],
         firstDisplayed:0,
         lastDisplayed:3,
+        first: 0,
     }
   },
-  mounted(){
+  created(){
       this.countPageNumber()
+      this.fetchData()
   },
   methods:{
-    displayCars(){
-      this.fetchData()
-      if(this.User.cars){
-        this.paginatedCar=[]
-        for(let i=this.firstDisplayed; i<=this.lastDisplayed; i++)
-          if(this.User.cars[i])
-            this.paginatedCar.push(this.User.cars[i])
+    async loadCarImages() {
+      for (let car of this.User.cars) {
+        car.imageUrl = await this.DownloadImage(car.vin);
       }
-      this.countPageNumber()
+      this.displayCars();
+    },
+    displayCars() {
+      this.paginatedCar = this.User.cars.slice(this.firstDisplayed, this.lastDisplayed + 1);
+      this.countPageNumber();
       return this.paginatedCar;
     },
     countPageNumber() {
-      const carsCount = this.User.cars.length;
-      
-      if (carsCount % 4 === 0) {
-        return carsCount / 4;
-      } else {
-        return Math.floor(carsCount / 4) + 1;
-      }
+      return Math.ceil(this.User.cars.length / 4);
     },
-    nextPage(index){
-        this.firstDisplayed = index * 4
-        this.lastDisplayed = index * 4 + 3
-        this.displayCars()
+    nextPage(index) {
+      this.firstDisplayed = index * 4;
+      this.lastDisplayed = index * 4 + 3;
+      this.displayCars();
+    },
+    async DownloadImage(vin) {
+      try {
+        const imageUrl = await CarImage(vin);
+        return imageUrl;
+      } catch (error) {
+        console.error("Error downloading image:", error);
+        return require('@/assets/default.png');
+      }
     },
       isEmpty: function(value){
         return (value == null || (typeof value === "string" && value.trim().length === 0));
@@ -157,7 +164,7 @@ import router from '@/router';
       this.User.phoneNumber = this.response.phoneNumber,
       this.User.dateOfBierh = this.response.dateOfBirth
       this.User.cars = this.response.cars
-      console.log(this.User.cars)
+      await this.loadCarImages(); 
     },
     ResetPassword(){
       this.displayFormula = !this.displayFormula
@@ -247,7 +254,7 @@ import router from '@/router';
   },
   CarDetails(vin){
     router.push(`/CarDetails/${vin}`)
-  }
+  },
   }
 }
 

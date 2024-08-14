@@ -10,15 +10,18 @@
       <p><strong :style="[getCarColor(this.car.color)]">VIN: </strong> {{ this.car.vin}}</p>
       <p><strong :style="[getCarColor(this.car.color)]">Brand: </strong> {{ this.car.brand }}</p>
       <p><strong :style="[getCarColor(this.car.color)]">Model: </strong> {{ this.car.model }}</p>
-      <p><strong :style="[getCarColor(this.car.color)]">Type: </strong> {{ this.car.carType }}</p>
+      <p><strong :style="[getCarColor(this.car.color)]">Type: </strong> {{ this.car.type }}</p>
+      <p><strong :style="[getCarColor(this.car.color)]">Mileage: </strong> {{ this.car.mileage }}</p>
+      <p><strong :style="[getCarColor(this.car.color)]">Engine: </strong> {{ this.car.engine }}</p>
       <p><strong :style="[getCarColor(this.car.color)]">Production Year: </strong> {{ this.convertDate(this.car.dateOfProduction) }}</p>
       <p><strong :style="[getCarColor(this.car.color)]">Door Count: </strong> {{ this.car.doorCount }}</p>
+
     </div>
 
     <div class="details-functional-buttons">
       
-        <button type="button" class="btn btn-outline-danger" @click="visible = true" >Delete Car</button>
-        <button type="button" class="btn btn-outline-warning">Update Car Details</button>
+        <button type="button" class="btn btn-outline-danger" @click="visible = true">Delete Car</button>
+        <button type="button" class="btn btn-outline-warning" @click="this.UpdateDetails()">Update Car Details</button>
     </div>
 
     <div class="visit-section">
@@ -60,10 +63,12 @@ export default {
     this.fetchCarByVIN();
   },
   methods: {
+    UpdateDetails(){
+      router.push(`/ChangeCarDetails/${this.$route.params.vin}`)
+    },
     fetchCarByVIN() {
       const userCars = JSON.parse(localStorage.getItem("userCars")) || [];
       const car = userCars.find(car => car.vin == this.$route.params.vin);
-      console.log(car)
       if (car) {
         this.car = car;
       } else {
@@ -111,8 +116,8 @@ export default {
 }
 
 .CarDetais p {
-  font-size: 150%;
-  margin-top: 1.2rem;
+  font-size: 140%;
+  margin-top: 1rem;
   margin-left: 4vw;
 }
 
@@ -128,10 +133,10 @@ export default {
 
 .paginator{
   border: none;
-  margin-top: 6.5vh;
+  margin-top: 3vh;
 }
 .visit-section{
-  padding-top: 7vh;
+  padding-top: 4vh;
 }
 
 .visit-section h4{

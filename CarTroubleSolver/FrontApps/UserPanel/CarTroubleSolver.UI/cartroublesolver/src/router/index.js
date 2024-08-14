@@ -5,6 +5,8 @@ import Home from '../views/Home.vue'
 import UserInformation from '../views/user/UserInformation'
 import CarForm from '@/views/car/CarForm.vue'
 import CarDetails from '@/views/car/CarDetails.vue'
+import UpdateCarDetails from '@/views/car/UpdateCarDetails.vue'
+
 
 
 
@@ -38,6 +40,11 @@ const routes = [
     path: '/CarDetails/:vin',
     name: 'CarDetails',
     component: CarDetails
+  },
+  {
+    path: '/ChangeCarDetails/:vin',
+    name: 'ChangeCarDetails',
+    component: UpdateCarDetails
   },
 ]
 

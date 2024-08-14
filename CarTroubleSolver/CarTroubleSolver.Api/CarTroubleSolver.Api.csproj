@@ -33,4 +33,9 @@
     <ProjectReference Include="..\CarTroubleSolver.Logic\CarTroubleSolver.Logic.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\Car\" />
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+
 </Project>

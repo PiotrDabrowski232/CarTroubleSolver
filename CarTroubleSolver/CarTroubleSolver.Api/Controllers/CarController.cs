@@ -75,5 +75,21 @@ namespace CarTroubleSolver.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPut]
+        [Route("/UpdateData")]
+        [Authorize]
+        public IActionResult Update([FromBody] UpdateCarDto car)
+        {
+            try
+            {
+                var result = _mediator.Send(new UpdateCarDetailsCommand(car));
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

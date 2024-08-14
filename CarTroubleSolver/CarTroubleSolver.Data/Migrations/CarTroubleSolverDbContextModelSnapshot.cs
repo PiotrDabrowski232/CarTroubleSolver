@@ -43,6 +43,16 @@ namespace CarTroubleSolver.Data.Migrations
                     b.Property<int>("DoorCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("Engine")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("Mileage")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("Model")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

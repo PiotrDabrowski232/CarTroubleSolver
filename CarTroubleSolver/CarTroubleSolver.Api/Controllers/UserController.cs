@@ -1,9 +1,6 @@
-﻿using CarTroubleSolver.Data.Models;
-using CarTroubleSolver.Logic.Dto.User;
+﻿using CarTroubleSolver.Logic.Dto.User;
 using CarTroubleSolver.Logic.Functions.User.Querry;
 using CarTroubleSolver.Logic.Services.Interfaces;
-using CarTroubleSolver.Logic.Validation.UserValidators;
-using FluentValidation.Results;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -40,7 +37,7 @@ namespace CarTroubleSolver.Api.Controllers
         [Authorize]
         public ActionResult<UserDto> Get()
         {
-            try 
+            try
             {
                 var user = _mediator.Send(new GetUserInfoQuerry());
                 return Ok(user);
@@ -57,7 +54,7 @@ namespace CarTroubleSolver.Api.Controllers
         {
             try
             {
-                var userResult =_userService.RegisterUser(registerUser);
+                var userResult = _userService.RegisterUser(registerUser);
                 return Ok(userResult);
             }
             catch (Exception ex)

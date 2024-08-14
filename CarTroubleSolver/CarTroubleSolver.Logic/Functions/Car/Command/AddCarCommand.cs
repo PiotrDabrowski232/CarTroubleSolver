@@ -2,9 +2,9 @@
 using CarTroubleSolver.Data.Repositories.Interfaces;
 using CarTroubleSolver.Logic.Dto.Car;
 using MediatR;
-using CarTroubleSolver.Data.Models;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
+
 namespace CarTroubleSolver.Logic.Functions.Car.Command
 {
     public class AddCarCommand : IRequest<CarDto>
@@ -29,7 +29,7 @@ namespace CarTroubleSolver.Logic.Functions.Car.Command
             car.Id = Guid.NewGuid();
 
             return _carRepository.Add(car).IsCompletedSuccessfully ? Task.FromResult(request.Car) : throw new Exception();
-          
+
         }
     }
 }

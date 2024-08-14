@@ -1,11 +1,58 @@
 {
   "Version": 1,
-  "Hash": "Jx1Bp8l/1Nnf99WDBedMSJeGBj0EYg/kZ0qo0mxEXmM=",
+  "Hash": "E2dcB+wnNfmpzs97UxSLmXN1rf1Jb3ESHPZl/QK45QI=",
   "Source": "CarTroubleSolver.Api",
   "BasePath": "_content/CarTroubleSolver.Api",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "CarTroubleSolver.Api\\wwwroot",
+      "Source": "CarTroubleSolver.Api",
+      "ContentRoot": "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Api\\wwwroot\\",
+      "BasePath": "_content/CarTroubleSolver.Api",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Api\\wwwroot\\Images\\Car\\33414504029120876.jpg",
+      "SourceId": "CarTroubleSolver.Api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Api\\wwwroot\\",
+      "BasePath": "_content/CarTroubleSolver.Api",
+      "RelativePath": "Images/Car/33414504029120876.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Car\\33414504029120876.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Api\\wwwroot\\Images\\Car\\55541231221312344.jpg",
+      "SourceId": "CarTroubleSolver.Api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Api\\wwwroot\\",
+      "BasePath": "_content/CarTroubleSolver.Api",
+      "RelativePath": "Images/Car/55541231221312344.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Car\\55541231221312344.jpg"
+    }
+  ]
 }

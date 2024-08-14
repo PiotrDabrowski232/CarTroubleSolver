@@ -12,7 +12,7 @@ namespace CarTroubleSolver.Logic.Validation.CarValidators
 
             RuleFor(x => x.VIN)
                 .Must(x => x.ToString().Length == 17)
-                .WithMessage("Car Vin should have 17 digits")
+                .WithMessage("VIN should have 17 digits")
                 .Custom((value, context) =>
                 {
                     var vin = dbContext.Cars.Any(u => u.VIN == value);
@@ -31,6 +31,25 @@ namespace CarTroubleSolver.Logic.Validation.CarValidators
                 .NotEmpty().WithMessage("Date of production must not be empty")
                 .LessThanOrEqualTo(DateTime.Now).WithMessage("Date of production must not be in the future");
 
+            RuleFor(x => x.Model)
+                .NotEmpty()
+                .WithMessage("Select Model");
+
+            RuleFor(x => x.Brand)
+                .NotEmpty()
+                .WithMessage("Select Brand");
+
+            RuleFor(x => x.Type)
+                .NotEmpty()
+                .WithMessage("Select Type");
+
+            RuleFor(x => x.Mileage)
+                .NotEmpty()
+                .WithMessage("Mileage can not be empty");
+
+            RuleFor(x => x.Engine)
+                .NotEmpty()
+                .WithMessage("Engine can not be empty");
         }
     }
 }
