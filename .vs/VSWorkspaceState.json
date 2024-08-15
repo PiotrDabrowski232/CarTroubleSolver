@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\CarTroubleSolver",
-    "\\CarTroubleSolver\\CarTroubleSolver.Api",
-    "\\CarTroubleSolver\\CarTroubleSolver.Api\\Controllers"
+    ""
   ],
-  "SelectedNode": "\\CarTroubleSolver\\CarTroubleSolver.sln",
+  "SelectedNode": "\\CarTroubleSolver.sln",
   "PreviewInSolutionExplorer": false
 }
