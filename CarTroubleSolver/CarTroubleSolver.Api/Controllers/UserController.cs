@@ -1,8 +1,7 @@
-﻿using CarTroubleSolver.Data.Models;
-using CarTroubleSolver.Logic.Dto.User;
+﻿using CarTroubleSolver.Logic.Dto.User;
+using CarTroubleSolver.Logic.Functions.User.Querry;
 using CarTroubleSolver.Logic.Services.Interfaces;
-using CarTroubleSolver.Logic.Validation.UserValidators;
-using FluentValidation.Results;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,11 +10,12 @@ namespace CarTroubleSolver.Api.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class UserController(IUserService userService) : ControllerBase
+    public class UserController(IMediator mediator, IUserService userService) : ControllerBase
     {
         public IUserService _userService = userService;
-        
-        
+        private readonly IMediator _mediator = mediator;
+
+
         [HttpGet]
         [Route("/GetAllUsers")]
         [Authorize]
@@ -37,9 +37,9 @@ namespace CarTroubleSolver.Api.Controllers
         [Authorize]
         public ActionResult<UserDto> Get()
         {
-            try 
+            try
             {
-                var user = _userService.GetUser();
+                var user = _mediator.Send(new GetUserInfoQuerry());
                 return Ok(user);
             }
             catch (Exception ex)
@@ -54,7 +54,7 @@ namespace CarTroubleSolver.Api.Controllers
         {
             try
             {
-                var userResult =_userService.RegisterUser(registerUser);
+                var userResult = _userService.RegisterUser(registerUser);
                 return Ok(userResult);
             }
             catch (Exception ex)

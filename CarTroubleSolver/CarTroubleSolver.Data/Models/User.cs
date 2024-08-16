@@ -20,5 +20,7 @@ namespace CarTroubleSolver.Data.Models
 
         public Guid RoleId { get; set; }
         public virtual Role Role { get; set; }
+
+        public virtual ICollection<Car> Cars { get; set; }
     }
 }

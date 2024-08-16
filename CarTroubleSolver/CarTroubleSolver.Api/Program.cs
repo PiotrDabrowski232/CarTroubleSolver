@@ -3,14 +3,18 @@ using CarTroubleSolver.Data.Data;
 using CarTroubleSolver.Data.Models;
 using CarTroubleSolver.Data.Repositories;
 using CarTroubleSolver.Data.Repositories.Interfaces;
+using CarTroubleSolver.Logic.Dto.Car;
 using CarTroubleSolver.Logic.Dto.User;
+using CarTroubleSolver.Logic.Factories.Car.Model.ModelFactory;
 using CarTroubleSolver.Logic.Services;
 using CarTroubleSolver.Logic.Services.Interfaces;
+using CarTroubleSolver.Logic.Validation.CarValidators;
 using CarTroubleSolver.Logic.Validation.UserValidators;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using System.Reflection;
 using System.Text;
@@ -43,10 +47,19 @@ builder.Services.AddDbContext<CarTroubleSolverDbContext>(options => options.UseS
 //Services
 builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ICarService, CarService>();
+builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IValidator<RegisterUserDto>, RegisterUserDtoValidator>();
 builder.Services.AddScoped<IValidator<ChangePasswordUserDto>, ChangePasswordUserDtoValidator>();
+builder.Services.AddScoped<IValidator<CarDto>, CarDtoValidator>();
+builder.Services.AddScoped<IValidator<UpdateCarDto>, UpdateCarDtoValidator>();
+builder.Services.AddSingleton<ModelFactory>();
+
+builder.Services.AddMediatR(cfg => {
+    cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
+});
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
@@ -82,11 +95,34 @@ builder.Services.AddAuthorization();
 //Repos
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+builder.Services.AddScoped<ICarRepository, CarRepository>();
+
+
+var assemblies = Assembly.Load("CarTroubleSolver.Logic");
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assemblies));
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+});
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+app.UseCors("AllowAll");
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+           Path.Combine(builder.Environment.ContentRootPath, "wwwroot\\Images\\Car\\")),
+    RequestPath = "/Resources"
+});
 
 if (app.Environment.IsDevelopment())
 {

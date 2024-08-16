@@ -151,3 +151,7 @@ C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\obj\Debug\net8.0\CarTroubleSolver.Api.genruntimeconfig.cache
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\obj\Debug\net8.0\ref\CarTroubleSolver.Api.dll
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\obj\Debug\net8.0\CarTroubleSolver.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\MediatR.dll
+C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\MediatR.Contracts.dll
+C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\CarTroubleSolver.Api.staticwebassets.runtime.json

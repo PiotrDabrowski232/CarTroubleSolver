@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Api\\wwwroot\\Images\\Car\\33414504029120876.jpg",
+      "PackagePath": "staticwebassets\\Images\\Car\\33414504029120876.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Api\\wwwroot\\Images\\Car\\55541231221312344.jpg",
+      "PackagePath": "staticwebassets\\Images\\Car\\55541231221312344.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CarTroubleSolver.Api.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.CarTroubleSolver.Api.props",
+      "PackagePath": "build\\CarTroubleSolver.Api.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.CarTroubleSolver.Api.props",
+      "PackagePath": "buildMultiTargeting\\CarTroubleSolver.Api.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.CarTroubleSolver.Api.props",
+      "PackagePath": "buildTransitive\\CarTroubleSolver.Api.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

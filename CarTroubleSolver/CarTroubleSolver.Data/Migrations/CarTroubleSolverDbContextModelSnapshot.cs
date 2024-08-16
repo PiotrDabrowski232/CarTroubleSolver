@@ -22,6 +22,76 @@ namespace CarTroubleSolver.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("CarTroubleSolver.Data.Models.Car", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Brand")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CarType")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("ColorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DateOfProduction")
+                        .HasColumnType("date");
+
+                    b.Property<int>("DoorCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Engine")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("Mileage")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Model")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("OwnerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<long>("VIN")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ColorId");
+
+                    b.HasIndex("OwnerId");
+
+                    b.ToTable("Cars");
+                });
+
+            modelBuilder.Entity("CarTroubleSolver.Data.Models.CarColor", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Blue")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Green")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Red")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CarColor");
+                });
+
             modelBuilder.Entity("CarTroubleSolver.Data.Models.Role", b =>
                 {
                     b.Property<Guid>("Id")
@@ -34,7 +104,7 @@ namespace CarTroubleSolver.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Role");
+                    b.ToTable("Roles");
 
                     b.HasData(
                         new
@@ -99,6 +169,25 @@ namespace CarTroubleSolver.Data.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("CarTroubleSolver.Data.Models.Car", b =>
+                {
+                    b.HasOne("CarTroubleSolver.Data.Models.CarColor", "Color")
+                        .WithMany()
+                        .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CarTroubleSolver.Data.Models.User", "Owner")
+                        .WithMany("Cars")
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Color");
+
+                    b.Navigation("Owner");
+                });
+
             modelBuilder.Entity("CarTroubleSolver.Data.Models.User", b =>
                 {
                     b.HasOne("CarTroubleSolver.Data.Models.Role", "Role")
@@ -108,6 +197,11 @@ namespace CarTroubleSolver.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("CarTroubleSolver.Data.Models.User", b =>
+                {
+                    b.Navigation("Cars");
                 });
 #pragma warning restore 612, 618
         }

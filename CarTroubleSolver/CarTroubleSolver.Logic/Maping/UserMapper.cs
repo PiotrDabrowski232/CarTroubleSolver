@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
 using CarTroubleSolver.Data.Models;
 using CarTroubleSolver.Logic.Dto.User;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarTroubleSolver.Logic.Maping
 {
@@ -26,8 +21,6 @@ namespace CarTroubleSolver.Logic.Maping
 
             CreateMap<User, UserDto>();
             CreateMap<UserDto, User>();
-
-
         }
     }
 }

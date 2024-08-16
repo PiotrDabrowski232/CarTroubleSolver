@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarTroubleSolver.Logic.Dto.Car;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,6 @@ namespace CarTroubleSolver.Logic.Dto.User
         public string Email { get; set; }
         public int PhoneNumber { get; set; }
         public DateOnly DateOfBirth { get; set; }
+        public ICollection<CarDto>? Cars { get; set; }
     }
 }
