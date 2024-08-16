@@ -116,8 +116,6 @@ console.log(response)
       return imageUrl;
   } catch (error) {
       console.error("Error downloading image:", error);
-      
-      return require('@/assets/default.png');
   }
 };
 export { CarImage };

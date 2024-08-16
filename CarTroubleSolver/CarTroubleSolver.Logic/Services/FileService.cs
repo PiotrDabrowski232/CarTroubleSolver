@@ -1,10 +1,12 @@
-﻿using CarTroubleSolver.Data.Repositories.Interfaces;
+﻿using CarTroubleSolver.Data.Models;
+using CarTroubleSolver.Data.Repositories.Interfaces;
 using CarTroubleSolver.Logic.Consts;
 using CarTroubleSolver.Logic.Dto.Car;
 using CarTroubleSolver.Logic.Dto.File;
 using CarTroubleSolver.Logic.Services.Interfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CarTroubleSolver.Logic.Services
 {
@@ -79,7 +81,7 @@ namespace CarTroubleSolver.Logic.Services
 
             if (string.IsNullOrEmpty(filePath) || !File.Exists(filePath))
             {
-                throw new NotSupportedException("File not found.");
+                return new FileDto(new FileStream("C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Api\\wwwroot\\Images\\DefaultImages\\default.png", FileMode.Open, FileAccess.Read), $"image/png", Path.GetFileName(filePath));
             }
 
             var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
