@@ -3,16 +3,41 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <router-link class="navbar-brand router-link" to="/"  exact-path>Home</router-link>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <button v-on:click="Logout()">Logout</button>
-          </li>
-          <li class="nav-item">
-            <router-link class="router-link" to="/UserInfo" exact-path>User Info</router-link>
-          </li>
-        </ul>
+
+        <div class="dropdown">
+          <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="pi pi-user" style="font-size: 1.5rem; color:darkgreen; "></i>
+          </button>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item">
+              <router-link v-on:click="Logout()" class="router-link" to="/" exact-path>Logout</router-link>
+            </li>
+            <li class="dropdown-item">
+              <router-link class="router-link" to="/UserInfo" exact-path>User Info</router-link>
+            </li>
+          </ul>
+        </div>
+
+        <button type="button" class="btn position-relative" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+          <i class="pi pi-envelope" style="font-size: 1.5rem; color:darkgreen; "></i>
+          <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+            <span class="visually-hidden">New alerts</span>
+          </span>
+        </button>
       </div>
     </nav>
+
+    <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="staticBackdropLabel">Offcanvas</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            I will not close if you click outside of me.
+          </div>
+        </div>
+    </div>
 
 </template>
       
@@ -55,22 +80,20 @@
         border-bottom: 1px solid black;
       }
       
-      .navbar-brand{
-        padding-left: 2.8vw;
-        margin-top: 1vw;
-      }
-      
       #navbarNav{
         margin-right: 4vw;
       }
       
+      .dropdown{
+        margin-right: vw;
+      }
+
       .navbar-nav{
         margin-top: 1.2vh;
         padding-right: 2vw;
       }
-      .nav-item .router-link{
+      .dropdown-item .router-link{
         color:black;
-        padding-left: 2vw;
         text-decoration: none;
       }
       .main{

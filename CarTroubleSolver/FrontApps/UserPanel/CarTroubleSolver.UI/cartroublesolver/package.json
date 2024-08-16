@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@primevue/themes": "^4.0.4",
     "@vuepic/vue-datepicker": "^8.2.0",
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
@@ -17,7 +18,7 @@
     "jsonwebtoken": "^9.0.2",
     "mitt": "^3.0.1",
     "primeicons": "^7.0.0",
-    "primevue": "^3.49.1",
+    "primevue": "^3.53.0",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
     "vuex": "^4.1.0"
