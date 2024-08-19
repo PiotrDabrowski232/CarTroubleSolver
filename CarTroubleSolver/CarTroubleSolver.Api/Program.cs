@@ -1,18 +1,7 @@
 using CarTroubleSolver.Api.Authentication;
+using CarTroubleSolver.Api.DIConfig;
 using CarTroubleSolver.Data.Data;
-using CarTroubleSolver.Data.Models;
-using CarTroubleSolver.Data.Repositories;
-using CarTroubleSolver.Data.Repositories.Interfaces;
-using CarTroubleSolver.Logic.Dto.Car;
-using CarTroubleSolver.Logic.Dto.User;
-using CarTroubleSolver.Logic.Factories.Car.Model.ModelFactory;
-using CarTroubleSolver.Logic.Services;
-using CarTroubleSolver.Logic.Services.Interfaces;
-using CarTroubleSolver.Logic.Validation.CarValidators;
-using CarTroubleSolver.Logic.Validation.UserValidators;
-using FluentValidation;
 using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
@@ -24,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers()
-    .AddFluentValidation(c => 
+    .AddFluentValidation(c =>
     c.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly()));
 
 builder.Services.AddCors(c =>
@@ -45,19 +34,12 @@ builder.Services.AddDbContext<CarTroubleSolverDbContext>(options => options.UseS
 
 //DI
 //Services
-builder.Services.AddScoped<IRoleService, RoleService>();
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<ICarService, CarService>();
-builder.Services.AddScoped<IFileService, FileService>();
-builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-builder.Services.AddScoped<IValidator<RegisterUserDto>, RegisterUserDtoValidator>();
-builder.Services.AddScoped<IValidator<ChangePasswordUserDto>, ChangePasswordUserDtoValidator>();
-builder.Services.AddScoped<IValidator<CarDto>, CarDtoValidator>();
-builder.Services.AddScoped<IValidator<UpdateCarDto>, UpdateCarDtoValidator>();
-builder.Services.AddSingleton<ModelFactory>();
+builder.Services.WithServices();
+builder.Services.WithValidation();
+builder.Services.WithRepositories();
 
-builder.Services.AddMediatR(cfg => {
+builder.Services.AddMediatR(cfg =>
+{
     cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
 });
 
@@ -91,12 +73,6 @@ builder.Services.AddAuthentication(option =>
 });
 
 builder.Services.AddAuthorization();
-
-//Repos
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IRoleRepository, RoleRepository>();
-builder.Services.AddScoped<ICarRepository, CarRepository>();
-
 
 var assemblies = Assembly.Load("CarTroubleSolver.Logic");
 

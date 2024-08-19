@@ -7,4 +7,18 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Functions\Workshop\Query\" />
+    <Folder Include="Maping\" />
+    <Folder Include="Validation\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CarTroubleSolver.Workshop.Data\CarTroubleSolver.Workshop.Data.csproj" />
+  </ItemGroup>
+
 </Project>

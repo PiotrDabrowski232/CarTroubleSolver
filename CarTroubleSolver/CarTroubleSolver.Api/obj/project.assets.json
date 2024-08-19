@@ -1791,6 +1791,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "CarTroubleSolver.Shared": "1.0.0",
           "Microsoft.AspNetCore.Http.Features": "2.2.0",
           "Microsoft.EntityFrameworkCore": "8.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2"
@@ -1819,6 +1820,19 @@
         },
         "runtime": {
           "bin/placeholder/CarTroubleSolver.Logic.dll": {}
+        }
+      },
+      "CarTroubleSolver.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.2"
+        },
+        "compile": {
+          "bin/placeholder/CarTroubleSolver.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CarTroubleSolver.Shared.dll": {}
         }
       }
     }
@@ -4742,6 +4756,11 @@
       "type": "project",
       "path": "../CarTroubleSolver.Logic/CarTroubleSolver.Logic.csproj",
       "msbuildProject": "../CarTroubleSolver.Logic/CarTroubleSolver.Logic.csproj"
+    },
+    "CarTroubleSolver.Shared/1.0.0": {
+      "type": "project",
+      "path": "../CarTroubleSolver.Shared/CarTroubleSolver.Shared.csproj",
+      "msbuildProject": "../CarTroubleSolver.Shared/CarTroubleSolver.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {

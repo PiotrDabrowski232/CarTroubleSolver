@@ -1033,6 +1033,7 @@
       },
       "CarTroubleSolver.Data/1.0.0": {
         "dependencies": {
+          "CarTroubleSolver.Shared": "1.0.0",
           "Microsoft.AspNetCore.Http.Features": "2.2.0",
           "Microsoft.EntityFrameworkCore": "8.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2"
@@ -1053,6 +1054,14 @@
         },
         "runtime": {
           "CarTroubleSolver.Logic.dll": {}
+        }
+      },
+      "CarTroubleSolver.Shared/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.2"
+        },
+        "runtime": {
+          "CarTroubleSolver.Shared.dll": {}
         }
       }
     }
@@ -1720,6 +1729,11 @@
       "sha512": ""
     },
     "CarTroubleSolver.Logic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CarTroubleSolver.Shared/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

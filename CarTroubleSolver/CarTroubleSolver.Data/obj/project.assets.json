@@ -1517,6 +1517,19 @@
             "rid": "win"
           }
         }
+      },
+      "CarTroubleSolver.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.2"
+        },
+        "compile": {
+          "bin/placeholder/CarTroubleSolver.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CarTroubleSolver.Shared.dll": {}
+        }
       }
     }
   },
@@ -4103,10 +4116,16 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "CarTroubleSolver.Shared/1.0.0": {
+      "type": "project",
+      "path": "../CarTroubleSolver.Shared/CarTroubleSolver.Shared.csproj",
+      "msbuildProject": "../CarTroubleSolver.Shared/CarTroubleSolver.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "CarTroubleSolver.Shared >= 1.0.0",
       "Microsoft.AspNetCore.Http.Features >= 2.2.0",
       "Microsoft.EntityFrameworkCore >= 8.0.2",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.2",
@@ -4146,7 +4165,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Shared\\CarTroubleSolver.Shared.csproj": {
+              "projectPath": "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Shared\\CarTroubleSolver.Shared.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
