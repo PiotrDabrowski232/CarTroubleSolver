@@ -6,7 +6,7 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Command
     public class RegiserWorkshopCommand : IRequest<RegisterWorkshopDto>
     {
         public RegisterWorkshopDto Workshop { get; set; }
-
+         
         public RegiserWorkshopCommand(RegisterWorkshopDto workshop)
         {
             Workshop = workshop;
