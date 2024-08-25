@@ -1,4 +1,5 @@
-﻿using CarTroubleSolver.Workshop.Logic.Dto.Workshop;
+﻿using CarTroubleSolver.Workshop.Data.Repositories.Interfaces;
+using CarTroubleSolver.Workshop.Logic.Dto.Workshop;
 using MediatR;
 
 namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Command
@@ -12,10 +13,12 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Command
             Workshop = workshop;
         }
     }
-    public class AddCarCommandHandler : IRequestHandler<RegiserWorkshopCommand, RegisterWorkshopDto>
+    public class AddCarCommandHandler(IWorkshopRepository workshopRepository) : IRequestHandler<RegiserWorkshopCommand, RegisterWorkshopDto>
     {
+        private readonly IWorkshopRepository _workshopRepository = workshopRepository;
         public Task<RegisterWorkshopDto> Handle(RegiserWorkshopCommand request, CancellationToken cancellationToken)
         {
+            if(_workshopRepository.WorkshopExist(Workshop))
             throw new NotImplementedException();
         }
     }

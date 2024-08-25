@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CarTroubleSolver.Workshop.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e4c7aa6126ea400f7cd7361ba5f1acdb9b9a085")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d347f0d6056c154ea79072c7df5b8811c907d873")]
 [assembly: System.Reflection.AssemblyProductAttribute("CarTroubleSolver.Workshop.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CarTroubleSolver.Workshop.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

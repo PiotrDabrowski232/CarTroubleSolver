@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "xvgc5zigB7qTwV96yVb/lT4BwAdubrx0AJ6wXwog/WjWMfwnR8BfqHnZCEyyoSGD7yG4N8S+m03mvSOcaSV6Ow==",
-  "success": true,
+  "dgSpecHash": "MXQUhOmymjIqN72Tf+M0aHleiufBylIyVVrgkBVf2F5pnVcUBb6EwMUrmr5bkTd4QKZ+7pxBGvoYVDWiO/LDkw==",
+  "success": false,
   "projectFilePath": "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Piotr\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
@@ -63,5 +63,15 @@
     "C:\\Users\\Piotr\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\Piotr\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1108",
+      "level": "Error",
+      "message": "Cycle detected. \r\n  CarTroubleSolver.Workshop.Logic -> CarTroubleSolver.Workshop.Data -> CarTroubleSolver.Workshop.Logic.",
+      "libraryId": "CarTroubleSolver.Workshop.Logic",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

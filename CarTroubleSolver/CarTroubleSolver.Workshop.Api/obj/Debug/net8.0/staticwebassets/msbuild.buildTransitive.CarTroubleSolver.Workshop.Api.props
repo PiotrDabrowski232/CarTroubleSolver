@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\CarTroubleSolver.Workshop.Api.props" />
-</Project>

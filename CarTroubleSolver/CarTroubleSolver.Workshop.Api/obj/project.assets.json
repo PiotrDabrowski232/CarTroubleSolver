@@ -1805,6 +1805,7 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "CarTroubleSolver.Shared": "1.0.0",
+          "CarTroubleSolver.Workshop.Logic": "1.0.0",
           "Microsoft.AspNetCore.Http.Features": "2.2.0",
           "Microsoft.EntityFrameworkCore": "8.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2"
