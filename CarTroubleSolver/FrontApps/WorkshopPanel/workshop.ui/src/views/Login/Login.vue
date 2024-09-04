@@ -2,7 +2,7 @@
   <div class="mainForm">
     <form id="myForm" class="needs-validation my-form-validation" novalidate @submit.prevent="tryLogin">
       <div class="container">
-        <CustomInput v-model="email" label="email" type="email" />
+        <CustomInput v-model="email" label="email" type="email" :error="emailError"/>
         <button type="submit" class="btn btn-primary">Login</button>
       </div>
     </form>

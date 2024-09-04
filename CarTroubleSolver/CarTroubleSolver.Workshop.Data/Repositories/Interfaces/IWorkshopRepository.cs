@@ -1,9 +1,9 @@
-﻿using CarTroubleSolver.Workshop.Logic.Dto.Workshop;
-
+﻿
 namespace CarTroubleSolver.Workshop.Data.Repositories.Interfaces
 {
     public interface IWorkshopRepository : IGenericRepository<Models.Workshop>
     {
-        public bool WorkshopExist(RegisterWorkshopDto workshop);
+        public bool WorkshopExist(long nip);
+        public Guid Add(Models.Workshop workshop);
     }
 }

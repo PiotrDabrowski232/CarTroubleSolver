@@ -9,11 +9,11 @@
 
   <ItemGroup>
     <Folder Include="Functions\Workshop\Query\" />
-    <Folder Include="Maping\" />
     <Folder Include="Validation\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="MediatR" Version="12.2.0" />
   </ItemGroup>
 

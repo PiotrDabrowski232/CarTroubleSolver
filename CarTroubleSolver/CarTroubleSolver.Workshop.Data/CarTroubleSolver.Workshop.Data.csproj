@@ -23,7 +23,6 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CarTroubleSolver.Workshop.Logic\CarTroubleSolver.Workshop.Logic.csproj" />
     <ProjectReference Include="..\CarTroubleSolver.Shared\CarTroubleSolver.Shared.csproj" />
   </ItemGroup>
 

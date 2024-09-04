@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "MXQUhOmymjIqN72Tf+M0aHleiufBylIyVVrgkBVf2F5pnVcUBb6EwMUrmr5bkTd4QKZ+7pxBGvoYVDWiO/LDkw==",
-  "success": false,
+  "dgSpecHash": "AhY7Akzf9tT8PJrNMf609Q9/njObYcBr9oGJu48qE8b3PQVy0um/zJd7ygAm6wWzrzYNxTW7LnjPeqo+LamElA==",
+  "success": true,
   "projectFilePath": "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Piotr\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Piotr\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Piotr\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\Piotr\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
@@ -63,15 +64,5 @@
     "C:\\Users\\Piotr\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\Piotr\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1108",
-      "level": "Error",
-      "message": "Cycle detected. \r\n  CarTroubleSolver.Workshop.Logic -> CarTroubleSolver.Workshop.Data -> CarTroubleSolver.Workshop.Logic.",
-      "libraryId": "CarTroubleSolver.Workshop.Logic",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }

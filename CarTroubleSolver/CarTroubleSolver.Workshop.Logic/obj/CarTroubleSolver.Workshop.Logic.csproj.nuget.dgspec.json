@@ -101,9 +101,6 @@
             "projectReferences": {
               "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Shared\\CarTroubleSolver.Shared.csproj": {
                 "projectPath": "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Shared\\CarTroubleSolver.Shared.csproj"
-              },
-              "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj": {
-                "projectPath": "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj"
               }
             }
           }
@@ -208,6 +205,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[12.2.0, )"
