@@ -1,4 +1,4 @@
-﻿using CarTroubleSolver.Workshop.Data.Models.Enum;
+﻿using CarTroubleSolver.Shared.Models.Enum;
 using CarTroubleSolver.Workshop.Logic.Dto.Street;
 using MediatR;
 

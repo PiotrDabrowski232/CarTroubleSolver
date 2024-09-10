@@ -26,7 +26,5 @@ namespace CarTroubleSolver.Workshop.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
-
     }
 }

@@ -1,0 +1,12 @@
+.mainRegisterForm #registerForm .container{
+    padding-top: 12vh;
+    padding-left: 17vw;
+}
+
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+    transition: opacity 0.3s ease;
+  }

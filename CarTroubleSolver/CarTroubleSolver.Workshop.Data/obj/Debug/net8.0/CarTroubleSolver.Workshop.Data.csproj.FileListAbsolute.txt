@@ -135,3 +135,4 @@ C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Data\obj\Debug\net8.0\CarTroubleSolver.Workshop.Data.pdb
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Data\obj\Debug\net8.0\CarTroubleSolver.Workshop.Data.genruntimeconfig.cache
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Data\obj\Debug\net8.0\ref\CarTroubleSolver.Workshop.Data.dll
+C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Data\bin\Debug\net8.0\Newtonsoft.Json.dll

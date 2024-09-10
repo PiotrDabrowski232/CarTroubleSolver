@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using CarTroubleSolver.Shared.Exceptions;
+using CarTroubleSolver.Shared.Models;
+using CarTroubleSolver.Shared.Services.Interface;
 using CarTroubleSolver.Workshop.Data.Repositories.Interfaces;
 using CarTroubleSolver.Workshop.Logic.Dto.Workshop;
 using MediatR;
@@ -15,10 +17,12 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Command
             Workshop = workshop;
         }
     }
-    public class AddCarCommandHandler(IWorkshopRepository workshopRepository, IMapper mapper) : IRequestHandler<RegiserWorkshopCommand, Guid>
+    public class AddCarCommandHandler(IWorkshopRepository workshopRepository,
+        IMapper mapper, IGeoLocalizationService geoLocalizationService) : IRequestHandler<RegiserWorkshopCommand, Guid>
     {
         private readonly IWorkshopRepository _workshopRepository = workshopRepository;
         private readonly IMapper _mapper = mapper;
+        private readonly IGeoLocalizationService _geoLocalizationService = geoLocalizationService;
 
         public Task<Guid> Handle(RegiserWorkshopCommand request, CancellationToken cancellationToken)
         {
@@ -27,7 +31,9 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Command
 
             var workshop = _mapper.Map<Data.Models.Workshop>(request.Workshop);
 
-           var result = _workshopRepository.Add(workshop);
+            var geoLocalization = _geoLocalizationService.GetCurrentGeoLocalization(request.Workshop.Street, cancellationToken);
+
+            var result = _workshopRepository.Add(workshop);
 
             return Task.FromResult(result);
         }

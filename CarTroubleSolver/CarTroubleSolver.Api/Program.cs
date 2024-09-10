@@ -43,7 +43,6 @@ builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
 });
 
-builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 // Or you can also register as follows
 

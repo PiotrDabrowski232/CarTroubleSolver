@@ -22,39 +22,6 @@ namespace CarTroubleSolver.Workshop.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CarTroubleSolver.Workshop.Data.Models.Street", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Country")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PostalCode")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Province")
-                        .HasColumnType("int");
-
-                    b.Property<string>("StreetName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("StreetNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Streets");
-                });
-
             modelBuilder.Entity("CarTroubleSolver.Workshop.Data.Models.Workshop", b =>
                 {
                     b.Property<Guid>("Id")
@@ -65,8 +32,18 @@ namespace CarTroubleSolver.Workshop.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<long>("Latitude")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("Longitude")
+                        .HasColumnType("bigint");
+
                     b.Property<long>("NIP")
                         .HasColumnType("bigint");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
                         .IsRequired()
@@ -75,25 +52,9 @@ namespace CarTroubleSolver.Workshop.Data.Migrations
                     b.Property<int>("PhoneNumber")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("StreetId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("StreetId");
-
                     b.ToTable("Workshops");
-                });
-
-            modelBuilder.Entity("CarTroubleSolver.Workshop.Data.Models.Workshop", b =>
-                {
-                    b.HasOne("CarTroubleSolver.Workshop.Data.Models.Street", "Street")
-                        .WithMany()
-                        .HasForeignKey("StreetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Street");
                 });
 #pragma warning restore 612, 618
         }

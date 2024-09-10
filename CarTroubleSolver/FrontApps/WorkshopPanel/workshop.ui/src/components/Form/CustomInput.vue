@@ -2,7 +2,8 @@
   <div class="form-floating mb-3">
     <input
       :class="['form-control', { 'is-invalid': error && error.length > 0 }]"
-      id="floatingInput"
+      :style="[`width: ${width}vw;`]"
+      class="floatingInput"
       v-bind="$attrs"
       :placeholder="label"
       :type="type"
@@ -11,7 +12,6 @@
     />
     <label for="floatingInput">{{ label }}</label>
 
-    <!-- Wyświetlanie wszystkich błędów -->
     <div v-if="error && error.length > 0" class="invalid-feedback">
       <ul>
         <li v-for="(err, index) in error" :key="index">{{ err }}</li>
@@ -40,9 +40,17 @@ export default {
       default: 'text',
     },
     error: {
-      type: Array,
+      type: Array || null,
       default: () => [],
+    },
+    width:{
+      type: Number,
+      default: 1,
     },
   },
 };
 </script>
+<style scoped>
+@import './style.css';
+</style>
+

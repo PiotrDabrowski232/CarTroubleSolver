@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using CarTroubleSolver.Shared.Services;
+using CarTroubleSolver.Shared.Services.Interface;
+using System.Reflection;
 
 namespace CarTroubleSolver.Workshop.Api.DIConfig
 {
@@ -12,6 +14,12 @@ namespace CarTroubleSolver.Workshop.Api.DIConfig
             Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assemblies));
 
             Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            Services.AddSingleton<IGeoLocalizationService, GeoLocalizationService>();
+
+            Services.AddHttpClient();
 
             return Services;
         }

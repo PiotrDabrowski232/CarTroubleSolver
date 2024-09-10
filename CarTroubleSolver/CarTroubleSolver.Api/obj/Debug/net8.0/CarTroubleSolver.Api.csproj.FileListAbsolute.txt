@@ -160,3 +160,4 @@ C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\CarTroubleSolver.Shared.exe
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\CarTroubleSolver.Shared.dll
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\CarTroubleSolver.Shared.pdb
+C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\Newtonsoft.Json.dll

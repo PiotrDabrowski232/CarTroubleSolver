@@ -15,6 +15,8 @@ namespace CarTroubleSolver.Api.DIConfig
             Services.AddScoped<ICarService, CarService>();
             Services.AddScoped<IFileService, FileService>();
 
+            Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 
             Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

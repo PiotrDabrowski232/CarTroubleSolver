@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wSvrxhTDorn8H/dF24Zip0m4ehokYAIwbHoJMi/M53bElI8UacCasYlcjhaB8DMmPxE/7OIMbkjl/iqa5Q3eBg==",
+  "dgSpecHash": "YZccFq9DUM0EWycVV/NhexaSJC1DJxcWtixBrcq6k6YL4uVRBnAJ9s8x+d+ZXpKGR9v33bImk7PDFA1INQOwHA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Shared\\CarTroubleSolver.Shared.csproj",
   "expectedPackageFiles": [
@@ -14,7 +14,8 @@
     "C:\\Users\\Piotr\\.nuget\\packages\\microsoft.extensions.logging\\8.0.0\\microsoft.extensions.logging.8.0.0.nupkg.sha512",
     "C:\\Users\\Piotr\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Piotr\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
-    "C:\\Users\\Piotr\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+    "C:\\Users\\Piotr\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\Piotr\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }
