@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CarTroubleSolver.Data\CarTroubleSolver.Data.csproj" />
+    <ProjectReference Include="..\CarTroubleSolver.Shared\CarTroubleSolver.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

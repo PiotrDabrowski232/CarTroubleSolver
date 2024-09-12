@@ -5,6 +5,8 @@ using CarTroubleSolver.Data.Repositories.Interfaces;
 using CarTroubleSolver.Logic.Dto.User;
 using CarTroubleSolver.Logic.Exceptions;
 using CarTroubleSolver.Logic.Services.Interfaces;
+using CarTroubleSolver.Shared.Services;
+using CarTroubleSolver.Shared.Services.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
@@ -15,14 +17,14 @@ using System.Text;
 
 namespace CarTroubleSolver.Logic.Services
 {
-    public class UserService(IUserRepository userRepository, IRoleService roleService, IMapper mapper, IPasswordHasher<User> passwordHasher, AuthenticationSettings authenticationSettings, IHttpContextAccessor httpContextAccessor) : IUserService
+    public class UserService(IUserRepository userRepository, IRoleService roleService, IMapper mapper, IHashingService hashingService, ITokenService tokenService, IHttpContextAccessor httpContextAccessor) : IUserService
     {
         private readonly IUserRepository _userRepository = userRepository;
         private readonly IRoleService _roleService = roleService;
         private readonly IMapper _mapper = mapper;
-        private readonly IPasswordHasher<User> _passwordHasher = passwordHasher;
-        private readonly AuthenticationSettings _authenticationSettings = authenticationSettings;
+        private readonly IHashingService _hashingService = hashingService;
         private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
+        private readonly ITokenService _tokenService = tokenService;
 
 
         #region Private
@@ -30,13 +32,13 @@ namespace CarTroubleSolver.Logic.Services
         {
             var user = _userRepository.Get(id).Result;
 
-            return (_passwordHasher.VerifyHashedPassword(user, user.Password, providedPassword) == PasswordVerificationResult.Failed) ? throw new NotFoundException("Incorrect Password") : true;
+            return (_hashingService.VerifyHashedPassword(user, user.Password, providedPassword)) ? true : throw new NotFoundException("Incorrect Password") ;
 
         }
 
         private string HashPassword(string password)
         {
-            string result = _passwordHasher.HashPassword(null, password);
+            string result = _hashingService.HashPassword(null, password);
             return result;
         }
         private User UserData(Guid Id)
@@ -142,32 +144,9 @@ namespace CarTroubleSolver.Logic.Services
 
             user.Role = _roleService.GetRole(user.RoleId);
 
-            var result = CheckPasswordCoretness(login.Password, user.Id);
+            CheckPasswordCoretness(login.Password, user.Id);
 
-            var claims = new List<Claim>()
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.Name),
-                new Claim(ClaimTypes.Email, user.Email)
-            };
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_authenticationSettings.JwtKey));
-            var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var expires = DateTime.Now.AddDays(_authenticationSettings.JwtExpiredDays);
-
-
-            var token = new JwtSecurityToken(_authenticationSettings.JwtIssuer, _authenticationSettings.JwtIssuer,
-                claims, expires: expires, signingCredentials: cred);
-
-            var tokenHendler = new JwtSecurityTokenHandler();
-
-
-            return tokenHendler.WriteToken(token);
-        }
-
-        public bool AccessToRemoveObjects(string vin)
-        {
-            throw new NotImplementedException();
+            return _tokenService.GenerateJwt(user.Id.ToString(), user.Name, user.Email);
         }
     }
 }

@@ -21,7 +21,6 @@ const Register = async (Workshop) => {
   } catch (ex) {
     const errors = ex.response?.data?.errors || {};
 
-    // Bezpieczne przypisanie właściwości błędów
     var workshopErrors = new WorkshopError(
       errors.Name || [],
       errors.Email || [],
@@ -38,9 +37,7 @@ const Register = async (Workshop) => {
         errors["Street.Province"] || []
       )
     );
-    
-    console.log(workshopErrors);
-    return workshopErrors;
+    throw workshopErrors;
   }
 }
 

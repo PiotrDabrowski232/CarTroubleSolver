@@ -1,12 +1,21 @@
-.mainRegisterForm #registerForm .container{
-    padding-top: 12vh;
-    padding-left: 17vw;
-}
-
 .toast {
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 1050;
     transition: opacity 0.3s ease;
+  }
+
+  .FormContainer{
+    padding-top: 14vh;
+    padding-left: 16vw;
+    width: fit-content;
+  }
+  #registerForm{
+    height: fit-content;
+  }
+  #submitButton{
+    margin-left: 85%;
+    margin-top: 4vh;
+    width: 12vw;
   }

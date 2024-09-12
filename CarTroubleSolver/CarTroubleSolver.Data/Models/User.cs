@@ -4,7 +4,6 @@ namespace CarTroubleSolver.Data.Models
 {
     public class User : Account
     {
-        public string Name { get; set; }
         public string Surname { get; set; }
         public DateOnly DateOfBirth { get; set; }
 

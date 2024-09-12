@@ -19,6 +19,8 @@ namespace CarTroubleSolver.Workshop.Api.DIConfig
 
             Services.AddSingleton<IGeoLocalizationService, GeoLocalizationService>();
 
+            Services.AddScoped<IHashingService, HashingService>();
+
             Services.AddHttpClient();
 
             return Services;

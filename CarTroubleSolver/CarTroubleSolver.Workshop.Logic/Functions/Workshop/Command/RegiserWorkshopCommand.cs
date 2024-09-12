@@ -31,7 +31,10 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Command
 
             var workshop = _mapper.Map<Data.Models.Workshop>(request.Workshop);
 
-            var geoLocalization = _geoLocalizationService.GetCurrentGeoLocalization(request.Workshop.Street, cancellationToken);
+            var geoLocalization = _geoLocalizationService.GetCurrentGeoLocalization(request.Workshop.Street, cancellationToken).Result;
+
+            workshop.Longitude = geoLocalization.Longitude;
+            workshop.Latitude = geoLocalization.Latitude;
 
             var result = _workshopRepository.Add(workshop);
 

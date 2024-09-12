@@ -34,7 +34,7 @@ builder.Services.AddDbContext<CarTroubleSolverDbContext>(options => options.UseS
 
 //DI
 //Services
-builder.Services.WithServices();
+builder.Services.WithServices(builder.Configuration);
 builder.Services.WithValidation();
 builder.Services.WithRepositories();
 

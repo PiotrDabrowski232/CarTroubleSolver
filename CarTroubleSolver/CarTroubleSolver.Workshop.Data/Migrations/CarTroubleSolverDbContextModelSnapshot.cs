@@ -32,11 +32,11 @@ namespace CarTroubleSolver.Workshop.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("Latitude")
-                        .HasColumnType("bigint");
+                    b.Property<double>("Latitude")
+                        .HasColumnType("float");
 
-                    b.Property<long>("Longitude")
-                        .HasColumnType("bigint");
+                    b.Property<double>("Longitude")
+                        .HasColumnType("float");
 
                     b.Property<long>("NIP")
                         .HasColumnType("bigint");
