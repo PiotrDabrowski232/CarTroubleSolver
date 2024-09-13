@@ -44,7 +44,14 @@ namespace CarTroubleSolver.Workshop.Logic.Validation
 
             RuleFor(x => x.NIP)
                 .Must(x => x.ToString().Length == 10 || x.ToString().Length == 11)
-                .WithMessage("telephone number should have 10 or 11 digits");
+                .WithMessage("telephone number should have 10 or 11 digits")
+                .Custom((value, context) =>
+                {
+                    var usedNIP = dbContext.Workshops.Any(u => u.NIP == value);
+
+                    if (usedNIP)
+                        context.AddFailure("NIP", "This NIP is taken");
+                });
 
             RuleFor(x => x.Street)
                 .NotNull()

@@ -2,6 +2,8 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using CarTroubleSolver.Workshop.Logic.Functions.Workshop.Command;
+using CarTroubleSolver.Workshop.Logic.Functions.Workshop.Query;
+using CarTroubleSolver.Shared.Exceptions;
 
 namespace CarTroubleSolver.Workshop.Api.Controllers
 {
@@ -14,7 +16,7 @@ namespace CarTroubleSolver.Workshop.Api.Controllers
 
         [HttpPost]
         [Route("/Register")]
-        public ActionResult Post([FromBody] RegisterWorkshopDto workshop)
+        public ActionResult Register([FromBody] RegisterWorkshopDto workshop)
         {
             try
             {
@@ -26,5 +28,25 @@ namespace CarTroubleSolver.Workshop.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPost]
+        [Route("/Login")]
+        public async Task<ActionResult> Login([FromBody] LoginWorkshopDto workshop)
+        {
+            try
+            {
+                var result = await _mediator.Send(new LoginQuery(workshop));
+                return Ok(result);
+            }
+            catch (InvalidProvidedDataException ex)
+            {
+                return BadRequest(ex.Message); 
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An unexpected error occurred: " + ex.Message);  
+            }
+        }
+
     }
 }

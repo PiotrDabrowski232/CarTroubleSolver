@@ -20,8 +20,8 @@ namespace CarTroubleSolver.Shared.Services
 
         public bool VerifyHashedPassword(Account user, string hashedPassword, string providedPassword)
         {
-            var result = _passwordHasher.VerifyHashedPassword(user, hashedPassword, providedPassword);
-            return result == PasswordVerificationResult.Success;
+             var result = _passwordHasher.VerifyHashedPassword(user, hashedPassword, providedPassword);
+             return result == PasswordVerificationResult.Success;
         }
     }
 }

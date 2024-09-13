@@ -4,8 +4,12 @@ import { WorkshopError, StreetError } from '@/Models/AuthModels/RegisterError';
 
 const base_url = "https://localhost:7287";
 
-const Login = async (user) => {
-  await axios.post(`${base_url}/Login`, user)
+const Login = async (loginData) => {
+  await axios.post(`${base_url}/Login`, loginData, {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
   .then(response => {
         AuthService.setToken(response.data);
     })
