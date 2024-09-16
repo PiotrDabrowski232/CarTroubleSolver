@@ -17,10 +17,10 @@ namespace CarTroubleSolver.Workshop.Data.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     NIP = table.Column<long>(type: "bigint", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Latitude = table.Column<long>(type: "bigint", nullable: false),
-                    Longitude = table.Column<long>(type: "bigint", nullable: false),
+                    Latitude = table.Column<decimal>(type: "decimal(24,21)", nullable: false),
+                    Longitude = table.Column<decimal>(type: "decimal(24,21)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PhoneNumber = table.Column<int>(type: "int", nullable: false)
                 },

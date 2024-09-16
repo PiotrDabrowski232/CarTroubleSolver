@@ -6,7 +6,7 @@ using MediatR;
 
 namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Query
 {
-    public class LoginQuery : IRequest<string>
+    public class LoginQuery : IRequest<LoginResponse>
     {
         public LoginWorkshopDto Workshop { get; set; }
 
@@ -16,12 +16,14 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Query
         }
     }
     public class LoginQueryHandler(IWorkshopRepository workshopRepository,
-        IHashingService hashingService, ITokenService tokenService) : IRequestHandler<LoginQuery, string>
+        IHashingService hashingService, ITokenService tokenService,
+        IGeoLocalizationService geoLocalizationService) : IRequestHandler<LoginQuery, LoginResponse>
     {
         private readonly IWorkshopRepository _workshopRepository = workshopRepository;
         private readonly IHashingService _hashingService = hashingService;
         private readonly ITokenService _tokenService = tokenService;
-        public async Task<string> Handle(LoginQuery request, CancellationToken cancellationToken)
+        private readonly IGeoLocalizationService _geoLocalizationService = geoLocalizationService;
+        public async Task<LoginResponse> Handle(LoginQuery request, CancellationToken cancellationToken)
         {
             var data = _workshopRepository.GetAll()
                 .Where(x => x.Email == request.Workshop.Email)
@@ -29,7 +31,15 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Query
                 {
                     Id = x.Id.ToString(),
                     Password = x.Password,
-                    Name = x.Name
+                    Longitude = x.Longitude,
+                    Latitude = x.Latitude,
+                    WorkshopDetails = new WorkshopDetailsDto
+                    {
+                        Name = x.Name,
+                        Email = x.Email,
+                        PhoneNumber = x.PhoneNumber,
+                        NIP = x.NIP,
+                    }
                 }).FirstOrDefault();
 
             if (data == null)
@@ -38,8 +48,15 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Query
             if(!_hashingService.VerifyHashedPassword(null, data.Password, request.Workshop.Password))
                 throw new InvalidProvidedDataException("Incorrect Password");
 
-            return _tokenService.GenerateJwt(data.Id, data.Name, request.Workshop.Email);
+            var token = _tokenService.GenerateJwt(data.Id, data.WorkshopDetails.Name, request.Workshop.Email);
 
+            data.WorkshopDetails.Adress = await _geoLocalizationService.GetLocalizationDetails(data.Latitude, data.Longitude, cancellationToken);
+
+            return new LoginResponse
+            {
+                JWT = token,
+                WorkshopDetails = data.WorkshopDetails
+            };
         }
     }
 }

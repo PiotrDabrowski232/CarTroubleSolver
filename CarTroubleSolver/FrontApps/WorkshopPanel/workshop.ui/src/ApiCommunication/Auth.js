@@ -1,6 +1,7 @@
 import AuthService from '../Services/AuthService';
 import axios from 'axios';
 import { WorkshopError, StreetError } from '@/Models/AuthModels/RegisterError';
+import { saveToLocalStorage } from '@/Services/LocalStorageService';
 
 const base_url = "https://localhost:7287";
 
@@ -11,7 +12,8 @@ const Login = async (loginData) => {
     }
   })
   .then(response => {
-        AuthService.setToken(response.data);
+        AuthService.setToken(response.data.jwt);
+        saveToLocalStorage("Workshop", response.data.workshopDetails)
     })
 }
 

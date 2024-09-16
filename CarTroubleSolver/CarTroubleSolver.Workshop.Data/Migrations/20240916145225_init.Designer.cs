@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarTroubleSolver.Workshop.Data.Migrations
 {
     [DbContext(typeof(CarTroubleSolverDbContext))]
-    [Migration("20240911142332_changedType")]
-    partial class changedType
+    [Migration("20240916145225_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,11 +35,11 @@ namespace CarTroubleSolver.Workshop.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Latitude")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Latitude")
+                        .HasColumnType("decimal(24,21)");
 
-                    b.Property<double>("Longitude")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Longitude")
+                        .HasColumnType("decimal(24,21)");
 
                     b.Property<long>("NIP")
                         .HasColumnType("bigint");

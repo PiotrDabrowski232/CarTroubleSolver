@@ -16,6 +16,7 @@ import CustomInput from '../../components/Form/CustomInput.vue';
 import LoginForm from '../../Models/AuthModels/LoginForm';
 import {Login} from '../../ApiCommunication/Auth'
 import Toast from '@/components/Toast.vue';
+import router from '@/router';
 
 export default {
   name: 'Login',
@@ -34,6 +35,9 @@ export default {
       try{
         await Login(new LoginForm(this.Email, this.Password))
         this.showToastMessage("Logged Successfully", "success")
+        setTimeout(() => {
+          router.push("/")
+        }, 3000);
       }catch(ex){
         this.showToastMessage("Invalid email or password", "danger")
       }

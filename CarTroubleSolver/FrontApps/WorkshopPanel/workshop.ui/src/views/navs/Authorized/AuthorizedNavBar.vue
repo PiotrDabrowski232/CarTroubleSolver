@@ -46,6 +46,7 @@ export default {
   methods: {
     Logout() {
       AuthService.removeToken();
+      localStorage.clear();
       this.$router.push("/"); 
       this.$emit('refresh'); 
     }

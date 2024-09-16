@@ -8,6 +8,12 @@ namespace CarTroubleSolver.Workshop.Data.ModelsConfiguration
         public void Configure(EntityTypeBuilder<Models.Workshop> builder)
         {
             builder.HasKey(w => w.Id);
+
+            builder.Property(w => w.Longitude)
+                .HasColumnType("decimal(24,21)");
+
+            builder.Property(w => w.Latitude)
+                .HasColumnType("decimal(24,21)");
         }
     }
 }
