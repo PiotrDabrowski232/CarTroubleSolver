@@ -1,6 +1,6 @@
 <template>
 
-    <unauthorizedNav msg="Hello Vue"/>
+    <BaseNav />
 
   <div class="mainContent">
     <RouterView />
@@ -12,13 +12,13 @@
 </template>
 
 <script>
-import unauthorizedNav from './views/navs/UnauthorizedNavBar.vue'
+import BaseNav from './views/navs/BaseNav.vue'
 
 export default {
   name: 'App',
   components: {
-    unauthorizedNav
-  }
+    BaseNav
+  },
 }
 </script>
 
