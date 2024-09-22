@@ -19,7 +19,7 @@ builder.Services.AddSwaggerGen();
 
 //DbContext
 var connectionString = builder.Configuration.GetConnectionString("Connection");
-builder.Services.AddDbContext<CarTroubleSolverDbContext>(options => options.UseSqlServer(connectionString), ServiceLifetime.Transient);
+builder.Services.AddDbContext<CarTroubleSolverDbContext>(options => options.UseSqlServer(connectionString).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking), ServiceLifetime.Transient);
 
 //DI
 //Services
