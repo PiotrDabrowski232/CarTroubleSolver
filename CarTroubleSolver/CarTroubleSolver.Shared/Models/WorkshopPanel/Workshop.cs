@@ -8,6 +8,6 @@ namespace CarTroubleSolver.Shared.Models.WorkshopPanel
         public decimal Latitude { get; set; }
         public decimal Longitude { get; set; }
 
-        public virtual ICollection<HourConfiguration> OpenHours { get; set; }
+        public virtual ICollection<HourConfiguration>? OpenHours { get; set; }
     }
 }

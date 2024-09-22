@@ -1,4 +1,5 @@
 ﻿using CarTroubleSolver.Shared.Models.ExtraModels;
+using CarTroubleSolver.Workshop.Logic.Dto.Hour;
 
 namespace CarTroubleSolver.Workshop.Logic.Dto.Workshop
 {
@@ -10,5 +11,6 @@ namespace CarTroubleSolver.Workshop.Logic.Dto.Workshop
         public int PhoneNumber { get; set; }
         public long NIP { get; set; }
         public StreetDto Adress { get; set; }
+        public ICollection<WorkingHoursDto>? Hours { get; set; }
     }
 }
