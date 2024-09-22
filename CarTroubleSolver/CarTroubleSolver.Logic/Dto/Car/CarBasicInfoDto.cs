@@ -1,6 +1,4 @@
-﻿using CarTroubleSolver.Data.Models.Enums;
-
-namespace CarTroubleSolver.Logic.Dto.Car
+﻿namespace CarTroubleSolver.Logic.Dto.Car
 {
     public class CarBasicInfoDto
     {

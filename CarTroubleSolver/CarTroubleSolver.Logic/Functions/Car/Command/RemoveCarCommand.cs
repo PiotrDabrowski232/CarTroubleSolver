@@ -1,4 +1,4 @@
-﻿using CarTroubleSolver.Data.Repositories.Interfaces;
+﻿using CarTroubleSolver.Shared.Repositories.Interfaces;
 using MediatR;
 
 namespace CarTroubleSolver.Logic.Functions.Car.Command
@@ -12,7 +12,7 @@ namespace CarTroubleSolver.Logic.Functions.Car.Command
             VIN = vin;
         }
     }
-    public class RemoveCarCommandHandler : IRequestHandler<RemoveCarCommand> 
+    public class RemoveCarCommandHandler : IRequestHandler<RemoveCarCommand>
     {
         private readonly ICarRepository _carRepository;
         public RemoveCarCommandHandler(ICarRepository carRepository)

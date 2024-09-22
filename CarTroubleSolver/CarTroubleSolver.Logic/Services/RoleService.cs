@@ -1,6 +1,6 @@
-﻿using CarTroubleSolver.Data.Models;
-using CarTroubleSolver.Data.Repositories.Interfaces;
-using CarTroubleSolver.Logic.Services.Interfaces;
+﻿using CarTroubleSolver.Logic.Services.Interfaces;
+using CarTroubleSolver.Shared.Models.UserPanel;
+using CarTroubleSolver.Shared.Repositories.Interfaces;
 
 namespace CarTroubleSolver.Logic.Services
 {
@@ -10,7 +10,7 @@ namespace CarTroubleSolver.Logic.Services
 
         public Role GetRole(Guid roleId)
         {
-            var result =_roleRepository.Get(roleId);
+            var result = _roleRepository.Get(roleId);
             return result.Result;
         }
     }

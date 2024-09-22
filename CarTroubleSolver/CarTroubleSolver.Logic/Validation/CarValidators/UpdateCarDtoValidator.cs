@@ -1,5 +1,5 @@
-﻿using CarTroubleSolver.Data.Data;
-using CarTroubleSolver.Logic.Dto.Car;
+﻿using CarTroubleSolver.Logic.Dto.Car;
+using CarTroubleSolver.Shared.Data;
 using FluentValidation;
 
 namespace CarTroubleSolver.Logic.Validation.CarValidators

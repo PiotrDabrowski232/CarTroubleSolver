@@ -2,7 +2,7 @@
 using CarTroubleSolver.Logic.Services;
 using CarTroubleSolver.Logic.Services.Interfaces;
 using CarTroubleSolver.Shared.Auth;
-using CarTroubleSolver.Shared.Models;
+using CarTroubleSolver.Shared.Models.ExtraModels;
 using CarTroubleSolver.Shared.Services;
 using CarTroubleSolver.Shared.Services.Interface;
 using Microsoft.AspNetCore.Identity;

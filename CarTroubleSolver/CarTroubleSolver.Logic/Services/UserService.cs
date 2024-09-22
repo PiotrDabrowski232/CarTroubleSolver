@@ -1,19 +1,12 @@
 ﻿using AutoMapper;
-using CarTroubleSolver.Api.Authentication;
-using CarTroubleSolver.Data.Models;
-using CarTroubleSolver.Data.Repositories.Interfaces;
 using CarTroubleSolver.Logic.Dto.User;
-using CarTroubleSolver.Logic.Exceptions;
 using CarTroubleSolver.Logic.Services.Interfaces;
-using CarTroubleSolver.Shared.Services;
+using CarTroubleSolver.Shared.Exceptions;
+using CarTroubleSolver.Shared.Models.UserPanel;
+using CarTroubleSolver.Shared.Repositories.Interfaces;
 using CarTroubleSolver.Shared.Services.Interface;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.IdentityModel.Tokens;
-using System;
-using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Text;
 
 namespace CarTroubleSolver.Logic.Services
 {
@@ -32,7 +25,7 @@ namespace CarTroubleSolver.Logic.Services
         {
             var user = _userRepository.Get(id).Result;
 
-            return (_hashingService.VerifyHashedPassword(user, user.Password, providedPassword)) ? true : throw new NotFoundException("Incorrect Password") ;
+            return (_hashingService.VerifyHashedPassword(user, user.Password, providedPassword)) ? true : throw new NotFoundException("Incorrect Password");
 
         }
 

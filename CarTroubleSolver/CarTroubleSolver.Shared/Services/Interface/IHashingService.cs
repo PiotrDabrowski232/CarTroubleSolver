@@ -1,4 +1,4 @@
-﻿using CarTroubleSolver.Shared.Models;
+﻿using CarTroubleSolver.Shared.Models.ExtraModels;
 
 namespace CarTroubleSolver.Shared.Services.Interface
 {

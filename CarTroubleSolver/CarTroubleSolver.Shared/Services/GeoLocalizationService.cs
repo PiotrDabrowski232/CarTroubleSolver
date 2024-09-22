@@ -1,4 +1,4 @@
-﻿using CarTroubleSolver.Shared.Models;
+﻿using CarTroubleSolver.Shared.Models.ExtraModels;
 using CarTroubleSolver.Shared.Services.Interface;
 using Newtonsoft.Json.Linq;
 using System.Globalization;

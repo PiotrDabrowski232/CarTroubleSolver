@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using CarTroubleSolver.Data.Repositories.Interfaces;
 using CarTroubleSolver.Logic.Dto.Car;
+using CarTroubleSolver.Shared.Repositories.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
@@ -22,7 +22,7 @@ namespace CarTroubleSolver.Logic.Functions.Car.Command
 
         public Task<CarDto> Handle(AddCarCommand request, CancellationToken cancellationToken)
         {
-            var car = _mapper.Map<Data.Models.Car>(request.Car);
+            var car = _mapper.Map<Shared.Models.UserPanel.Car>(request.Car);
 
             car.OwnerId = (Guid.Parse(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)));
 

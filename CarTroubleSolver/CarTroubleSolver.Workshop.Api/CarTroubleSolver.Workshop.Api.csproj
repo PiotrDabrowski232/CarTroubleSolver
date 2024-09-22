@@ -28,7 +28,7 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CarTroubleSolver.Workshop.Data\CarTroubleSolver.Workshop.Data.csproj" />
+    <ProjectReference Include="..\CarTroubleSolver.Shared\CarTroubleSolver.Shared.csproj" />
     <ProjectReference Include="..\CarTroubleSolver.Workshop.Logic\CarTroubleSolver.Workshop.Logic.csproj" />
   </ItemGroup>
 

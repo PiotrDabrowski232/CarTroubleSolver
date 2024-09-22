@@ -1,12 +1,9 @@
-﻿using CarTroubleSolver.Data.Models;
-using CarTroubleSolver.Data.Repositories.Interfaces;
-using CarTroubleSolver.Logic.Consts;
+﻿using CarTroubleSolver.Logic.Consts;
 using CarTroubleSolver.Logic.Dto.Car;
 using CarTroubleSolver.Logic.Dto.File;
 using CarTroubleSolver.Logic.Services.Interfaces;
+using CarTroubleSolver.Shared.Repositories.Interfaces;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace CarTroubleSolver.Logic.Services
 {

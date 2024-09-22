@@ -1,5 +1,5 @@
-﻿using CarTroubleSolver.Shared.Models.Enum;
-using CarTroubleSolver.Workshop.Data;
+﻿using CarTroubleSolver.Shared.Data;
+using CarTroubleSolver.Shared.Models.Enum;
 using CarTroubleSolver.Workshop.Logic.Dto.Workshop;
 using FluentValidation;
 

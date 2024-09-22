@@ -1,6 +1,6 @@
-﻿using CarTroubleSolver.Data.Models;
-using CarTroubleSolver.Data.Models.Enums;
-using CarTroubleSolver.Shared.Extensions;
+﻿using CarTroubleSolver.Shared.Extensions;
+using CarTroubleSolver.Shared.Models.Enums;
+using CarTroubleSolver.Shared.Models.UserPanel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

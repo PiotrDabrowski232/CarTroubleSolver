@@ -1,5 +1,5 @@
-﻿using CarTroubleSolver.Data.Repositories.Interfaces;
-using CarTroubleSolver.Data.Repositories;
+﻿using CarTroubleSolver.Shared.Repositories;
+using CarTroubleSolver.Shared.Repositories.Interfaces;
 
 namespace CarTroubleSolver.Api.DIConfig
 {
@@ -10,7 +10,7 @@ namespace CarTroubleSolver.Api.DIConfig
             Services.AddScoped<IUserRepository, UserRepository>();
             Services.AddScoped<IRoleRepository, RoleRepository>();
             Services.AddScoped<ICarRepository, CarRepository>();
-         
+
             return Services;
         }
     }

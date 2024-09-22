@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using CarTroubleSolver.Data.Repositories.Interfaces;
 using CarTroubleSolver.Logic.Dto.Car;
 using CarTroubleSolver.Logic.Services.Interfaces;
+using CarTroubleSolver.Shared.Repositories.Interfaces;
 using MediatR;
 
 namespace CarTroubleSolver.Logic.Functions.Car.Command
@@ -29,13 +29,13 @@ namespace CarTroubleSolver.Logic.Functions.Car.Command
 
         public async Task Handle(UpdateCarDetailsCommand request, CancellationToken cancellationToken)
         {
-            var car = _mapper.Map<Data.Models.Car>(request.Car);
+            var car = _mapper.Map<Shared.Models.UserPanel.Car>(request.Car);
 
             var imagePath = _carRepository.UpdateCarByVinAsync(car, request.Car.OldVin);
 
-            if(imagePath != null && request.Car.VIN != request.Car.OldVin)
-               await _fileService.UpdateFilePath(request.Car.VIN, imagePath);
-            
+            if (imagePath != null && request.Car.VIN != request.Car.OldVin)
+                await _fileService.UpdateFilePath(request.Car.VIN, imagePath);
+
         }
     }
 }

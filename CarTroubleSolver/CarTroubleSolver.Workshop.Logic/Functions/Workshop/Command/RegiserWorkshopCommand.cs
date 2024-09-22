@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
-using CarTroubleSolver.Shared.Exceptions;
-using CarTroubleSolver.Shared.Models;
+using CarTroubleSolver.Shared.Repositories.Interfaces;
 using CarTroubleSolver.Shared.Services.Interface;
-using CarTroubleSolver.Workshop.Data.Repositories.Interfaces;
 using CarTroubleSolver.Workshop.Logic.Dto.Workshop;
 using MediatR;
 
@@ -28,7 +26,7 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Command
 
         public Task<Guid> Handle(RegiserWorkshopCommand request, CancellationToken cancellationToken)
         {
-            var workshop = _mapper.Map<Data.Models.Workshop>(request.Workshop);
+            var workshop = _mapper.Map<Shared.Models.WorkshopPanel.Workshop>(request.Workshop);
 
             var geoLocalization = _geoLocalizationService.GetCurrentGeoLocalization(request.Workshop.Street, cancellationToken).Result;
 

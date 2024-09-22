@@ -1,5 +1,5 @@
 ﻿using CarTroubleSolver.Shared.Extensions;
-using CarTroubleSolver.Data.Models;
+using CarTroubleSolver.Shared.Models.UserPanel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

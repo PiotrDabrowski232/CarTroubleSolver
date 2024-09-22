@@ -1,6 +1,5 @@
 ﻿using CarTroubleSolver.Logic.Dto.Car;
 using CarTroubleSolver.Logic.Dto.File;
-using Microsoft.AspNetCore.Http;
 
 namespace CarTroubleSolver.Logic.Services.Interfaces
 {

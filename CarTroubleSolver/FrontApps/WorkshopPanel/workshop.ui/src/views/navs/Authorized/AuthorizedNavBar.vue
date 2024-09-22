@@ -8,8 +8,8 @@
       data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Logout!" >
         <i class="bi bi-door-open-fill"></i>
       </RouterLink>
-      <RouterLink class="logoutLink" to="/" @click.prevent="Logout"
-      data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Account">
+      <RouterLink class="AccountLink" to="/Account"
+      data-bs-toggle="tooltip" data-bs-placement="bottom" :data-bs-title="[`${Workshop.name} account`]">
         <i class="bi bi-person"></i>
       </RouterLink>
     </nav>
@@ -19,9 +19,15 @@
 <script>
 import { Tooltip } from 'bootstrap'; 
 import AuthService from '@/Services/AuthService';
+import {getFromLocalStorage} from '@/Services/LocalStorageService';
 
 export default {
   name: 'AuthorizedNavBar',
+  data(){
+    return{
+      Workshop: getFromLocalStorage("Workshop") || {}
+    }
+  },
   mounted() {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
     this.tooltipList = [];

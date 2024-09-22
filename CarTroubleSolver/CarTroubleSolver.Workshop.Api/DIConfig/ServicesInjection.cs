@@ -1,5 +1,5 @@
 ﻿using CarTroubleSolver.Shared.Auth;
-using CarTroubleSolver.Shared.Models;
+using CarTroubleSolver.Shared.Models.ExtraModels;
 using CarTroubleSolver.Shared.Services;
 using CarTroubleSolver.Shared.Services.Interface;
 using Microsoft.AspNetCore.Identity;
@@ -16,8 +16,6 @@ namespace CarTroubleSolver.Workshop.Api.DIConfig
 
             Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assemblies));
 
-            Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
             Services.Configure<AuthenticationSettings>(configuration.GetSection("Authentication"));
 
             Services.AddScoped<ITokenService, TokenService>();
@@ -29,6 +27,8 @@ namespace CarTroubleSolver.Workshop.Api.DIConfig
             Services.AddScoped<IHashingService, HashingService>();
 
             Services.AddSingleton<IGeoLocalizationService, GeoLocalizationService>();
+
+            Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             Services.AddHttpClient();
 

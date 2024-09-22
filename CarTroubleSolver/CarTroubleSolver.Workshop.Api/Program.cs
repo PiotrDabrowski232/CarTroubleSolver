@@ -1,5 +1,5 @@
+using CarTroubleSolver.Shared.Data;
 using CarTroubleSolver.Workshop.Api.DIConfig;
-using CarTroubleSolver.Workshop.Data;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -48,7 +48,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("AllowOrigin"); 
+app.UseCors("AllowOrigin");
 
 app.UseAuthorization();
 

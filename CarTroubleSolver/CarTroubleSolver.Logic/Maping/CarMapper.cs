@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using CarTroubleSolver.Data.Models;
-using CarTroubleSolver.Data.Models.Enums;
 using CarTroubleSolver.Logic.Dto;
 using CarTroubleSolver.Logic.Dto.Car;
+using CarTroubleSolver.Shared.Models.Enums;
+using CarTroubleSolver.Shared.Models.UserPanel;
 
 namespace CarTroubleSolver.Logic.Maping
 {

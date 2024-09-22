@@ -1,5 +1,5 @@
-﻿using CarTroubleSolver.Workshop.Data.Repositories;
-using CarTroubleSolver.Workshop.Data.Repositories.Interfaces;
+﻿using CarTroubleSolver.Shared.Repositories;
+using CarTroubleSolver.Shared.Repositories.Interfaces;
 
 namespace CarTroubleSolver.Workshop.Api.DIConfig
 {
@@ -8,6 +8,7 @@ namespace CarTroubleSolver.Workshop.Api.DIConfig
         public static IServiceCollection WithRepositories(this IServiceCollection Services)
         {
             Services.AddScoped<IWorkshopRepository, WorkshopRepository>();
+            Services.AddScoped<IHourRepository, HourRepository>();
 
             return Services;
         }

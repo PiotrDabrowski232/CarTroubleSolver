@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using CarTroubleSolver.Workshop.Logic.Functions.Workshop.Command;
 using CarTroubleSolver.Workshop.Logic.Functions.Workshop.Query;
 using CarTroubleSolver.Shared.Exceptions;
+using CarTroubleSolver.Workshop.Logic.Functions.Hour.Command;
+using CarTroubleSolver.Workshop.Logic.Dto.Hour;
 
 namespace CarTroubleSolver.Workshop.Api.Controllers
 {
@@ -45,6 +47,21 @@ namespace CarTroubleSolver.Workshop.Api.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, "An unexpected error occurred: " + ex.Message);  
+            }
+        }
+
+        [HttpPost]
+        [Route("/HoursConfiguration")]
+        public async Task<ActionResult> HoursConfiguration([FromBody] IList<WorkingHoursDto> hours)
+        {
+            try
+            {
+                var result = await _mediator.Send(new HourConfigurationCommand(hours));
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An unexpected error occurred: " + ex.Message);
             }
         }
 

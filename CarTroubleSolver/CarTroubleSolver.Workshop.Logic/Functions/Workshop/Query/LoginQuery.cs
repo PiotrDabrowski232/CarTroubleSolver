@@ -1,6 +1,6 @@
 ﻿using CarTroubleSolver.Shared.Exceptions;
+using CarTroubleSolver.Shared.Repositories.Interfaces;
 using CarTroubleSolver.Shared.Services.Interface;
-using CarTroubleSolver.Workshop.Data.Repositories.Interfaces;
 using CarTroubleSolver.Workshop.Logic.Dto.Workshop;
 using MediatR;
 
@@ -29,12 +29,12 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Query
                 .Where(x => x.Email == request.Workshop.Email)
                 .Select(x => new
                 {
-                    Id = x.Id.ToString(),
                     Password = x.Password,
                     Longitude = x.Longitude,
                     Latitude = x.Latitude,
                     WorkshopDetails = new WorkshopDetailsDto
                     {
+                        Id = x.Id.ToString(),
                         Name = x.Name,
                         Email = x.Email,
                         PhoneNumber = x.PhoneNumber,
@@ -45,10 +45,10 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Query
             if (data == null)
                 throw new InvalidProvidedDataException("There is not workshop with provided email");
 
-            if(!_hashingService.VerifyHashedPassword(null, data.Password, request.Workshop.Password))
+            if (!_hashingService.VerifyHashedPassword(null, data.Password, request.Workshop.Password))
                 throw new InvalidProvidedDataException("Incorrect Password");
 
-            var token = _tokenService.GenerateJwt(data.Id, data.WorkshopDetails.Name, request.Workshop.Email);
+            var token = _tokenService.GenerateJwt(data.WorkshopDetails.Id, data.WorkshopDetails.Name, request.Workshop.Email);
 
             data.WorkshopDetails.Adress = await _geoLocalizationService.GetLocalizationDetails(data.Latitude, data.Longitude, cancellationToken);
 
