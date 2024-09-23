@@ -6,6 +6,7 @@ using CarTroubleSolver.Shared.Models.ExtraModels;
 using CarTroubleSolver.Shared.Services;
 using CarTroubleSolver.Shared.Services.Interface;
 using Microsoft.AspNetCore.Identity;
+using System.Reflection;
 
 namespace CarTroubleSolver.Api.DIConfig
 {
@@ -17,6 +18,10 @@ namespace CarTroubleSolver.Api.DIConfig
             Services.AddScoped<IUserService, UserService>();
             Services.AddScoped<ICarService, CarService>();
             Services.AddScoped<IFileService, FileService>();
+
+            var assemblies = Assembly.Load("CarTroubleSolver.Logic");
+
+
             Services.Configure<AuthenticationSettings>(configuration.GetSection("Authentication"));
 
             Services.AddScoped<ITokenService, TokenService>();
@@ -27,7 +32,7 @@ namespace CarTroubleSolver.Api.DIConfig
 
             Services.AddScoped<IHashingService, HashingService>();
 
-            Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            Services.AddAutoMapper(assemblies);
             Services.AddSingleton<ModelFactory>();
 
             return Services;

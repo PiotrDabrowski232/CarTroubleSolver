@@ -20,6 +20,13 @@ namespace CarTroubleSolver.Workshop.Logic.Maping
                 .ForMember(dest => dest.From, opt => opt.MapFrom(src => src.From.ToString("HH:mm")))
                 .ForMember(dest => dest.To, opt => opt.MapFrom(src => src.To.ToString("HH:mm")))
                 .ForMember(dest => dest.WorkshopId, opt => opt.MapFrom(src => src.WorkshopId.ToString()));
+
+            CreateMap<HourConfiguration, HoursDto>()
+                .ForMember(dest => dest.DayOfWeek, opt => opt.MapFrom(src => src.DayOfWeek.ToString()))
+                .ForMember(dest => dest.From, opt => opt.MapFrom(src => src.From.ToString("HH:mm")))
+                .ForMember(dest => dest.To, opt => opt.MapFrom(src => src.To.ToString("HH:mm")));
+
+            CreateMap<WorkingHoursDto, HoursDto>();
         }
     }
 }

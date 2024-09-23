@@ -1,20 +1,37 @@
+import { saveToLocalStorage, getFromLocalStorage } from '@/Services/LocalStorageService';
 import axios from 'axios';
-import { saveToLocalStorage } from '@/Services/LocalStorageService';
+
 
 const base_url = "https://localhost:7287";
 
-const UpdateHours = async (Hours) => {
-    console.log(Hours)
-  await axios.post(`${base_url}/HoursConfiguration`, Hours, {
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  .then(response => {
-    localStorage.clear();
+
+
+const updateHoursInLocalStorage = (newHours) => {
+  const workshopDetails = getFromLocalStorage('Workshop');
+  
+  if (workshopDetails) {
+    workshopDetails.hours = newHours;
     
-    })
-}
+    saveToLocalStorage('Workshop', workshopDetails);
+  } else {
+    console.error('There is no Hour object in localStorage');
+  }
+};
 
+const UpdateHours = async (Hours) => {
+  try {
+    const response = await axios.post(`${base_url}/HoursConfiguration`, Hours, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
 
-export {UpdateHours};
+    if (response.status === 200) {
+      updateHoursInLocalStorage(response.data)
+    }
+  } catch (error) {
+    console.error('Błąd podczas aktualizacji godzin:', error);
+  }
+};
+
+export { UpdateHours };

@@ -44,7 +44,7 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Query
                                 Email = x.Email,
                                 PhoneNumber = x.PhoneNumber,
                                 NIP = x.NIP,
-                                Hours = _mapper.Map<ICollection<WorkingHoursDto>?>(x.OpenHours)
+                                Hours = _mapper.Map<ICollection<HoursDto>?>(x.OpenHours)
                             }
                         }).FirstOrDefault();
 

@@ -2,6 +2,7 @@
   <div class="form-container">
     <h2>Opening Hours</h2>
     <form @submit.prevent="submitForm" class="form-content">
+      <Toast v-if="showToast" :msg="toastMsg" :color="toastColor" />
       <div class="grid-container">
         <div class="column">
           <div v-for="(day, index) in daysOfWeek.slice(0, 3)" :key="index" class="day-section">
@@ -49,15 +50,20 @@
 import SelectInput from '../../../components/Form/SelectInput.vue';
 import { UpdateHours } from '@/ApiCommunication/workshop';
 import { getFromLocalStorage } from '@/Services/LocalStorageService';
+import Toast from '@/components/Toast.vue';
+import router from '@/router';
 
 export default {
   name: 'OpeningHoursForm',
   components: {
-    SelectInput,
+    SelectInput, Toast
   },
   data() {
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
     return {
+      showToast: false,
+      toastMsg: '',
+      toastColor: '',
       daysOfWeek: days,
       openingTimes: days.reduce((acc, day) => {
         acc[day] = { from: '', to: '' }; 
@@ -105,11 +111,24 @@ export default {
 
       try {
         await UpdateHours(workingHoursList);
+        this.showToastMessage('Hours updated successfully', 'success');
+        setTimeout(() => {
+          router.push('/Account')
+        }, 2000);
       } catch (error) {
         console.error('Error while updating hours:', error);
+        this.showToastMessage('Some errors occured', 'warning');
       }
     }
-  }
+  },
+  showToastMessage(message, color) {
+      this.toastMsg = message;
+      this.showToast = true;
+      this.toastColor = color;
+      setTimeout(() => {
+        this.showToast = false;
+      }, 3000);
+    },
   }
 };
 </script>

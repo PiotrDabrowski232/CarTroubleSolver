@@ -28,7 +28,7 @@ namespace CarTroubleSolver.Workshop.Api.DIConfig
 
             Services.AddSingleton<IGeoLocalizationService, GeoLocalizationService>();
 
-            Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            Services.AddAutoMapper(assemblies);
 
             Services.AddHttpClient();
 

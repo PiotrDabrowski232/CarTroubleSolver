@@ -31,11 +31,11 @@
       <div class="opening-hours">
         <button class="btn btn-warning btn-block mb-3 w-100" v-on:click="changeSite()">Change Opening Hours</button>
         <ul class="list-group">
-          <li class="list-group-item">Monday <p></p></li>
-          <li class="list-group-item">Tuesday <p></p></li>
-          <li class="list-group-item">Wednesday <p></p></li>
-          <li class="list-group-item">Thursday <p></p></li>
-          <li class="list-group-item">Friday <p></p></li>
+          <li class="list-group-item">Monday <p>{{this.DisplayHours("Monday")}}</p></li>
+          <li class="list-group-item">Tuesday <p>{{this.DisplayHours("Tuesday")}}</p></li>
+          <li class="list-group-item">Wednesday <p>{{this.DisplayHours("Wednesday")}}</p></li>
+          <li class="list-group-item">Thursday <p>{{this.DisplayHours("Thursday")}}</p></li>
+          <li class="list-group-item">Friday <p>{{this.DisplayHours("Friday")}}</p></li>
         </ul>
       </div>
     </div>
@@ -57,6 +57,14 @@ export default {
   methods:{
     changeSite(){
       router.push("/Hours")
+    },
+    DisplayHours(dayName){
+      const hoursForDay = this.Workshop.hours.find(x => x.dayOfWeek == dayName)
+        if (hoursForDay) {
+          return `${hoursForDay.from} - ${hoursForDay.to}`;
+      } else {
+          return "--";
+      }
     }
   }
 }

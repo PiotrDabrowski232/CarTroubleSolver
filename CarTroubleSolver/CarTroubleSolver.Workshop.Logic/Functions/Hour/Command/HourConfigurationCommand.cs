@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CarTroubleSolver.Workshop.Logic.Functions.Hour.Command
 {
-    public class HourConfigurationCommand : IRequest<IList<WorkingHoursDto>>
+    public class HourConfigurationCommand : IRequest<ICollection<HoursDto>>
     {
         public IList<WorkingHoursDto> Hours { get; set; }
 
@@ -17,7 +17,7 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Hour.Command
         }
     }
 
-    public class HourConfigurationCommandHandler : IRequestHandler<HourConfigurationCommand, IList<WorkingHoursDto>>
+    public class HourConfigurationCommandHandler : IRequestHandler<HourConfigurationCommand, ICollection<HoursDto>>
     {
         private readonly IHourRepository _hourRepository;
         private readonly IMapper _mapper;
@@ -28,7 +28,7 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Hour.Command
             _mapper = mapper;
         }
 
-        public async Task<IList<WorkingHoursDto>> Handle(HourConfigurationCommand request, CancellationToken cancellationToken)
+        public async Task<ICollection<HoursDto>> Handle(HourConfigurationCommand request, CancellationToken cancellationToken)
         {
             var workshopId = Guid.Parse(request.Hours.First().WorkshopId);
             var existingHours = await _hourRepository.GetAll()
@@ -60,7 +60,7 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Hour.Command
 
             await _hourRepository.SaveChanges();
 
-            return request.Hours;
+            return _mapper.Map<ICollection<HoursDto>>(request.Hours);
         }
 
         private bool HasChanges(HourConfiguration savedTime, HourConfiguration futureTime)
