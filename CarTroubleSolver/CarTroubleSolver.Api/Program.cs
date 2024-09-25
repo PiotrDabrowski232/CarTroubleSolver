@@ -30,8 +30,7 @@ builder.Services.AddSwaggerGen(c =>
 //DbContext
 var connectionString = builder.Configuration.GetConnectionString("Connection");
 builder.Services.AddDbContext<CarTroubleSolverDbContext>(options =>
-    options.UseSqlServer(connectionString)
-           .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking),
+    options.UseSqlServer(connectionString),
     ServiceLifetime.Transient);
 
 //DI

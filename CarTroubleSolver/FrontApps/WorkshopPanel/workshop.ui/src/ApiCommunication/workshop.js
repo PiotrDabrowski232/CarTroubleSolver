@@ -1,6 +1,6 @@
 import { saveToLocalStorage, getFromLocalStorage } from '@/Services/LocalStorageService';
 import axios from 'axios';
-
+import AuthService from '@/Services/AuthService';
 
 const base_url = "https://localhost:7287";
 
@@ -34,4 +34,13 @@ const UpdateHours = async (Hours) => {
   }
 };
 
-export { UpdateHours };
+
+const ResetPassword = async (model) => {
+    await axios.put(`${base_url}/ResetPassword`, model, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${AuthService.getToken()}`
+      },
+    });
+};
+export { UpdateHours, ResetPassword };

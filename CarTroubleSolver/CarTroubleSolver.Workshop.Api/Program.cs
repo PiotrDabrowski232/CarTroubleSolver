@@ -1,8 +1,11 @@
+using CarTroubleSolver.Shared.Auth;
 using CarTroubleSolver.Shared.Data;
 using CarTroubleSolver.Workshop.Api.DIConfig;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System.Reflection;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,8 +23,7 @@ builder.Services.AddSwaggerGen();
 //DbContext
 var connectionString = builder.Configuration.GetConnectionString("Connection");
 builder.Services.AddDbContext<CarTroubleSolverDbContext>(options =>
-    options.UseSqlServer(connectionString)
-           .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking),
+    options.UseSqlServer(connectionString),
     ServiceLifetime.Transient);
 
 //DI
@@ -39,6 +41,31 @@ builder.Services.AddCors(options =>
                .AllowAnyHeader();
     });
 });
+
+var authenticationSettings = new AuthenticationSettings();
+builder.Configuration.GetSection("Authentication").Bind(authenticationSettings);
+
+builder.Services.AddSingleton(authenticationSettings);
+
+builder.Services.AddAuthentication(option =>
+{
+    option.DefaultAuthenticateScheme = "Bearer";
+    option.DefaultScheme = "Bearer";
+    option.DefaultChallengeScheme = "Bearer";
+}).AddJwtBearer(cfg =>
+{
+    cfg.RequireHttpsMetadata = false;
+    cfg.SaveToken = true;
+    cfg.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidIssuer = authenticationSettings.JwtIssuer,
+        ValidAudience = authenticationSettings.JwtIssuer,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(authenticationSettings.JwtKey)),
+    };
+});
+
+builder.Services.AddAuthorization();
+
 
 var app = builder.Build();
 

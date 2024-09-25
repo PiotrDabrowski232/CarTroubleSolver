@@ -10,6 +10,7 @@ namespace CarTroubleSolver.Workshop.Api.DIConfig
         public static IServiceCollection WithValidation(this IServiceCollection Services)
         {
             Services.AddScoped<IValidator<RegisterWorkshopDto>, RegisterWorkshopDtoValidation>();
+            Services.AddScoped<IValidator<NewPasswordDto>, NewPasswordDtoValidation>();
 
             return Services;
         }

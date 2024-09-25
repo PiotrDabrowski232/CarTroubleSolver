@@ -1,31 +1,46 @@
 .account-details-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 4vh 3vw;
-    max-width: 50vw;
-  }
-  
-  .account-info, .address-info {
-    margin-bottom: 3vh;
-    padding: 3vh 2vw;
-    background-color: #e1e4e9;
-    border-radius: 1.5vw;
-    box-shadow: 0 1vh 2vh rgba(0, 0, 0, 0.15);
-  }
-  
-  .account-info h2, .address-info h2 {
-    font-size: 1.2em;
-    margin-bottom:  1.5vh; 
-  }
-  
-  p {
-    margin: 5px 0;
-  }
-  
-  strong {
-    color: #333;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4vh 3vw;
+  max-width: 50vw;
+}
+
+/* Nowa sekcja dla flexbox layout */
+.info-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between; /* Oddziela account-info i services-info */
+}
+
+.account-info, .address-info, .services-info {
+  margin-bottom: 3vh;
+  padding: 3vh 2vw;
+  background-color: #e1e4e9;
+  border-radius: 1.5vw;
+  box-shadow: 0 1vh 2vh rgba(0, 0, 0, 0.15);
+}
+
+.account-info, .services-info {
+  width: 48%; /* Ustaw szerokość obu sekcji na 48% dla lepszego wyglądu */
+}
+
+.address-info {
+  width: 100%; /* Sekcja address zajmuje pełną szerokość */
+}
+
+.account-info h2, .address-info h2, .services-info h2 {
+  font-size: 1.2em;
+  margin-bottom: 1.5vh;
+}
+
+p {
+  margin: 5px 0;
+}
+
+strong {
+  color: #333;
+}
 
 .opening-hours {
   background-color: #e1e4e9;
@@ -45,6 +60,7 @@
   font-weight: 500;
   text-align: center;
 }
-.row{
+
+.row {
   width: 100%;
 }

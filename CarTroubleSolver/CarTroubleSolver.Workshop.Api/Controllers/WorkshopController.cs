@@ -6,6 +6,8 @@ using CarTroubleSolver.Workshop.Logic.Functions.Workshop.Query;
 using CarTroubleSolver.Shared.Exceptions;
 using CarTroubleSolver.Workshop.Logic.Functions.Hour.Command;
 using CarTroubleSolver.Workshop.Logic.Dto.Hour;
+using Microsoft.AspNetCore.Identity.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CarTroubleSolver.Workshop.Api.Controllers
 {
@@ -62,6 +64,22 @@ namespace CarTroubleSolver.Workshop.Api.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, "An unexpected error occurred: " + ex.Message);
+            }
+        }
+
+        [HttpPut]
+        [Authorize]
+        [Route("/ResetPassword")]
+        public async Task<ActionResult> ResetPassword([FromBody] NewPasswordDto password)
+        {
+            try
+            {
+                var result = await _mediator.Send(new ResetPasswordCommand(password));
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
 

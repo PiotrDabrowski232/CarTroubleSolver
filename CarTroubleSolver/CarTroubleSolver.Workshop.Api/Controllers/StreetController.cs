@@ -1,7 +1,6 @@
 ﻿using CarTroubleSolver.Workshop.Logic.Functions.Street.Query;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
 
 namespace CarTroubleSolver.Workshop.Api.Controllers
 {
