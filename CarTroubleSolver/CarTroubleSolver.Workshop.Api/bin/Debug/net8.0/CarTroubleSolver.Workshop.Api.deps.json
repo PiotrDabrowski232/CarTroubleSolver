@@ -1108,7 +1108,10 @@
           "System.IdentityModel.Tokens.Jwt": "7.1.2"
         },
         "runtime": {
-          "CarTroubleSolver.Shared.dll": {}
+          "CarTroubleSolver.Shared.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "CarTroubleSolver.Workshop.Logic/1.0.0": {
@@ -1124,7 +1127,10 @@
           "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
-          "CarTroubleSolver.Workshop.Logic.dll": {}
+          "CarTroubleSolver.Workshop.Logic.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

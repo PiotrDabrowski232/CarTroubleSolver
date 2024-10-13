@@ -139,7 +139,6 @@ C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.CarTroubleSolver.Api.props
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\obj\Debug\net8.0\scopedcss\bundle\CarTroubleSolver.Api.styles.css
-C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\obj\Debug\net8.0\CarTroubleSolver.Api.csproj.CopyComplete
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\obj\Debug\net8.0\CarTroubleSolver.Api.dll
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\obj\Debug\net8.0\refint\CarTroubleSolver.Api.dll
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\obj\Debug\net8.0\CarTroubleSolver.Api.pdb
@@ -161,3 +160,5 @@ C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\FluentAssertions.dll
+C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\obj\Debug\net8.0\CarTroubleSolver.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\obj\Debug\net8.0\CarTroub.9F820CA6.Up2Date

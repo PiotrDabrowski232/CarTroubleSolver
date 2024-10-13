@@ -1,0 +1,123 @@
+[
+  {
+    "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.ServiceController",
+    "Method": "AddServices",
+    "RelativePath": "AddServices",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "services",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[CarTroubleSolver.Workshop.Logic.Dto.Service.ServiceDto, CarTroubleSolver.Workshop.Logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.ServiceController",
+    "Method": "GetServices",
+    "RelativePath": "GetServices",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.WorkshopController",
+    "Method": "HoursConfiguration",
+    "RelativePath": "HoursConfiguration",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "hours",
+        "Type": "System.Collections.Generic.IList\u00601[[CarTroubleSolver.Workshop.Logic.Dto.Hour.WorkingHoursDto, CarTroubleSolver.Workshop.Logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.WorkshopController",
+    "Method": "Login",
+    "RelativePath": "Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "workshop",
+        "Type": "CarTroubleSolver.Workshop.Logic.Dto.Workshop.LoginWorkshopDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.StreetController",
+    "Method": "GetProvinces",
+    "RelativePath": "Provinces",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.WorkshopController",
+    "Method": "Register",
+    "RelativePath": "Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "workshop",
+        "Type": "CarTroubleSolver.Workshop.Logic.Dto.Workshop.RegisterWorkshopDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.WorkshopController",
+    "Method": "ResetPassword",
+    "RelativePath": "ResetPassword",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "password",
+        "Type": "CarTroubleSolver.Workshop.Logic.Dto.Workshop.NewPasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.ServiceController",
+    "Method": "GetServices",
+    "RelativePath": "ServiceType",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

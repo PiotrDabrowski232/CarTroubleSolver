@@ -229,6 +229,29 @@ namespace CarTroubleSolver.Shared.Migrations
                     b.ToTable("Workshops");
                 });
 
+            modelBuilder.Entity("CarTroubleSolver.Shared.Models.WorkshopPanel.WorkshopServices", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Price")
+                        .HasPrecision(10, 2)
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<int>("Service")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("WorkshopId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("WorkshopId");
+
+                    b.ToTable("WorkshopServices");
+                });
+
             modelBuilder.Entity("CarTroubleSolver.Shared.Models.UserPanel.Car", b =>
                 {
                     b.HasOne("CarTroubleSolver.Shared.Models.UserPanel.CarColor", "Color")
@@ -270,6 +293,17 @@ namespace CarTroubleSolver.Shared.Migrations
                     b.Navigation("Workshop");
                 });
 
+            modelBuilder.Entity("CarTroubleSolver.Shared.Models.WorkshopPanel.WorkshopServices", b =>
+                {
+                    b.HasOne("CarTroubleSolver.Shared.Models.WorkshopPanel.Workshop", "Workshop")
+                        .WithMany("Services")
+                        .HasForeignKey("WorkshopId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Workshop");
+                });
+
             modelBuilder.Entity("CarTroubleSolver.Shared.Models.UserPanel.User", b =>
                 {
                     b.Navigation("Cars");
@@ -278,6 +312,8 @@ namespace CarTroubleSolver.Shared.Migrations
             modelBuilder.Entity("CarTroubleSolver.Shared.Models.WorkshopPanel.Workshop", b =>
                 {
                     b.Navigation("OpenHours");
+
+                    b.Navigation("Services");
                 });
 #pragma warning restore 612, 618
         }

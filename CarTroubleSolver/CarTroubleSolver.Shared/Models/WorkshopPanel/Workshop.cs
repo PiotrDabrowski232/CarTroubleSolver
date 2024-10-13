@@ -9,5 +9,7 @@ namespace CarTroubleSolver.Shared.Models.WorkshopPanel
         public decimal Longitude { get; set; }
 
         public virtual ICollection<HourConfiguration>? OpenHours { get; set; }
+        public virtual ICollection<WorkshopServices>? Services { get; set; }
+
     }
 }

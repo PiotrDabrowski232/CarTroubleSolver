@@ -148,7 +148,6 @@ C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.CarTroubleSolver.Workshop.Api.props
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\obj\Debug\net8.0\scopedcss\bundle\CarTroubleSolver.Workshop.Api.styles.css
-C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\obj\Debug\net8.0\CarTroubleSolver.Workshop.Api.csproj.CopyComplete
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\obj\Debug\net8.0\CarTroubleSolver.Workshop.Api.dll
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\obj\Debug\net8.0\refint\CarTroubleSolver.Workshop.Api.dll
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\obj\Debug\net8.0\CarTroubleSolver.Workshop.Api.pdb
@@ -161,3 +160,4 @@ C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\bin\Debug\net8.0\AutoMapper.Extensions.EnumMapping.dll
+C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\obj\Debug\net8.0\CarTroub.02DE6213.Up2Date

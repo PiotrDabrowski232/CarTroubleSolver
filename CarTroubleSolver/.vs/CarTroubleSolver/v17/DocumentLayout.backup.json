@@ -1,0 +1,171 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0D55A0D8-B52D-4A51-8CB8-939A1592C6D9}|CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.workshop.logic\\maping\\servicemapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D55A0D8-B52D-4A51-8CB8-939A1592C6D9}|CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj|solutionrelative:cartroublesolver.workshop.logic\\maping\\servicemapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08022DCF-2288-495B-9925-68D0447C7A00}|CarTroubleSolver.Shared\\CarTroubleSolver.Shared.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.shared\\models\\workshoppanel\\workshopservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08022DCF-2288-495B-9925-68D0447C7A00}|CarTroubleSolver.Shared\\CarTroubleSolver.Shared.csproj|solutionrelative:cartroublesolver.shared\\models\\workshoppanel\\workshopservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08022DCF-2288-495B-9925-68D0447C7A00}|CarTroubleSolver.Shared\\CarTroubleSolver.Shared.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.shared\\models\\enum\\servicetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08022DCF-2288-495B-9925-68D0447C7A00}|CarTroubleSolver.Shared\\CarTroubleSolver.Shared.csproj|solutionrelative:cartroublesolver.shared\\models\\enum\\servicetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D55A0D8-B52D-4A51-8CB8-939A1592C6D9}|CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.workshop.logic\\dto\\service\\servicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D55A0D8-B52D-4A51-8CB8-939A1592C6D9}|CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj|solutionrelative:cartroublesolver.workshop.logic\\dto\\service\\servicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D55A0D8-B52D-4A51-8CB8-939A1592C6D9}|CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.workshop.logic\\maping\\worshopmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D55A0D8-B52D-4A51-8CB8-939A1592C6D9}|CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj|solutionrelative:cartroublesolver.workshop.logic\\maping\\worshopmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A79C47-C6C1-42D3-99C5-DFC8AEBF8775}|CarTroubleSolver.Workshop.Api\\CarTroubleSolver.Workshop.Api.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.workshop.api\\controllers\\servicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8A79C47-C6C1-42D3-99C5-DFC8AEBF8775}|CarTroubleSolver.Workshop.Api\\CarTroubleSolver.Workshop.Api.csproj|solutionrelative:cartroublesolver.workshop.api\\controllers\\servicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D55A0D8-B52D-4A51-8CB8-939A1592C6D9}|CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.workshop.logic\\functions\\services\\addservicesforworkshopcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D55A0D8-B52D-4A51-8CB8-939A1592C6D9}|CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj|solutionrelative:cartroublesolver.workshop.logic\\functions\\services\\addservicesforworkshopcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 298,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:940490428:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WorkshopServices.cs",
+              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Shared\\Models\\WorkshopPanel\\WorkshopServices.cs",
+              "RelativeDocumentMoniker": "CarTroubleSolver.Shared\\Models\\WorkshopPanel\\WorkshopServices.cs",
+              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Shared\\Models\\WorkshopPanel\\WorkshopServices.cs",
+              "RelativeToolTip": "CarTroubleSolver.Shared\\Models\\WorkshopPanel\\WorkshopServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T10:57:25.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ServiceType.cs",
+              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Shared\\Models\\Enum\\ServiceType.cs",
+              "RelativeDocumentMoniker": "CarTroubleSolver.Shared\\Models\\Enum\\ServiceType.cs",
+              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Shared\\Models\\Enum\\ServiceType.cs",
+              "RelativeToolTip": "CarTroubleSolver.Shared\\Models\\Enum\\ServiceType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T10:57:21.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ServiceDto.cs",
+              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\Dto\\Service\\ServiceDto.cs",
+              "RelativeDocumentMoniker": "CarTroubleSolver.Workshop.Logic\\Dto\\Service\\ServiceDto.cs",
+              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\Dto\\Service\\ServiceDto.cs",
+              "RelativeToolTip": "CarTroubleSolver.Workshop.Logic\\Dto\\Service\\ServiceDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T10:56:59.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ServiceMapper.cs",
+              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\Maping\\ServiceMapper.cs",
+              "RelativeDocumentMoniker": "CarTroubleSolver.Workshop.Logic\\Maping\\ServiceMapper.cs",
+              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\Maping\\ServiceMapper.cs",
+              "RelativeToolTip": "CarTroubleSolver.Workshop.Logic\\Maping\\ServiceMapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T10:55:42.292Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WorshopMapper.cs",
+              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\Maping\\WorshopMapper.cs",
+              "RelativeDocumentMoniker": "CarTroubleSolver.Workshop.Logic\\Maping\\WorshopMapper.cs",
+              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\Maping\\WorshopMapper.cs",
+              "RelativeToolTip": "CarTroubleSolver.Workshop.Logic\\Maping\\WorshopMapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T10:55:29.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ServiceController.cs",
+              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Api\\Controllers\\ServiceController.cs",
+              "RelativeDocumentMoniker": "CarTroubleSolver.Workshop.Api\\Controllers\\ServiceController.cs",
+              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Api\\Controllers\\ServiceController.cs",
+              "RelativeToolTip": "CarTroubleSolver.Workshop.Api\\Controllers\\ServiceController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAmwCQAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T10:33:12.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AddServicesForWorkshopCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\Functions\\Services\\AddServicesForWorkshopCommand.cs",
+              "RelativeDocumentMoniker": "CarTroubleSolver.Workshop.Logic\\Functions\\Services\\AddServicesForWorkshopCommand.cs",
+              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\Functions\\Services\\AddServicesForWorkshopCommand.cs",
+              "RelativeToolTip": "CarTroubleSolver.Workshop.Logic\\Functions\\Services\\AddServicesForWorkshopCommand.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAowCUAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T10:24:37.388Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
