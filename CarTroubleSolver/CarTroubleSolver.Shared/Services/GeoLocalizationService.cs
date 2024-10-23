@@ -40,9 +40,9 @@ namespace CarTroubleSolver.Shared.Services
             throw new Exception("There is no provided adress");
         }
 
-        public async Task<StreetDto> GetLocalizationDetails(decimal latitude, decimal longitude, CancellationToken cancellationToken)
+        public async Task<StreetDto> GetLocalizationDetails(double? latitude, double? longitude, CancellationToken cancellationToken)
         {
-            var url = $"https://nominatim.openstreetmap.org/reverse.php?lat={latitude.ToString("F6", CultureInfo.InvariantCulture)}&lon={longitude.ToString("F6", CultureInfo.InvariantCulture)}&zoom=18&format=jsonv2";
+            var url = $"https://nominatim.openstreetmap.org/reverse.php?lat={latitude?.ToString("F6", CultureInfo.InvariantCulture)}&lon={longitude?.ToString("F6", CultureInfo.InvariantCulture)}&zoom=18&format=jsonv2";
 
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, url);
             requestMessage.Headers.Add("User-Agent", "CarTroubleSolverApp/1.0");

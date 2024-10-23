@@ -1,4 +1,5 @@
 ﻿using CarTroubleSolver.Shared.Models.ExtraModels;
+using CarTroubleSolver.Shared.Models.WorkshopPanel;
 
 namespace CarTroubleSolver.Shared.Models.UserPanel
 {
@@ -11,5 +12,8 @@ namespace CarTroubleSolver.Shared.Models.UserPanel
         public virtual Role Role { get; set; }
 
         public virtual ICollection<Car> Cars { get; set; }
+        public virtual ICollection<Message> SentMessages { get; set; } 
+        public virtual ICollection<Message> ReceivedMessages { get; set; }
+        public virtual ICollection<Rating> Ratings { get; set; }
     }
 }

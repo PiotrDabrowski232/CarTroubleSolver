@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using NetTopologySuite.Geometries;
 
 #nullable disable
 
@@ -21,6 +22,44 @@ namespace CarTroubleSolver.Shared.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("CarTroubleSolver.Shared.Models.ExtraModels.Message", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("ReceiverUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ReceiverWorkshopId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("SenderUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("SenderWorkshopId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("SentAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReceiverUserId");
+
+                    b.HasIndex("ReceiverWorkshopId");
+
+                    b.HasIndex("SenderUserId");
+
+                    b.HasIndex("SenderWorkshopId");
+
+                    b.ToTable("Messages");
+                });
 
             modelBuilder.Entity("CarTroubleSolver.Shared.Models.UserPanel.Car", b =>
                 {
@@ -194,6 +233,34 @@ namespace CarTroubleSolver.Shared.Migrations
                     b.ToTable("Hours");
                 });
 
+            modelBuilder.Entity("CarTroubleSolver.Shared.Models.WorkshopPanel.Rating", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Rate")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("WorkshopId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("WorkshopId");
+
+                    b.ToTable("Rating");
+                });
+
             modelBuilder.Entity("CarTroubleSolver.Shared.Models.WorkshopPanel.Workshop", b =>
                 {
                     b.Property<Guid>("Id")
@@ -204,11 +271,9 @@ namespace CarTroubleSolver.Shared.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Latitude")
-                        .HasColumnType("decimal(24,21)");
-
-                    b.Property<decimal>("Longitude")
-                        .HasColumnType("decimal(24,21)");
+                    b.Property<Point>("Location")
+                        .IsRequired()
+                        .HasColumnType("geography");
 
                     b.Property<long>("NIP")
                         .HasColumnType("bigint");
@@ -252,6 +317,37 @@ namespace CarTroubleSolver.Shared.Migrations
                     b.ToTable("WorkshopServices");
                 });
 
+            modelBuilder.Entity("CarTroubleSolver.Shared.Models.ExtraModels.Message", b =>
+                {
+                    b.HasOne("CarTroubleSolver.Shared.Models.UserPanel.User", "ReceiverUser")
+                        .WithMany("ReceivedMessages")
+                        .HasForeignKey("ReceiverUserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("CarTroubleSolver.Shared.Models.WorkshopPanel.Workshop", "ReceiverWorkshop")
+                        .WithMany("ReceivedMessages")
+                        .HasForeignKey("ReceiverWorkshopId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("CarTroubleSolver.Shared.Models.UserPanel.User", "SenderUser")
+                        .WithMany("SentMessages")
+                        .HasForeignKey("SenderUserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("CarTroubleSolver.Shared.Models.WorkshopPanel.Workshop", "SenderWorkshop")
+                        .WithMany("SentMessages")
+                        .HasForeignKey("SenderWorkshopId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("ReceiverUser");
+
+                    b.Navigation("ReceiverWorkshop");
+
+                    b.Navigation("SenderUser");
+
+                    b.Navigation("SenderWorkshop");
+                });
+
             modelBuilder.Entity("CarTroubleSolver.Shared.Models.UserPanel.Car", b =>
                 {
                     b.HasOne("CarTroubleSolver.Shared.Models.UserPanel.CarColor", "Color")
@@ -293,6 +389,25 @@ namespace CarTroubleSolver.Shared.Migrations
                     b.Navigation("Workshop");
                 });
 
+            modelBuilder.Entity("CarTroubleSolver.Shared.Models.WorkshopPanel.Rating", b =>
+                {
+                    b.HasOne("CarTroubleSolver.Shared.Models.UserPanel.User", "User")
+                        .WithMany("Ratings")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CarTroubleSolver.Shared.Models.WorkshopPanel.Workshop", "Workshop")
+                        .WithMany("Ratings")
+                        .HasForeignKey("WorkshopId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+
+                    b.Navigation("Workshop");
+                });
+
             modelBuilder.Entity("CarTroubleSolver.Shared.Models.WorkshopPanel.WorkshopServices", b =>
                 {
                     b.HasOne("CarTroubleSolver.Shared.Models.WorkshopPanel.Workshop", "Workshop")
@@ -307,11 +422,23 @@ namespace CarTroubleSolver.Shared.Migrations
             modelBuilder.Entity("CarTroubleSolver.Shared.Models.UserPanel.User", b =>
                 {
                     b.Navigation("Cars");
+
+                    b.Navigation("Ratings");
+
+                    b.Navigation("ReceivedMessages");
+
+                    b.Navigation("SentMessages");
                 });
 
             modelBuilder.Entity("CarTroubleSolver.Shared.Models.WorkshopPanel.Workshop", b =>
                 {
                     b.Navigation("OpenHours");
+
+                    b.Navigation("Ratings");
+
+                    b.Navigation("ReceivedMessages");
+
+                    b.Navigation("SentMessages");
 
                     b.Navigation("Services");
                 });

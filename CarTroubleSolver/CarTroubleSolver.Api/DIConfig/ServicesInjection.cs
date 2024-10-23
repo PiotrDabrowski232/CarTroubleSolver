@@ -32,8 +32,13 @@ namespace CarTroubleSolver.Api.DIConfig
 
             Services.AddScoped<IHashingService, HashingService>();
 
+            Services.AddSingleton<IGeoLocalizationService, GeoLocalizationService>();
+
             Services.AddAutoMapper(assemblies);
+
             Services.AddSingleton<ModelFactory>();
+
+            Services.AddHttpClient();
 
             return Services;
         }

@@ -7,7 +7,6 @@ const BASE_URL = 'http://localhost:5113';
 const getUserInfo = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/User`);
-    console.log(response.data)
     return response.data;
   } catch (error) {
     console.error('Error fetching posts:', error);
@@ -62,4 +61,14 @@ const ResetPassword = async (ResetModel) => {
   }
 }
 
-export { getUserInfo, LoginUser, fetchUserData, ResetPassword };
+const worskhops = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/Workshops`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching posts:', error);
+    throw error;
+  }
+};
+
+export { getUserInfo, LoginUser, fetchUserData, ResetPassword, worskhops };

@@ -23,8 +23,7 @@ builder.Services.AddSwaggerGen();
 //DbContext
 var connectionString = builder.Configuration.GetConnectionString("Connection");
 builder.Services.AddDbContext<CarTroubleSolverDbContext>(options =>
-    options.UseSqlServer(connectionString),
-    ServiceLifetime.Transient);
+    options.UseSqlServer(connectionString, x => x.UseNetTopologySuite()));
 
 //DI
 //Services

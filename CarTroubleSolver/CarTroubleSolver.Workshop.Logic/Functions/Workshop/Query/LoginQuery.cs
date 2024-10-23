@@ -35,8 +35,8 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Query
                         .Select(x => new
                         {
                             Password = x.Password,
-                            Longitude = x.Longitude,
-                            Latitude = x.Latitude,
+                            Longitude = x.Location.X,
+                            Latitude = x.Location.Y,
                             WorkshopDetails = new WorkshopDetailsDto
                             {
                                 Id = x.Id.ToString(),

@@ -1,4 +1,5 @@
-﻿using CarTroubleSolver.Shared.Models.UserPanel;
+﻿using CarTroubleSolver.Shared.Models.ExtraModels;
+using CarTroubleSolver.Shared.Models.UserPanel;
 using CarTroubleSolver.Shared.Models.WorkshopPanel;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,7 +12,8 @@ namespace CarTroubleSolver.Shared.Data
         public DbSet<HourConfiguration> Hours { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Car> Cars { get; set; }
-        public DbSet<Role> Roles { get; set; }
+        public DbSet<Role> Roles { get; set; } 
+        public DbSet<Message> Messages { get; set; } 
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

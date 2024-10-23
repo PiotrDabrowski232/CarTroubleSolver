@@ -3,6 +3,7 @@ using CarTroubleSolver.Shared.Repositories.Interfaces;
 using CarTroubleSolver.Shared.Services.Interface;
 using CarTroubleSolver.Workshop.Logic.Dto.Workshop;
 using MediatR;
+using NetTopologySuite.Geometries;
 
 namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Command
 {
@@ -30,8 +31,8 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Command
 
             var geoLocalization = _geoLocalizationService.GetCurrentGeoLocalization(request.Workshop.Street, cancellationToken).Result;
 
-            workshop.Longitude = geoLocalization.Longitude;
-            workshop.Latitude = geoLocalization.Latitude;
+            var geometryFactory = NetTopologySuite.NtsGeometryServices.Instance.CreateGeometryFactory(srid: 4326);
+            workshop.Location = geometryFactory.CreatePoint(new Coordinate((double)geoLocalization.Longitude, (double)geoLocalization.Latitude));
 
             workshop.Password = _hashingService.HashPassword(null, workshop.Password);
 

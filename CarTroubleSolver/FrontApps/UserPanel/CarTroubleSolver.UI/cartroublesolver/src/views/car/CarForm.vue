@@ -42,7 +42,8 @@
           <div class="row">
             <div class="col">
               <div class="form-floating">
-                <input v-model="Car.VIN" type="number" class="form-control" id="VIN" placeholder="VIN" :class="{'is-invalid': errors.VIN}">
+                <input v-model="Car.VIN" type="number" class="form-control"
+                 id="VIN" placeholder="VIN" :class="{'is-invalid': errors.VIN}">
                 <label for="VIN">VIN</label>
                 <div v-if="errors.VIN" class="invalid-feedback">
                   {{ errors.VIN }}
@@ -217,6 +218,7 @@ export default {
       this.Car.Color.Blue = this.selectedColor.b;
       this.CarPhoto.Vin = this.Car.VIN;
       try {
+        console.log(this.Car)
         await CreateCar(this.Car, this.CarPhoto);
 
         localStorage.clear()

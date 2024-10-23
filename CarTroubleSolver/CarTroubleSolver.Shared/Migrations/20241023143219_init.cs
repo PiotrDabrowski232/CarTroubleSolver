@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using NetTopologySuite.Geometries;
 
 #nullable disable
 
@@ -45,8 +46,7 @@ namespace CarTroubleSolver.Shared.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     NIP = table.Column<long>(type: "bigint", nullable: false),
-                    Latitude = table.Column<decimal>(type: "decimal(24,21)", nullable: false),
-                    Longitude = table.Column<decimal>(type: "decimal(24,21)", nullable: false),
+                    Location = table.Column<Point>(type: "geography", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -103,6 +103,26 @@ namespace CarTroubleSolver.Shared.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "WorkshopServices",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Service = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
+                    WorkshopId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WorkshopServices", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_WorkshopServices_Workshops_WorkshopId",
+                        column: x => x.WorkshopId,
+                        principalTable: "Workshops",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Cars",
                 columns: table => new
                 {
@@ -136,6 +156,47 @@ namespace CarTroubleSolver.Shared.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Messages",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SentAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    SenderUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    SenderWorkshopId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ReceiverUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ReceiverWorkshopId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Messages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Messages_Users_ReceiverUserId",
+                        column: x => x.ReceiverUserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Messages_Users_SenderUserId",
+                        column: x => x.SenderUserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Messages_Workshops_ReceiverWorkshopId",
+                        column: x => x.ReceiverWorkshopId,
+                        principalTable: "Workshops",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Messages_Workshops_SenderWorkshopId",
+                        column: x => x.SenderWorkshopId,
+                        principalTable: "Workshops",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "Id", "Name" },
@@ -163,9 +224,34 @@ namespace CarTroubleSolver.Shared.Migrations
                 column: "WorkshopId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Messages_ReceiverUserId",
+                table: "Messages",
+                column: "ReceiverUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Messages_ReceiverWorkshopId",
+                table: "Messages",
+                column: "ReceiverWorkshopId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Messages_SenderUserId",
+                table: "Messages",
+                column: "SenderUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Messages_SenderWorkshopId",
+                table: "Messages",
+                column: "SenderWorkshopId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Users_RoleId",
                 table: "Users",
                 column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WorkshopServices_WorkshopId",
+                table: "WorkshopServices",
+                column: "WorkshopId");
         }
 
         /// <inheritdoc />
@@ -176,6 +262,12 @@ namespace CarTroubleSolver.Shared.Migrations
 
             migrationBuilder.DropTable(
                 name: "Hours");
+
+            migrationBuilder.DropTable(
+                name: "Messages");
+
+            migrationBuilder.DropTable(
+                name: "WorkshopServices");
 
             migrationBuilder.DropTable(
                 name: "CarColor");
