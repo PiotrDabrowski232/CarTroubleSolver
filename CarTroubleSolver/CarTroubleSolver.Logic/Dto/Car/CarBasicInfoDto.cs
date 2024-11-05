@@ -2,6 +2,7 @@
 {
     public class CarBasicInfoDto
     {
+        public Guid Id { get; set; }
         public long VIN { get; set; }
         public Color Color { get; set; }
         public string CarType { get; set; }

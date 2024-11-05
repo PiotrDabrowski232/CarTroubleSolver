@@ -4,7 +4,8 @@ import Login from '../views/Login/Login.vue'
 import Register from '../views/Register/Register.vue'
 import AccountDetails from '@/views/user/AccountDetails.vue'
 import OpeningHoursForm from '@/views/user/OpeningHours/OpeningHoursForm.vue'
-
+import ReceiveMessage from '@/views/Messages/ReceiveMessage.vue'
+import MessageResponse from '@/views/Messages/MessageResponse.vue'
 const routes = [ 
   {
     path: '/',
@@ -30,6 +31,17 @@ const routes = [
     path: '/Hours',
     name: 'Hours',
     component: OpeningHoursForm
+  },
+  {
+    path: '/ReceiveMessage',
+    name: 'ReceiveMessage',
+    component: ReceiveMessage
+  },
+  {
+    path: '/MessageResponse:id',
+    name: 'MessageResponse',
+    component: MessageResponse,
+    props: true 
   }
 ]
 

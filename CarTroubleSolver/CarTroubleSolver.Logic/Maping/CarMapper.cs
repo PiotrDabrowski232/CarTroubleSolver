@@ -38,6 +38,12 @@ namespace CarTroubleSolver.Logic.Maping
             CreateMap<UpdateCarDto, Car>()
                 .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => Enum.Parse<Brand>(src.Brand)))
                 .ForMember(dest => dest.CarType, opt => opt.MapFrom(src => Enum.Parse<CarType>(src.Type)));
+
+            CreateMap<Car, CarBasicInfoDto>()
+                .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => src.Brand.ToString()));
+
+            CreateMap<CarBasicInfoDto, Car>()
+                .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => Enum.Parse<Brand>(src.Brand)));
         }
     }
 }

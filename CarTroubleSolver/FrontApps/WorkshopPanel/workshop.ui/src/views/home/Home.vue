@@ -1,33 +1,32 @@
 <template>
 
-    <div>  
-        <h4>Home</h4>
-    </div> 
+  <div>
+    <RouterLink to="/ReceiveMessage">
+        <h3>Home</h3>
+    </RouterLink>
+  </div>
 
 </template>
-  
 
 
 
 
-  <script>
-  
-  export default {
-    name: 'Home',
-    props: {
-      msg: String
-    }
+
+<script>
+
+export default {
+  name: 'Home',
+  props: {
+    msg: String
   }
-  </script>
-  
+}
+</script>
 
 
 
-  <style scoped>
 
-  h4{
-    margin: 0;
-  }
-  
-  </style>
-  
+<style scoped>
+h4 {
+  margin: 0;
+}
+</style>

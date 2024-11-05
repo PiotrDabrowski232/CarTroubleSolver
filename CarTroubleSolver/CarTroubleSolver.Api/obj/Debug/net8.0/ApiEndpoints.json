@@ -1,5 +1,26 @@
 [
   {
+    "ContainingType": "CarTroubleSolver.Api.Controllers.AccidentController",
+    "Method": "AddAccident",
+    "RelativePath": "AddAccident",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "isAccepted",
+        "Type": "System.Boolean",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CarTroubleSolver.Api.Controllers.CarController",
     "Method": "Add",
     "RelativePath": "AddCar",
@@ -115,6 +136,22 @@
     ]
   },
   {
+    "ContainingType": "CarTroubleSolver.Api.Controllers.AccidentController",
+    "Method": "GetCarAccidents",
+    "RelativePath": "GetCarAccidents",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carVin",
+        "Type": "System.Int64",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CarTroubleSolver.Api.Controllers.UserController",
     "Method": "Login",
     "RelativePath": "Login",
@@ -140,6 +177,32 @@
     "Parameters": [
       {
         "Name": "Brand",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarTroubleSolver.Api.Controllers.MessageController",
+    "Method": "ReceiveMessage",
+    "RelativePath": "ReceiveMessage",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarTroubleSolver.Api.Controllers.MessageController",
+    "Method": "ReceiveMessageDetails",
+    "RelativePath": "ReceiveMessageDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -189,6 +252,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CarTroubleSolver.Api.Controllers.MessageController",
+    "Method": "SendMessage",
+    "RelativePath": "SendMessage",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "message",
+        "Type": "CarTroubleSolver.Logic.Dto.MessageDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarTroubleSolver.Api.Controllers.MessageController",
+    "Method": "SetMessageRead",
+    "RelativePath": "SetMessageRead",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CarTroubleSolver.Api.Controllers.CarController",
     "Method": "Update",
     "RelativePath": "UpdateData",
@@ -223,6 +318,16 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "CarTroubleSolver.Api.Controllers.CarController",
+    "Method": "GetUserCars",
+    "RelativePath": "UserCars",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "CarTroubleSolver.Api.Controllers.WorkshopInfoController",

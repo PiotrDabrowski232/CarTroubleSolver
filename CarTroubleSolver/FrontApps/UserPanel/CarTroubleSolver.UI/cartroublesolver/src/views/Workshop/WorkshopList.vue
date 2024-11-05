@@ -11,10 +11,13 @@
             </thead>
             <tbody>
                 <tr v-for="(item, index) in Workshops"  :key="index">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{item.name}}</td>
+                    <td>
+                        <p style="margin: 0px;" v-for="(subitem, index) in item.services"  :key="index">{{ subitem }}</p>    
+                    </td>
+                    <td v-if="item.rating !== 0">{{item.rating}}/5</td>
+                    <td v-if="item.rating === 0">There is no ratings</td>
+                    <td>{{item.city}}</td>
                 </tr>
             </tbody>
         </table>
@@ -38,7 +41,14 @@ export default {
     methods: {
         async GetWorkshopsData(){
             this.Workshops = await worskhops();
+            console.log(this.Workshops)
         }
     }
 }
 </script>
+
+<style>
+.table tr td{
+    margin: auto;
+}
+</style>

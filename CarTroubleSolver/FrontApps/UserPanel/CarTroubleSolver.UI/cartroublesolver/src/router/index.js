@@ -9,6 +9,7 @@ import UpdateCarDetails from '@/views/car/UpdateCarDetails.vue'
 import accidentForm from '@/views/accident/accidentForm.vue'
 import WorkshopDetails from '@/views/Workshop/WorkshopDetails.vue'
 import WorkshopList from '@/views/Workshop/WorkshopList.vue'
+import MessageDetails from '@/views/accident/MessageDetails.vue'
 
 const routes = [
   {
@@ -60,6 +61,13 @@ const routes = [
     path: '/WorkshopList',
     name: 'WorkshopList',
     component: WorkshopList
+  },
+  {
+    path: '/MessageDetails:id',
+    name: 'MessageDetails',
+    component: MessageDetails,
+    props: true 
+
   },
 ]
 

@@ -1,4 +1,5 @@
 ﻿using CarTroubleSolver.Shared.Models.Enums;
+using CarTroubleSolver.Shared.Models.ExtraModels;
 
 namespace CarTroubleSolver.Shared.Models.UserPanel
 {
@@ -21,5 +22,6 @@ namespace CarTroubleSolver.Shared.Models.UserPanel
         public Guid ColorId { get; set; }
         public virtual CarColor Color { get; set; }
 
+        public virtual ICollection<Accident> Accidents { get; set; }
     }
 }

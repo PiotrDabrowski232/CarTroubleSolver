@@ -18,6 +18,20 @@ const fetchCarBrand = async () => {
   }
 }
 
+const fetchUserCars = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/UserCars`, {
+      headers: {
+        'Authorization': 'Bearer ' + AuthService.getToken(),
+      }
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching car data:', error);
+    throw error;
+  }
+}
+
 const fetchCarModels = async (selectedBrand) => {
   try {
     const response = await axios.get(`${BASE_URL}/Models?Brand=${selectedBrand}`,
@@ -118,6 +132,17 @@ console.log(response)
       console.error("Error downloading image:", error);
   }
 };
-export { CarImage };
 
-export {  fetchCarBrand,  fetchCarModels, CreateCar, tryDelete, UpdateData };
+const getCarAccidents = async (vin) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/GetCarAccidents?carVin=${vin}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching car data:', error);
+    throw error;
+  }
+}
+
+export { CarImage, getCarAccidents };
+
+export {  fetchCarBrand,  fetchCarModels, CreateCar, tryDelete, UpdateData ,fetchUserCars };

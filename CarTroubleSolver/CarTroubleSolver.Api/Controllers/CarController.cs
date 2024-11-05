@@ -44,6 +44,22 @@ namespace CarTroubleSolver.Api.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("/UserCars")]
+        [Authorize]
+        public async Task<IActionResult> GetUserCars()
+        {
+            try
+            {
+                var result = await _mediator.Send(new GetUserCarsQuery());
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPost]
         [Route("/AddCar")]
         [Authorize]

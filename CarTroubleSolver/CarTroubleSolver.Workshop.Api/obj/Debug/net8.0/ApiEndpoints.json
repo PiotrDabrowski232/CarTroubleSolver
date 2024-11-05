@@ -21,6 +21,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.MessageController",
+    "Method": "FullMessage",
+    "RelativePath": "FullMessage",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.ServiceController",
     "Method": "GetServices",
     "RelativePath": "GetServices",
@@ -79,6 +95,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.MessageController",
+    "Method": "ReceiveMessage",
+    "RelativePath": "ReceiveMessage",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.WorkshopController",
     "Method": "Register",
     "RelativePath": "Register",
@@ -111,6 +137,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.MessageController",
+    "Method": "SendMessage",
+    "RelativePath": "SendMessage",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "message",
+        "Type": "CarTroubleSolver.Workshop.Logic.Dto.Message.SendMessageDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.ServiceController",
     "Method": "GetServices",
     "RelativePath": "ServiceType",
@@ -118,6 +165,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.MessageController",
+    "Method": "SetRead",
+    "RelativePath": "SetRead",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   }
 ]
