@@ -1,13 +1,10 @@
 <template>
-
-    <BaseNav />
-
+  <BaseNav />
   <div class="mainContent">
     <RouterView />
   </div>
-
   <div class="footer">
-    
+    <p style="color: white; text-align: center; margin: 0;">© 2024 My Application</p>
   </div>
 </template>
 
@@ -23,18 +20,22 @@ export default {
 </script>
 
 <style>
-body{
+body {
   margin: 0;
+  position: relative; 
+  min-height: 100vh; 
 }
 
-.mainContent{
-  height: 87.9vh;
+.mainContent {
+  min-height: calc(100vh - 5.5vh); 
   width: 100%;
 }
-.footer{
+
+.footer {
   background-color: black;
   width: 100%;
-  height: 5.5vh;
+  height: 4vh;
+  position: absolute; 
+  bottom: 0; 
 }
-
 </style>

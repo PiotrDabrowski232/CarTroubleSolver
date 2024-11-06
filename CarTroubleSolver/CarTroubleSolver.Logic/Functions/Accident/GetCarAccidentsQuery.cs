@@ -26,9 +26,11 @@ namespace CarTroubleSolver.Logic.Functions.Accident
                     Id = x.Id,
                     WorkshopName = x.Workshop.Name,
                     Service = Enum.GetName(x.Service),
-                    Status = x.StatusHistory.OrderByDescending(x => x.Date).Select(x => Enum.GetName(x.Status)).FirstOrDefault(),
-                    Date = x.StatusHistory.OrderByDescending(x => x.Date).Select(x => x.Date).FirstOrDefault()
-                }).ToListAsync(cancellationToken);
+                    Status = x.StatusHistory.OrderByDescending(x => x.ControlQueue).Select(x => Enum.GetName(x.Status)).FirstOrDefault(),
+                    Date = x.StatusHistory.OrderByDescending(x => x.ControlQueue).Select(x => x.Date).FirstOrDefault()
+                })
+                .OrderByDescending(x => x.Date)
+                .ToListAsync(cancellationToken);
         }
     }
 }

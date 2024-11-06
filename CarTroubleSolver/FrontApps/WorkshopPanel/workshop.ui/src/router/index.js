@@ -6,6 +6,9 @@ import AccountDetails from '@/views/user/AccountDetails.vue'
 import OpeningHoursForm from '@/views/user/OpeningHours/OpeningHoursForm.vue'
 import ReceiveMessage from '@/views/Messages/ReceiveMessage.vue'
 import MessageResponse from '@/views/Messages/MessageResponse.vue'
+import Accidents from '@/views/Accident/Accidents.vue'
+import AccidentFullInfo from '@/views/Accident/AccidentFullInfo.vue'
+import AddRepairHistory from '@/views/RepairHistory/AddRepairHistory.vue'
 const routes = [ 
   {
     path: '/',
@@ -41,6 +44,23 @@ const routes = [
     path: '/MessageResponse:id',
     name: 'MessageResponse',
     component: MessageResponse,
+    props: true 
+  },
+  {
+    path: '/Accidents',
+    name: 'Accidents',
+    component: Accidents
+  },
+  {
+    path: '/AccidentFullInfo:id',
+    name: 'AccidentFullInfo',
+    component: AccidentFullInfo,
+    props: true 
+  },
+  {
+    path: '/AddRepairHistory:id',
+    name: 'AddRepairHistory',
+    component: AddRepairHistory,
     props: true 
   }
 ]

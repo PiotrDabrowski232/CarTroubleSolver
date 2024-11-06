@@ -21,6 +21,10 @@ namespace CarTroubleSolver.Shared.ModelsConfiguration
             builder.HasOne(x => x.Workshop)
                 .WithMany(x => x.Accidents)
                 .HasForeignKey(x => x.WorkshopId);
+
+            builder.HasOne(x => x.RepairHistory)
+                .WithOne(x => x.Accident)
+                .HasForeignKey<RepairHistory>(x => x.AccidentId);
         }
     }
 }

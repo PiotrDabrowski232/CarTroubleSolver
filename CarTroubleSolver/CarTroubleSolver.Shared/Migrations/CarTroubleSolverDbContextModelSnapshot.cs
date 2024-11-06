@@ -32,6 +32,10 @@ namespace CarTroubleSolver.Shared.Migrations
                     b.Property<Guid>("CarId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("ProblemDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Service")
                         .HasColumnType("int");
 
@@ -48,6 +52,32 @@ namespace CarTroubleSolver.Shared.Migrations
                     b.HasIndex("WorkshopId");
 
                     b.ToTable("Accidents");
+                });
+
+            modelBuilder.Entity("CarTroubleSolver.Shared.Models.ExtraModels.HistoryItems", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
+
+                    b.Property<Guid>("RepairHistoryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RepairHistoryId");
+
+                    b.ToTable("HistoryItems");
                 });
 
             modelBuilder.Entity("CarTroubleSolver.Shared.Models.ExtraModels.Message", b =>
@@ -110,6 +140,42 @@ namespace CarTroubleSolver.Shared.Migrations
                     b.ToTable("Messages");
                 });
 
+            modelBuilder.Entity("CarTroubleSolver.Shared.Models.ExtraModels.RepairHistory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AccidentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CarId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Service")
+                        .HasColumnType("int");
+
+                    b.Property<float>("SpentHours")
+                        .HasColumnType("real");
+
+                    b.Property<Guid>("WorkshopId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccidentId")
+                        .IsUnique();
+
+                    b.HasIndex("CarId");
+
+                    b.HasIndex("WorkshopId");
+
+                    b.ToTable("RepairHistory");
+                });
+
             modelBuilder.Entity("CarTroubleSolver.Shared.Models.ExtraModels.StatusHistory", b =>
                 {
                     b.Property<Guid>("Id")
@@ -118,6 +184,9 @@ namespace CarTroubleSolver.Shared.Migrations
 
                     b.Property<Guid>("AccidentId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("ControlQueue")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -407,6 +476,17 @@ namespace CarTroubleSolver.Shared.Migrations
                     b.Navigation("Workshop");
                 });
 
+            modelBuilder.Entity("CarTroubleSolver.Shared.Models.ExtraModels.HistoryItems", b =>
+                {
+                    b.HasOne("CarTroubleSolver.Shared.Models.ExtraModels.RepairHistory", "RepairHistory")
+                        .WithMany("HistoryItems")
+                        .HasForeignKey("RepairHistoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("RepairHistory");
+                });
+
             modelBuilder.Entity("CarTroubleSolver.Shared.Models.ExtraModels.Message", b =>
                 {
                     b.HasOne("CarTroubleSolver.Shared.Models.UserPanel.Car", "Car")
@@ -448,6 +528,33 @@ namespace CarTroubleSolver.Shared.Migrations
                     b.Navigation("SenderUser");
 
                     b.Navigation("SenderWorkshop");
+                });
+
+            modelBuilder.Entity("CarTroubleSolver.Shared.Models.ExtraModels.RepairHistory", b =>
+                {
+                    b.HasOne("CarTroubleSolver.Shared.Models.ExtraModels.Accident", "Accident")
+                        .WithOne("RepairHistory")
+                        .HasForeignKey("CarTroubleSolver.Shared.Models.ExtraModels.RepairHistory", "AccidentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CarTroubleSolver.Shared.Models.UserPanel.Car", "Car")
+                        .WithMany("RepairHistory")
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("CarTroubleSolver.Shared.Models.WorkshopPanel.Workshop", "Workshop")
+                        .WithMany("RepairHistory")
+                        .HasForeignKey("WorkshopId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Accident");
+
+                    b.Navigation("Car");
+
+                    b.Navigation("Workshop");
                 });
 
             modelBuilder.Entity("CarTroubleSolver.Shared.Models.ExtraModels.StatusHistory", b =>
@@ -534,12 +641,22 @@ namespace CarTroubleSolver.Shared.Migrations
 
             modelBuilder.Entity("CarTroubleSolver.Shared.Models.ExtraModels.Accident", b =>
                 {
+                    b.Navigation("RepairHistory")
+                        .IsRequired();
+
                     b.Navigation("StatusHistory");
+                });
+
+            modelBuilder.Entity("CarTroubleSolver.Shared.Models.ExtraModels.RepairHistory", b =>
+                {
+                    b.Navigation("HistoryItems");
                 });
 
             modelBuilder.Entity("CarTroubleSolver.Shared.Models.UserPanel.Car", b =>
                 {
                     b.Navigation("Accidents");
+
+                    b.Navigation("RepairHistory");
                 });
 
             modelBuilder.Entity("CarTroubleSolver.Shared.Models.UserPanel.User", b =>
@@ -562,6 +679,8 @@ namespace CarTroubleSolver.Shared.Migrations
                     b.Navigation("Ratings");
 
                     b.Navigation("ReceivedMessages");
+
+                    b.Navigation("RepairHistory");
 
                     b.Navigation("SentMessages");
 

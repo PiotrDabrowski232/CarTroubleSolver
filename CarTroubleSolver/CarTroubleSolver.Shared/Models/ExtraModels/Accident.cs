@@ -11,9 +11,11 @@ namespace CarTroubleSolver.Shared.Models.ExtraModels
         public virtual Workshop Workshop { get; set; }
         public Guid CarId { get; set; }
         public virtual Car Car { get; set; }
+        public string ProblemDescription { get; set; }
 
         public ServiceType Service {  get; set; }
         public ICollection<StatusHistory> StatusHistory { get; set; }
         public DateTime StartDate { get; set; }
+        public virtual RepairHistory RepairHistory { get; set; }
     }
 }

@@ -19,7 +19,9 @@ namespace CarTroubleSolver.Logic.Functions.Accident
         }
         public async Task<bool> Handle(AddAccidentCommand request, CancellationToken cancellationToken)
         {
-            var message = await _dbContext.Messages.FirstOrDefaultAsync(x => x.Id == Guid.Parse(request.MessageId));
+            var message = await _dbContext.Messages
+                .Include(x => x.PreviousMessage)
+                .FirstOrDefaultAsync(x => x.Id == Guid.Parse(request.MessageId));
 
             if (request.IsAccepted)
             {
@@ -34,6 +36,7 @@ namespace CarTroubleSolver.Logic.Functions.Accident
                     CarId = (Guid)message.CarId,
                     Service = message.Service,
                     StartDate = (DateTime)message.DateOfVisit,
+                    ProblemDescription = message.PreviousMessage.Content
                 };
 
                 StatusHistory status = new StatusHistory
@@ -41,7 +44,8 @@ namespace CarTroubleSolver.Logic.Functions.Accident
                     Id = Guid.NewGuid(),
                     Accident = accident,
                     Date = worksopHours != null ? (DateTime)message.DateOfVisit.Value.AddHours(worksopHours.From.Hour).AddMinutes(worksopHours.From.Minute) : (DateTime)message.DateOfVisit,
-                   Status = Shared.Models.Enum.AccidentStatus.WaitingForCar
+                   Status = Shared.Models.Enum.AccidentStatus.WaitingForCar,
+                   ControlQueue = 0
                 };
 
                 _dbContext.Accidents.Add(accident);

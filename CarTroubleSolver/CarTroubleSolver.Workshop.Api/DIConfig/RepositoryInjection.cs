@@ -9,6 +9,7 @@ namespace CarTroubleSolver.Workshop.Api.DIConfig
         {
             Services.AddScoped<IWorkshopRepository, WorkshopRepository>();
             Services.AddScoped<IHourRepository, HourRepository>();
+            Services.AddScoped<IStatusHistoryRepository, StatusHistoryRepository>();
 
             return Services;
         }

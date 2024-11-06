@@ -17,39 +17,31 @@
       <p><strong :style="[getCarColor(this.car.color)]">Production Year: </strong> {{
         this.convertDate(this.car.dateOfProduction) }}</p>
       <p><strong :style="[getCarColor(this.car.color)]">Door Count: </strong> {{ this.car.doorCount }}</p>
-
     </div>
 
     <div class="details-functional-buttons">
-
       <button type="button" class="btn btn-outline-danger" @click="visible = true">Delete Car</button>
       <button type="button" class="btn btn-outline-warning" @click="this.UpdateDetails()">Update Car Details</button>
     </div>
 
-    <div class="visit-section" v-if="accidents && accidents.length > 0">
-
+    <div class="visit-section" v-if="paginatedAccidents.length > 0">
       <h4><strong>Mechanical Visits...</strong></h4>
-      <div class="visit-cardSection" v-for="(accident, index) in accidents" :key="index">
-        <div class="card">
-          <div class="card-body" :style="visitStatus(visitationType)">
+      <div class="visit-cardSection">
+        <div v-for="(accident, index) in paginatedAccidents" :key="index" class="card">
+          <div class="card-body" :style="visitStatus(accident.status)">
             <h5 class="card-title"><strong>Type of Visit: {{ formatTypeOfVisit(accident.service) }}</strong></h5>
             <p class="card-text">Date: {{ formatDate(accident.date) }}</p>
             <p class="card-text">Workshop: {{ accident.workshopName }}</p>
           </div>
         </div>
       </div>
-
-      <Paginator class="paginator" v-model:first="first" :rows="1" :totalRecords="12"></Paginator>
-
+      <Paginator v-model:first="first" :rows="rowsPerPage" :totalRecords="accidents.length" :pageLinkSize="5" class="paginator" />
     </div>
-
-
-
   </div>
 </template>
 
 <script>
-import { tryDelete } from "../../services/CarApiCommunication"
+import { tryDelete } from "../../services/CarApiCommunication";
 import router from '@/router';
 import { getCarAccidents } from "../../services/CarApiCommunication";
 
@@ -59,18 +51,28 @@ export default {
     return {
       car: null,
       visible: false,
-      accidents: []
+      accidents: [],
+      first: 0,                 // Pierwszy element w aktualnie wyświetlanej stronie
+      rowsPerPage: 5            // Liczba wypadków wyświetlanych na stronę
     };
+  },
+  computed: {
+    paginatedAccidents() {
+      // Paginacja - ograniczenie wyświetlania do 5 kart na stronę
+      const start = this.first;
+      const end = this.first + this.rowsPerPage;
+      return this.accidents.slice(start, end);
+    }
   },
   created() {
     this.fetchCarByVIN();
   },
   mounted() {
-    this.getAccidents()
+    this.getAccidents();
   },
   methods: {
     UpdateDetails() {
-      router.push(`/ChangeCarDetails/${this.$route.params.vin}`)
+      router.push(`/ChangeCarDetails/${this.$route.params.vin}`);
     },
     fetchCarByVIN() {
       const userCars = JSON.parse(localStorage.getItem("userCars")) || [];
@@ -101,11 +103,11 @@ export default {
       }
     },
     deleteCar() {
-      tryDelete(this.car.vin)
-      localStorage.clear()
+      tryDelete(this.car.vin);
+      localStorage.clear();
       this.$toast.add({ severity: 'success', summary: 'Car removed successfully', life: 3000 });
       setTimeout(() => {
-        router.push("/UserInfo")
+        router.push("/UserInfo");
       }, 3000);
     },
     async getAccidents() {
@@ -113,30 +115,24 @@ export default {
       this.accidents = await getCarAccidents(this.car.vin);
     },
     formatTypeOfVisit(service) {
-      if (service === "OilChange")
-        return "Oil Change"
-      if (service === "CarInspection")
-        return "Car Inspection"
-      if (service === "MechanicalService")
-        return "Mechanical Service"
-      if (service === "FilterReplacement")
-        return "Filter Replacement"
-      if (service === "FluidReplacement")
-        return "Fluid Replacement"
+      const types = {
+        "OilChange": "Oil Change",
+        "CarInspection": "Car Inspection",
+        "MechanicalService": "Mechanical Service",
+        "FilterReplacement": "Filter Replacement",
+        "FluidReplacement": "Fluid Replacement"
+      };
+      return types[service] || service;
     },
     formatDate(date) {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(date).toLocaleDateString('pl-PL', options);
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(date).toLocaleDateString('pl-PL', options);
+    }
   }
-  }
-}
+};
 </script>
 
-<style>
-.main {
-  margin: 0px;
-}
-
+<style scoped>
 .CarDetais {
   text-align: left;
   width: fit-content;
@@ -151,32 +147,30 @@ export default {
 }
 
 .visit-cardSection {
-  width: 90vw;
-  margin: auto;
-  border-radius: 15%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw;
+  justify-content: center;
+  padding: 2vw 4vw;
+  max-width: 100%;
 }
 
 .visit-cardSection .card {
+  width: 18vw;            
   border: 2px solid black;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .paginator {
-  border: none;
   margin-top: 3vh;
-}
-
-.visit-section {
-  padding-top: 4vh;
+  display: flex;
+  justify-content: center;
 }
 
 .visit-section h4 {
   text-align: left;
   padding-left: 4vw;
-}
-
-.visit-section .visit-cardSection {
-  padding-left: 6vw;
-  padding-right: 6vw;
 }
 
 .details-functional-buttons {

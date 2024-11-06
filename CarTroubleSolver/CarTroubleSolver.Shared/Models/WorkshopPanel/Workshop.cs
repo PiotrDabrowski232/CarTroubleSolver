@@ -14,5 +14,7 @@ namespace CarTroubleSolver.Shared.Models.WorkshopPanel
         public virtual ICollection<Message> ReceivedMessages { get; set; }
         public virtual ICollection<Rating> Ratings { get; set; }
         public virtual ICollection<Accident> Accidents { get; set; }
+        public virtual ICollection<RepairHistory> RepairHistory { get; set; }
+
     }
 }

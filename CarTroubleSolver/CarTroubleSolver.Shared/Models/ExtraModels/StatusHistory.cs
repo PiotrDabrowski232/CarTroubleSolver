@@ -10,5 +10,8 @@ namespace CarTroubleSolver.Shared.Models.ExtraModels
 
         public Guid AccidentId { get; set; }
         public virtual Accident Accident { get; set; }
+
+        public int ControlQueue { get; set; }
+
     }
 }

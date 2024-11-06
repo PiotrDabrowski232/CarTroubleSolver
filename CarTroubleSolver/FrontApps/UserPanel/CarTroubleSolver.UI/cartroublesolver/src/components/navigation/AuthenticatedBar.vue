@@ -61,7 +61,7 @@ export default {
     };
   },
   mounted() {
-    this.interval = setInterval(this.getMessages, 15000);
+    this.interval = setInterval(this.getMessages, 5000);
   },
   beforeUnmount() {
     clearInterval(this.interval);

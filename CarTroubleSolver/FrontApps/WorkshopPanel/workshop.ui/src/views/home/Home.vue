@@ -4,6 +4,9 @@
     <RouterLink to="/ReceiveMessage">
         <h3>Home</h3>
     </RouterLink>
+    <RouterLink to="/Accidents">
+        <h3>Accidents</h3>
+    </RouterLink>
   </div>
 
 </template>

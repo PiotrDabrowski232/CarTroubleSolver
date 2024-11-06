@@ -1,5 +1,47 @@
 [
   {
+    "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.AccidentController",
+    "Method": "AccidentFullInfo",
+    "RelativePath": "AccidentFullInfo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accidentId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.AccidentController",
+    "Method": "Accidents",
+    "RelativePath": "Accidents",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.AccidentController",
+    "Method": "AccidentServiceDetails",
+    "RelativePath": "AccidentServiceDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accidentId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.ServiceController",
     "Method": "AddServices",
     "RelativePath": "AddServices",
@@ -16,6 +58,27 @@
         "Name": "services",
         "Type": "System.Collections.Generic.IEnumerable\u00601[[CarTroubleSolver.Workshop.Logic.Dto.Service.ServiceDto, CarTroubleSolver.Workshop.Logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.AccidentController",
+    "Method": "ChangeAccidentStatus",
+    "RelativePath": "ChangeAccidentStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accidentId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "repairs",
+        "Type": "CarTroubleSolver.Workshop.Logic.Dto.CreateRepairHistoryDto",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
