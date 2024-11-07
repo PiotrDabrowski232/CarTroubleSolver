@@ -284,6 +284,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CarTroubleSolver.Api.Controllers.StatusHistoryController",
+    "Method": "StatusHistory",
+    "RelativePath": "StatusHistory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accidentId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CarTroubleSolver.Api.Controllers.CarController",
     "Method": "Update",
     "RelativePath": "UpdateData",

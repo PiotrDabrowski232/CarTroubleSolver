@@ -77,7 +77,7 @@
       },
       {
         "Name": "repairs",
-        "Type": "CarTroubleSolver.Workshop.Logic.Dto.CreateRepairHistoryDto",
+        "Type": "CarTroubleSolver.Workshop.Logic.Dto.RepairHistoryDto",
         "IsRequired": false
       }
     ],
@@ -93,6 +93,22 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.RepairHistoryController",
+    "Method": "GetRepairHistory",
+    "RelativePath": "GetRepairHistory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accidentId",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -242,6 +258,27 @@
         "Name": "id",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarTroubleSolver.Workshop.Api.Controllers.RepairHistoryController",
+    "Method": "UpdateRepairs",
+    "RelativePath": "UpdateRepairs",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accidentId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "repairs",
+        "Type": "CarTroubleSolver.Workshop.Logic.Dto.RepairHistoryDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

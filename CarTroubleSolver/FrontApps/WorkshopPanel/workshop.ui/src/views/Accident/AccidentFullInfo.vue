@@ -24,7 +24,10 @@
       <p v-if="Accident.userMessage"><strong>Message:</strong> {{ Accident.userMessage }}</p>
     </div>
 
+    <button style="margin-bottom: 1vh; width: 100%;" v-if="this.Accident.status === 'ReadyToReceive'" @click="UpdateHistory" class="btn btn-warning">Upadate History</button>
+    <button style="margin-bottom: 1vh; width: 100%;" v-if="this.Accident.status === 'Retrieved'" @click="HistoryDetails" class="btn btn-info">Show History</button>
     <button v-if="this.Accident.status !== 'Retrieved'" @click="changeStatus" class="status-button">{{ getNextStatus() }}</button>
+    
   </div>
 </template>
 
@@ -66,13 +69,19 @@ export default {
     },
     async changeStatus() {
       if (this.Accident.status === "Progress")
-        this.$router.push({ name: 'AddRepairHistory', params: { id: this.id } });
+        this.$router.push({ name: 'AddRepairHistory', params: { id: this.id, action: "AddHistory" } });
       else {
         var result = await changeAccidentStatus(this.id);
         if (result) {
           this.Accident = await GetAccidentFullInfo(this.id);
         }
       }
+    },
+    UpdateHistory() {
+        this.$router.push({ name: 'AddRepairHistory', params: { id: this.id, action: "UpdateHistory" } });
+    },
+    HistoryDetails() {
+        this.$router.push({ name: 'RepairHistoryDetails', params: { id: this.id} });
     },
     getNextStatus() {
       if (this.Accident.status == "WaitingForCar") {

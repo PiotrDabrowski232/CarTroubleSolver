@@ -9,6 +9,7 @@ import MessageResponse from '@/views/Messages/MessageResponse.vue'
 import Accidents from '@/views/Accident/Accidents.vue'
 import AccidentFullInfo from '@/views/Accident/AccidentFullInfo.vue'
 import AddRepairHistory from '@/views/RepairHistory/AddRepairHistory.vue'
+import RepairHistoryDetails from '@/views/RepairHistory/RepairHistoryDetails.vue'
 const routes = [ 
   {
     path: '/',
@@ -41,7 +42,7 @@ const routes = [
     component: ReceiveMessage
   },
   {
-    path: '/MessageResponse:id',
+    path: '/MessageResponse/:id',
     name: 'MessageResponse',
     component: MessageResponse,
     props: true 
@@ -52,15 +53,22 @@ const routes = [
     component: Accidents
   },
   {
-    path: '/AccidentFullInfo:id',
+    path: '/AccidentFullInfo/:id',
     name: 'AccidentFullInfo',
     component: AccidentFullInfo,
     props: true 
   },
   {
-    path: '/AddRepairHistory:id',
+    path: '/AddRepairHistory/:id/:action',
     name: 'AddRepairHistory',
     component: AddRepairHistory,
+    props: true 
+  }
+  ,
+  {
+    path: '/RepairHistoryDetails/:id',
+    name: 'RepairHistoryDetails',
+    component: RepairHistoryDetails,
     props: true 
   }
 ]

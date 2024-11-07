@@ -4,13 +4,14 @@ using CarTroubleSolver.Shared.Models.ExtraModels;
 using CarTroubleSolver.Shared.Repositories.Interfaces;
 using CarTroubleSolver.Workshop.Logic.Dto;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarTroubleSolver.Workshop.Logic.Functions.Accident
 {
-    public class ChangeAccidentStatusCommand(string accidentId, CreateRepairHistoryDto? repairHistory) : IRequest<bool>
+    public class ChangeAccidentStatusCommand(string accidentId, RepairHistoryDto? repairHistory) : IRequest<bool>
     {
         public string AccidentId { get; set; } = accidentId;
-        public CreateRepairHistoryDto? CreateRepairHistory { get; set; } = repairHistory;
+        public RepairHistoryDto? CreateRepairHistory { get; set; } = repairHistory;
     }
 
     public class ChangeAccidentStatusCommandHandler : IRequestHandler<ChangeAccidentStatusCommand, bool>
@@ -38,7 +39,45 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Accident
             if (maxStatus.Item1 == Enum.GetName(AccidentStatus.WaitingForCar))
                 status.Status = AccidentStatus.Progress;
             else if (maxStatus.Item1 == Enum.GetName(AccidentStatus.Progress))
+            {
                 status.Status = AccidentStatus.ReadyToReceive;
+                if (request.CreateRepairHistory != null)
+                {
+                    var accident = await _dbContext.Accidents
+                         .Where(x => x.Id == Guid.Parse(request.AccidentId))
+                         .Select(x => new { x.CarId, x.WorkshopId, x.Id })
+                         .FirstOrDefaultAsync(cancellationToken);
+
+                    if (accident != null)
+                    {
+                        RepairHistory history = new RepairHistory
+                        {
+                            Id = Guid.NewGuid(),
+                            Service = (ServiceType)Enum.Parse(typeof(ServiceType), request.CreateRepairHistory.Service),
+                            Price = request.CreateRepairHistory.Price,
+                            SpentHours = request.CreateRepairHistory.SpentHours,
+                            CarId = accident.CarId,
+                            WorkshopId = accident.WorkshopId,
+                            AccidentId = accident.Id,
+                        };
+
+                        var items = request.CreateRepairHistory.HistoryItems
+                            .Select(item => new HistoryItems
+                            {
+                                Id = Guid.NewGuid(),
+                                Name = item.Name,
+                                Price = item.Price,
+                                Amount = item.Quantity,
+                                RepairHistoryId = history.Id,
+                            }).ToList();
+
+                        _dbContext.RepairHistory.Add(history);
+
+                        if (items.Any())
+                            _dbContext.HistoryItems.AddRange(items);
+                    }
+                }
+            }
             else if (maxStatus.Item1 == Enum.GetName(AccidentStatus.ReadyToReceive))
                 status.Status = AccidentStatus.Retrieved;
 
@@ -50,3 +89,4 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Accident
         }
     }
 }
+

@@ -1,5 +1,7 @@
 <template>
     <div class="repair-history-container">
+        <Toast v-if="showToast" :msg="toastMsg" :color="toastColor" />
+
         <h2>Add repair history</h2>
 
         <section class="section">
@@ -56,17 +58,25 @@
             </div>
         </section>
 
-        <button class="close-repair-btn" @click="closeRepair" :disabled="!isFormValid">Close the repair</button>
+        <button class="close-repair-btn" v-if="this.action == 'AddHistory'" @click="closeRepair"
+            :disabled="!isFormValid">Close the repair</button>
+        <button class="close-repair-btn" v-if="this.action == 'UpdateHistory'" @click="updateRepair"
+            :disabled="!isFormValid">Update</button>
     </div>
 </template>
 
 <script>
 import { getServicePriceDetails, changeAccidentStatus } from '@/ApiCommunication/Accident';
+import { getRepairHistory, updateHistory } from '@/ApiCommunication/RepairHistory';
 
+
+import Toast from '@/components/Toast.vue';
 export default {
     name: 'AddRepairHistory',
+    components: { Toast },
     props: {
         id: String,
+        action: String
     },
     data() {
         return {
@@ -75,15 +85,34 @@ export default {
             purchasedItems: [],
             nameError: "Name must contain letters",
             priceError: "Price should be greater than 0",
-            quantityError: "Quantity should be greater than 0"
+            quantityError: "Quantity should be greater than 0",
+            toastMsg: '',
+            showToast: false,
+            toastColor: ''
         };
     },
     mounted() {
-        this.getServicePrice();
+        if (this.action === "AddHistory")
+            this.getServicePrice();
+
+        if (this.action === "UpdateHistory") {
+            this.getRepairs();
+        }
     },
     methods: {
         async getServicePrice() {
             this.service = await getServicePriceDetails(this.id);
+        },
+        async getRepairs() {
+            var response = await getRepairHistory(this.id);
+            this.service.serviceType = response.service;
+            this.service.price = response.price;
+            this.hoursSpent = response.spentHours;
+            if (response.historyItems.length > 0) {
+                response.historyItems.forEach(element => {
+                    this.purchasedItems.push({ name: element.name, price: element.price, quantity: element.quantity });
+                });
+            }
         },
         addItem() {
             this.purchasedItems.push({ name: '', price: 0, quantity: 1 });
@@ -107,12 +136,39 @@ export default {
                     });
                 });
 
-            console.log(repairs)
-
             var result = await changeAccidentStatus(this.id, repairs)
 
             if (result) {
-                console.log("bravo")
+                this.showToastMessage("Repair history added successfully", "success")
+                setTimeout(() => {
+                    this.$router.push("/Accidents")
+                }, 3000);
+            }
+        },
+        async updateRepair() {
+            const repairs = {
+                Service: this.service.serviceType,
+                Price: this.service.price,
+                SpentHours: this.hoursSpent,
+                HistoryItems: []
+            };
+            if (this.purchasedItems.length > 0)
+                this.purchasedItems.forEach(item => {
+                    repairs.HistoryItems.push({
+                        Name: item.name,
+                        Price: item.price,
+                        Quantity: item.quantity
+                    });
+                });
+
+            var result = await updateHistory(this.id, repairs)
+
+            if (result) {
+                this.showToastMessage("Repair history updated successfully", "success")
+                setTimeout(() => {
+                    this.$router.push("/Accidents")
+                }, 3000);
+
             }
         },
         isNameValid(name) {
@@ -123,7 +179,15 @@ export default {
         },
         isQuantityValid(quantity) {
             return quantity > 0;
-        }
+        },
+        showToastMessage(message, color) {
+            this.toastMsg = message;
+            this.showToast = true;
+            this.toastColor = color;
+            setTimeout(() => {
+                this.showToast = false;
+            }, 3000);
+        },
     },
     computed: {
         totalServiceCost() {
@@ -132,7 +196,7 @@ export default {
         totalPartsCost() {
             return parseFloat(this.purchasedItems.reduce((sum, item) => {
                 return sum + (parseFloat(item.price || 0) * parseInt(item.quantity || 1));
-            }, 0).toFixed(2));  
+            }, 0).toFixed(2));
         },
         totalRepairCost() {
             return parseFloat((this.totalServiceCost + this.totalPartsCost).toFixed(2));

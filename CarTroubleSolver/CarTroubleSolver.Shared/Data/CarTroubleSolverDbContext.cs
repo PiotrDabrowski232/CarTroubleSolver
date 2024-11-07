@@ -16,6 +16,8 @@ namespace CarTroubleSolver.Shared.Data
         public DbSet<Message> Messages { get; set; } 
         public DbSet<Accident> Accidents { get; set; } 
         public DbSet<StatusHistory> StatusHistory { get; set; } 
+        public DbSet<RepairHistory> RepairHistory { get; set; } 
+        public DbSet<HistoryItems> HistoryItems { get; set; } 
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -10,6 +10,9 @@ import accidentForm from '@/views/accident/accidentForm.vue'
 import WorkshopDetails from '@/views/Workshop/WorkshopDetails.vue'
 import WorkshopList from '@/views/Workshop/WorkshopList.vue'
 import MessageDetails from '@/views/accident/MessageDetails.vue'
+import StatusHistory from '@/views/Status/StatusHistory.vue'
+import RepairHistory from '@/views/Repairs/RepairHistory.vue'
+import RepairsHistory from '@/views/Repairs/RepairsHistory.vue'
 
 const routes = [
   {
@@ -63,12 +66,29 @@ const routes = [
     component: WorkshopList
   },
   {
-    path: '/MessageDetails:id',
+    path: '/MessageDetails/:id',
     name: 'MessageDetails',
     component: MessageDetails,
     props: true 
-
   },
+  {
+    path: '/RepairHistory/:id',
+    name: 'RepairHistory',
+    component: RepairHistory,
+    props: true 
+  },
+  {
+    path: '/StatusHistory/:id',
+    name: 'StatusHistory',
+    component: StatusHistory,
+    props: true 
+  },
+  {
+    path: '/RepairsHistory/:id',
+    name: 'RepairsHistory',
+    component: RepairsHistory,
+    props: true 
+  }
 ]
 
 const router = createRouter({

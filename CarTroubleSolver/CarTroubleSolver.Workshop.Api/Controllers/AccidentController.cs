@@ -60,7 +60,7 @@ namespace CarTroubleSolver.Workshop.Api.Controllers
 
         [HttpPut]
         [Route("/ChangeAccidentStatus")]
-        public async Task<IActionResult> ChangeAccidentStatus([FromQuery] string accidentId, [FromBody] CreateRepairHistoryDto? repairs)
+        public async Task<IActionResult> ChangeAccidentStatus([FromQuery] string accidentId, [FromBody] RepairHistoryDto? repairs)
         {
             try
             {

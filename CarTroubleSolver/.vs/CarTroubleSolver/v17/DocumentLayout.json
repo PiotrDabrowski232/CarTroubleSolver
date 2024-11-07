@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F8A79C47-C6C1-42D3-99C5-DFC8AEBF8775}|CarTroubleSolver.Workshop.Api\\CarTroubleSolver.Workshop.Api.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.workshop.api\\controllers\\repairhistorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8A79C47-C6C1-42D3-99C5-DFC8AEBF8775}|CarTroubleSolver.Workshop.Api\\CarTroubleSolver.Workshop.Api.csproj|solutionrelative:cartroublesolver.workshop.api\\controllers\\repairhistorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F8A79C47-C6C1-42D3-99C5-DFC8AEBF8775}|CarTroubleSolver.Workshop.Api\\CarTroubleSolver.Workshop.Api.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.workshop.api\\controllers\\accidentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F8A79C47-C6C1-42D3-99C5-DFC8AEBF8775}|CarTroubleSolver.Workshop.Api\\CarTroubleSolver.Workshop.Api.csproj|solutionrelative:cartroublesolver.workshop.api\\controllers\\accidentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D55A0D8-B52D-4A51-8CB8-939A1592C6D9}|CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.workshop.logic\\functions\\accident\\changeaccidentstatuscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D55A0D8-B52D-4A51-8CB8-939A1592C6D9}|CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj|solutionrelative:cartroublesolver.workshop.logic\\functions\\accident\\changeaccidentstatuscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9A6610C6-EDF1-4843-88EE-9C459DEFE986}|CarTroubleSolver.Logic\\CarTroubleSolver.Logic.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.logic\\functions\\staushistory\\getstatushistoryquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A6610C6-EDF1-4843-88EE-9C459DEFE986}|CarTroubleSolver.Logic\\CarTroubleSolver.Logic.csproj|solutionrelative:cartroublesolver.logic\\functions\\staushistory\\getstatushistoryquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E0BF721-E952-4347-8B1A-29D6AE1BADFA}|CarTroubleSolver.Api\\CarTroubleSolver.Api.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.api\\controllers\\statushistorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E0BF721-E952-4347-8B1A-29D6AE1BADFA}|CarTroubleSolver.Api\\CarTroubleSolver.Api.csproj|solutionrelative:cartroublesolver.api\\controllers\\statushistorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 298,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,28 +82,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ChangeAccidentStatusCommand.cs",
-              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\Functions\\Accident\\ChangeAccidentStatusCommand.cs",
-              "RelativeDocumentMoniker": "CarTroubleSolver.Workshop.Logic\\Functions\\Accident\\ChangeAccidentStatusCommand.cs",
-              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\Functions\\Accident\\ChangeAccidentStatusCommand.cs",
-              "RelativeToolTip": "CarTroubleSolver.Workshop.Logic\\Functions\\Accident\\ChangeAccidentStatusCommand.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABsAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "RepairHistoryController.cs",
+              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Api\\Controllers\\RepairHistoryController.cs",
+              "RelativeDocumentMoniker": "CarTroubleSolver.Workshop.Api\\Controllers\\RepairHistoryController.cs",
+              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Api\\Controllers\\RepairHistoryController.cs",
+              "RelativeToolTip": "CarTroubleSolver.Workshop.Api\\Controllers\\RepairHistoryController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA4AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-06T16:08:21.73Z",
+              "WhenOpened": "2024-11-07T12:49:46.604Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AccidentController.cs",
               "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Api\\Controllers\\AccidentController.cs",
               "RelativeDocumentMoniker": "CarTroubleSolver.Workshop.Api\\Controllers\\AccidentController.cs",
               "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Api\\Controllers\\AccidentController.cs",
               "RelativeToolTip": "CarTroubleSolver.Workshop.Api\\Controllers\\AccidentController.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAowEIAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-06T16:08:16.441Z",
+              "WhenOpened": "2024-11-07T12:49:44.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GetStatusHistoryQuery.cs",
+              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Logic\\Functions\\StausHistory\\GetStatusHistoryQuery.cs",
+              "RelativeDocumentMoniker": "CarTroubleSolver.Logic\\Functions\\StausHistory\\GetStatusHistoryQuery.cs",
+              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Logic\\Functions\\StausHistory\\GetStatusHistoryQuery.cs",
+              "RelativeToolTip": "CarTroubleSolver.Logic\\Functions\\StausHistory\\GetStatusHistoryQuery.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAIAzwBkAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T12:36:48.526Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "StatusHistoryController.cs",
+              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Api\\Controllers\\StatusHistoryController.cs",
+              "RelativeDocumentMoniker": "CarTroubleSolver.Api\\Controllers\\StatusHistoryController.cs",
+              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Api\\Controllers\\StatusHistoryController.cs",
+              "RelativeToolTip": "CarTroubleSolver.Api\\Controllers\\StatusHistoryController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T12:31:05.336Z",
               "EditorCaption": ""
             }
           ]

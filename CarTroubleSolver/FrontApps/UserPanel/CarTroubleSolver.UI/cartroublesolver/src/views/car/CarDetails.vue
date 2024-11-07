@@ -22,6 +22,7 @@
     <div class="details-functional-buttons">
       <button type="button" class="btn btn-outline-danger" @click="visible = true">Delete Car</button>
       <button type="button" class="btn btn-outline-warning" @click="this.UpdateDetails()">Update Car Details</button>
+      <button type="button" class="btn btn-outline-info" @click="CarRepairsHistory">Repairs History</button>
     </div>
 
     <div class="visit-section" v-if="paginatedAccidents.length > 0">
@@ -33,9 +34,15 @@
             <p class="card-text">Date: {{ formatDate(accident.date) }}</p>
             <p class="card-text">Workshop: {{ accident.workshopName }}</p>
           </div>
+          <div class="btn-group no-rounded-top" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-warning" v-on:click="CheckStatusHistory(accident.id)">Status History</button>
+            <button type="button" class="btn btn-warning" v-on:click="RepairHistory(accident.id)"
+              v-if="accident.status === 'ReadyToReceive' || accident.status === 'Retrieved'">Repair History</button>
+          </div>
         </div>
       </div>
-      <Paginator v-model:first="first" :rows="rowsPerPage" :totalRecords="accidents.length" :pageLinkSize="5" class="paginator" />
+      <Paginator v-model:first="first" :rows="rowsPerPage" :totalRecords="accidents.length" :pageLinkSize="5"
+        class="paginator" />
     </div>
   </div>
 </template>
@@ -52,13 +59,12 @@ export default {
       car: null,
       visible: false,
       accidents: [],
-      first: 0,                 // Pierwszy element w aktualnie wyświetlanej stronie
-      rowsPerPage: 5            // Liczba wypadków wyświetlanych na stronę
+      first: 0,
+      rowsPerPage: 5
     };
   },
   computed: {
     paginatedAccidents() {
-      // Paginacja - ograniczenie wyświetlania do 5 kart na stronę
       const start = this.first;
       const end = this.first + this.rowsPerPage;
       return this.accidents.slice(start, end);
@@ -127,6 +133,15 @@ export default {
     formatDate(date) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
       return new Date(date).toLocaleDateString('pl-PL', options);
+    },
+    CheckStatusHistory(id) {
+      this.$router.push({ name: 'StatusHistory', params: { id: id } });
+    },
+    RepairHistory(id) {
+      this.$router.push({ name: 'RepairHistory', params: { id: id } });
+    },
+    CarRepairsHistory(){
+      this.$router.push({ name: 'RepairsHistory', params: { id: this.car.vin } });
     }
   }
 };
@@ -141,8 +156,8 @@ export default {
 }
 
 .CarDetais p {
-  font-size: 140%;
-  margin-top: 1rem;
+  font-size: 110%;
+  margin-top: 0.1rem;
   margin-left: 4vw;
 }
 
@@ -156,7 +171,7 @@ export default {
 }
 
 .visit-cardSection .card {
-  width: 18vw;            
+  width: 18vw;
   border: 2px solid black;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -166,6 +181,7 @@ export default {
   margin-top: 3vh;
   display: flex;
   justify-content: center;
+  border: 0px;
 }
 
 .visit-section h4 {
@@ -189,5 +205,17 @@ export default {
 
 .p-dialog-content .btn-outline-danger {
   margin-left: 6vw;
+}
+
+.no-rounded-top .btn:first-child {
+  border-top-left-radius: 0;
+}
+
+.no-rounded-top .btn:last-child {
+  border-top-right-radius: 0;
+}
+
+.no-rounded-top .btn {
+  border-radius: 0;
 }
 </style>

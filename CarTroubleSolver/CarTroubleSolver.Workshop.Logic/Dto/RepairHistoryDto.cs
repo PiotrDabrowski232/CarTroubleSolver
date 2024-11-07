@@ -1,6 +1,6 @@
 ﻿namespace CarTroubleSolver.Workshop.Logic.Dto
 {
-    public class CreateRepairHistoryDto
+    public class RepairHistoryDto
     {
         public string Service { get; set; }
         public int Price { get; set; }
