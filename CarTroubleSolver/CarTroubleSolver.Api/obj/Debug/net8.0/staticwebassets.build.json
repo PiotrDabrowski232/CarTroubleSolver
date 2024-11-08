@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/6ajc+75Jp+UOvc4IpVJ5p8qpQFd6ztaBeW+m3+6/jI=",
+  "Hash": "+k52sYzjKLIRAWHo1SzqKYExwTQDY8gS2S+ASh9bQmw=",
   "Source": "CarTroubleSolver.Api",
   "BasePath": "_content/CarTroubleSolver.Api",
   "Mode": "Default",
@@ -224,6 +224,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Car\\12341231221231232.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Api\\wwwroot\\Images\\Car\\123asd1353ggwad12.jpg",
+      "SourceId": "CarTroubleSolver.Api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Api\\wwwroot\\",
+      "BasePath": "_content/CarTroubleSolver.Api",
+      "RelativePath": "Images/Car/123asd1353ggwad12.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Car\\123asd1353ggwad12.jpg"
     },
     {
       "Identity": "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Api\\wwwroot\\Images\\Car\\23423423423423444.jpg",

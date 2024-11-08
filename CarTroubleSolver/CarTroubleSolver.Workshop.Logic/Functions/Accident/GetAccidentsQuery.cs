@@ -42,7 +42,7 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Accident
                 }).ToListAsync(cancellationToken);
 
             if (accidents.Any())
-                return accidents.OrderByDescending(x => x.Status).ThenByDescending(x => x.Date).ToList();
+                return accidents.OrderBy(x => x.Status).ThenByDescending(x => x.Date).ToList();
             else
                 return new List<AccidentBasicInfoDto>();
         }

@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CarTroubleSolver.Logic.Functions.Accident
 {
-    public class GetCarAccidentsQuery(long vin) : IRequest<List<AccidentBasicInfo>>
+    public class GetCarAccidentsQuery(string vin) : IRequest<List<AccidentBasicInfo>>
     {
-        public long Vin { get; set; } = vin;
+        public string Vin { get; set; } = vin;
     }
 
     public class GetCarAccidentsQueryHandler : IRequestHandler<GetCarAccidentsQuery, List<AccidentBasicInfo>>

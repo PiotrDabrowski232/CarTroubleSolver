@@ -11,12 +11,12 @@ namespace CarTroubleSolver.Logic.Validation.CarValidators
         {
 
             RuleFor(x => x.VIN)
-                .Must(x => x.ToString().Length == 17)
-                .WithMessage("Car Vin should have 17 digits")
+                .Must(x => x.Length == 17)
+                .WithMessage("Car Vin should have 17 characters")
                 .Custom((value, context) =>
                 {
 
-                    var vin = dbContext.Cars.Any(u => u.VIN == value && u.VIN != context.InstanceToValidate.OldVin);
+                    var vin = dbContext.Cars.Any(u => u.VIN.ToUpper() == value.ToUpper() && u.VIN.ToUpper() != context.InstanceToValidate.OldVin.ToUpper());
 
                     if (vin)
                         context.AddFailure("Vin", "Invalid Vin number");

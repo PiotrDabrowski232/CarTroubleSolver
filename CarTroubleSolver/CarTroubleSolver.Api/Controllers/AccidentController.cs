@@ -1,4 +1,5 @@
-﻿using CarTroubleSolver.Logic.Functions.Accident;
+﻿using CarTroubleSolver.Logic.Dto;
+using CarTroubleSolver.Logic.Functions.Accident;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,9 +27,24 @@ namespace CarTroubleSolver.Api.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("/SendRate")]
+        public async Task<IActionResult> SendRate([FromQuery] string id, [FromBody] RateDto rate)
+        {
+            try
+            {
+                var result = await _mediator.Send(new SendRateCommand(id, rate));
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet]
         [Route("/GetCarAccidents")]
-        public async Task<IActionResult> GetCarAccidents([FromQuery] long carVin)
+        public async Task<IActionResult> GetCarAccidents([FromQuery] string carVin)
         {
             try
             {

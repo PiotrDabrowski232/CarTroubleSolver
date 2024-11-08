@@ -79,7 +79,32 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Accident
                 }
             }
             else if (maxStatus.Item1 == Enum.GetName(AccidentStatus.ReadyToReceive))
+            {
                 status.Status = AccidentStatus.Retrieved;
+
+                var accident = await _dbContext.Accidents
+                         .Where(x => x.Id == Guid.Parse(request.AccidentId))
+                         .Select(x => new { Car = x.CarId, Workshop = x.WorkshopId, User = x.Car.Owner.Id, Service = x.Service })
+                         .FirstOrDefaultAsync(cancellationToken);
+
+                Shared.Models.ExtraModels.Message sendMessage = new Shared.Models.ExtraModels.Message
+                {
+                    Id = Guid.NewGuid(),
+                    Content = "Thank you for choosing our mechanical workshop." +
+                    " Share with other users how the repair went and whether you are satisfied with the service provided.",
+                    SentAt = status.Date,
+                    DateOfVisit = status.Date,
+                    SenderWorkshopId = accident.Workshop,
+                    ReceiverUserId = accident.User,
+                    Service = accident.Service,
+                    CarId = accident.Car,
+                    IsRead = false,
+                    Responsed = false,
+                    RateMessage = true
+                };
+
+                _dbContext.Messages.Add(sendMessage);
+            }
 
             _dbContext.StatusHistory.Add(status);
 

@@ -34,13 +34,13 @@ namespace CarTroubleSolver.Shared.Services
                 var location = jsonArray[0];
                 decimal latitude = (decimal)location["lat"];
                 decimal longitude = (decimal)location["lon"];
-                return (latitude, longitude);
+                return (longitude, latitude);
             }
 
             throw new Exception("There is no provided adress");
         }
 
-        public async Task<StreetDto> GetLocalizationDetails(double? latitude, double? longitude, CancellationToken cancellationToken)
+        public async Task<StreetDto> GetLocalizationDetails(double? longitude, double? latitude, CancellationToken cancellationToken)
         {
             var url = $"https://nominatim.openstreetmap.org/reverse.php?lat={latitude?.ToString("F6", CultureInfo.InvariantCulture)}&lon={longitude?.ToString("F6", CultureInfo.InvariantCulture)}&zoom=18&format=jsonv2";
 

@@ -10,6 +10,7 @@ namespace CarTroubleSolver.Api.DIConfig
             Services.AddScoped<IUserRepository, UserRepository>();
             Services.AddScoped<IRoleRepository, RoleRepository>();
             Services.AddScoped<ICarRepository, CarRepository>();
+            Services.AddScoped<IStatusHistoryRepository, StatusHistoryRepository>();
 
             return Services;
         }

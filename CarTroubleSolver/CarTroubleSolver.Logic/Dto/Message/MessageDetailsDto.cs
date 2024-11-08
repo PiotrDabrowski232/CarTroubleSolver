@@ -13,5 +13,7 @@ namespace CarTroubleSolver.Logic.Dto.Message
 
         public CarBasicInfoMessageDto Car { get; set; }
         public string Service {  get; set; }
+        public bool RateMessage { get; set; }
+
     }
 }

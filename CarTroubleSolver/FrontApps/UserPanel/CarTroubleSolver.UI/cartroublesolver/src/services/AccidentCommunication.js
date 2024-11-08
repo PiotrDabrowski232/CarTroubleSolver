@@ -34,5 +34,19 @@ const AddAccident = async (id, isAccepted) => {
   }
 };
 
+const sendRate = async (id, rate) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/SendRate?id=${id}`, rate, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching car data:', error);
+    throw error;
+  }
+};
 
-export {  fetchTypes, AddAccident};
+
+export {  fetchTypes, AddAccident, sendRate};

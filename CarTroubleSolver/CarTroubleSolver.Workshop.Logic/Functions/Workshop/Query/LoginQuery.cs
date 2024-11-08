@@ -5,7 +5,6 @@ using CarTroubleSolver.Shared.Services.Interface;
 using CarTroubleSolver.Workshop.Logic.Dto.Hour;
 using CarTroubleSolver.Workshop.Logic.Dto.Workshop;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Query
 {

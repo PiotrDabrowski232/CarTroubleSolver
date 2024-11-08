@@ -56,9 +56,10 @@ const routes = [
     component: accidentForm
   },
   {
-    path: '/WorkshopDetails',
+    path: '/WorkshopDetails/:id',
     name: 'WorkshopDetails',
-    component: WorkshopDetails
+    component: WorkshopDetails,
+    props: true 
   },
   {
     path: '/WorkshopList',

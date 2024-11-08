@@ -26,5 +26,21 @@ namespace CarTroubleSolver.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet]
+        [Route("/GetWorkshop")]
+        public async Task<IActionResult> GetWorkshop([FromQuery] string id)
+        {
+            try
+            {
+                var result = await _mediator.Send(new WorkshopDetailsQuery(id));
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

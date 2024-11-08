@@ -32,5 +32,6 @@ namespace CarTroubleSolver.Shared.Models.ExtraModels
 
         public bool IsRead { get; set; }
         public bool Responsed { get; set; }
+        public bool RateMessage { get; set; }
     }
 }

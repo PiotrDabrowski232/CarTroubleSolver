@@ -35,6 +35,7 @@ namespace CarTroubleSolver.Logic.Functions.Message
                 ReceiverWorkshopId = request.Message.WorkshopId,
                 Service = (ServiceType)Enum.Parse(typeof(ServiceType), request.Message.Service),
                 CarId = request.Message.CarId, 
+                RateMessage = false,
             };
 
             _dbContext.Messages.Add(message);

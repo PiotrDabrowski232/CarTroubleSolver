@@ -102,6 +102,9 @@ namespace CarTroubleSolver.Shared.Migrations
                     b.Property<Guid?>("PreviousMessageId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool>("RateMessage")
+                        .HasColumnType("bit");
+
                     b.Property<Guid?>("ReceiverUserId")
                         .HasColumnType("uniqueidentifier");
 
@@ -239,8 +242,9 @@ namespace CarTroubleSolver.Shared.Migrations
                     b.Property<Guid>("OwnerId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<long>("VIN")
-                        .HasColumnType("bigint");
+                    b.Property<string>("VIN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -382,6 +386,9 @@ namespace CarTroubleSolver.Shared.Migrations
                     b.Property<string>("Comment")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("Rate")
                         .HasColumnType("int");

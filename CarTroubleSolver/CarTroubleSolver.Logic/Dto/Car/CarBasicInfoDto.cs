@@ -3,7 +3,7 @@
     public class CarBasicInfoDto
     {
         public Guid Id { get; set; }
-        public long VIN { get; set; }
+        public string VIN { get; set; }
         public Color Color { get; set; }
         public string CarType { get; set; }
         public string Brand { get; set; }

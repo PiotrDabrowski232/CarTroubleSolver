@@ -30,9 +30,10 @@ namespace CarTroubleSolver.Logic.Functions.Message
                     SentAt = x.SentAt,
                     DateOfVisit = x.DateOfVisit,
                     Service = Enum.GetName(x.Service),
+                    RateMessage = x.RateMessage,
                     Car = new Dto.Car.CarBasicInfoMessageDto
                     {
-                        VIN = x.Car.VIN,
+                        VIN = x.Car.VIN.ToUpper(),
                         Brand = Enum.GetName(x.Car.Brand),
                         Model = x.Car.Model,
                         Engine = x.Car.Engine,

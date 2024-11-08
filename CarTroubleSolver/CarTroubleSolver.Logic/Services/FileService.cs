@@ -34,7 +34,7 @@ namespace CarTroubleSolver.Logic.Services
             var fileNameWithPath = Path.Combine(path, fileName);
             using var stream = new FileStream(fileNameWithPath, FileMode.Create);
             await image.Photo.CopyToAsync(stream);
-            await _carRepository.UpdateImagePath(long.Parse(image.Vin), fileNameWithPath);
+            await _carRepository.UpdateImagePath(image.Vin, fileNameWithPath);
             return fileName;
         }
 
@@ -55,7 +55,7 @@ namespace CarTroubleSolver.Logic.Services
             File.Delete(path);
         }
 
-        public async Task UpdateFilePath(long CurrentVin, string CurrentPath)
+        public async Task UpdateFilePath(string CurrentVin, string CurrentPath)
         {
             if (File.Exists(CurrentPath))
             {
@@ -72,7 +72,7 @@ namespace CarTroubleSolver.Logic.Services
             }
         }
 
-        public FileDto Download(long vin)
+        public FileDto Download(string vin)
         {
             var filePath = _carRepository.GetAll().FirstOrDefault(x => x.VIN == vin)?.ImagePath;
 

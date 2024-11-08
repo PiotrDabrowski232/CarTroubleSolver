@@ -40,6 +40,7 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Message
                 IsRead = false,
                 PreviousMessageId = message.Id,
                 Responsed = false,
+                RateMessage = false
             };
 
             _dbContext.Messages.Add(sendMessage);

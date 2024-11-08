@@ -20,9 +20,9 @@
     </div>
 
     <div class="details-functional-buttons">
-      <button type="button" class="btn btn-outline-danger" @click="visible = true">Delete Car</button>
-      <button type="button" class="btn btn-outline-warning" @click="this.UpdateDetails()">Update Car Details</button>
       <button type="button" class="btn btn-outline-info" @click="CarRepairsHistory">Repairs History</button>
+      <button type="button" class="btn btn-outline-warning" @click="this.UpdateDetails()">Update Car Details</button>
+      <button type="button" class="btn btn-outline-danger" @click="visible = true">Delete Car</button>
     </div>
 
     <div class="visit-section" v-if="paginatedAccidents.length > 0">

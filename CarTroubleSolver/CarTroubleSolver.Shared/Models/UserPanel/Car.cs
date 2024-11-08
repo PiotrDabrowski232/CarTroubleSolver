@@ -6,7 +6,7 @@ namespace CarTroubleSolver.Shared.Models.UserPanel
     public class Car
     {
         public Guid Id { get; set; }
-        public long VIN { get; set; }
+        public string VIN { get; set; }
         public Brand Brand { get; set; }
         public string Model { get; set; }
         public long Mileage { get; set; }

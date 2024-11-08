@@ -27,16 +27,31 @@
             <p><strong>Service:</strong> {{ MessageDetails.service }}</p>
         </section>
 
-        <div class="button-group">
+        <section v-if="MessageDetails.rateMessage" class="rating-section">
+            <h3>🌟 Rate and Comment</h3>
+            <textarea v-model="userComment" placeholder="Add a comment..." rows="4" class="comment-box"></textarea>
+            <div class="star-rating">
+                <span v-for="star in 5" :key="star" 
+                      @click="setRating(star)" 
+                      :class="{'active-star': star <= userRating}">
+                    ★
+                </span>
+            </div>
+        </section>
+
+        <div class="button-group" v-if="!MessageDetails.rateMessage">
             <button @click="acceptMessage" class="accept-button">✔ Accept</button>
             <button @click="rejectMessage" class="reject-button">✘ Reject</button>
+        </div>
+        <div class="button-group" v-if="MessageDetails.rateMessage">
+            <button @click="sendRating" class="accept-button">Send Rate</button>
         </div>
     </div>
 </template>
 
 <script>
 import { setMessageRead, GetMessageFullInfo } from '@/services/UserApiCommunication';
-import { AddAccident } from '@/services/AccidentCommunication';
+import { AddAccident ,sendRate} from '@/services/AccidentCommunication';
 
 export default {
     name: 'MessageDetails',
@@ -45,7 +60,9 @@ export default {
     },
     data() {
         return {
-            MessageDetails: {}
+            MessageDetails: {},
+            userComment: '', 
+            userRating: 0    
         };
     },
     mounted() {
@@ -76,16 +93,31 @@ export default {
         async rejectMessage() {
             var result = await AddAccident(this.id, false);
             if(result){
-                this.Toast("Response send successfuly");
+                this.Toast("Response sent successfully");
                 setTimeout(() => {
                     this.$router.push("/")
                 }, 3000);
             }
         },
+        setRating(star) {
+            this.userRating = star;
+        },
+        async sendRating() {
+            const rate = {
+                rate: this.userRating,
+                comment: this.userComment
+            }
+            var result = await sendRate(this.id, rate);
+            if(result){
+                this.Toast("Rating and comment submitted successfully");
+                setTimeout(() => {
+                    this.$router.push("/");
+                }, 3000);
+            }
+        },
         Toast(message){
-        return this.$toast.add({severity: 'success' , summary: message , life: 3000 });
-    }
-
+            return this.$toast.add({ severity: 'success', summary: message, life: 3000 });
+        }
     }
 };
 </script>
@@ -111,7 +143,8 @@ header h2 {
 
 .message-content,
 .car-info,
-.service-info {
+.service-info,
+.rating-section {
     margin: 15px 0;
     padding: 15px;
     border-radius: 8px;
@@ -183,5 +216,29 @@ header h2 {
 .reject-button:hover {
     background-color: #d73a2c;
     transform: scale(1.05);
+}
+
+.rating-section {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+}
+
+.comment-box {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    resize: vertical;
+}
+
+.star-rating {
+    font-size: 1.5rem;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.star-rating .active-star {
+    color: #ffd700;
 }
 </style>

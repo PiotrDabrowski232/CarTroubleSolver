@@ -24,5 +24,15 @@ const getRepairHistory = async (id) => {
   }
 };
 
-export { getStatusHistory, getRepairHistory};
+const getAllRepairsHistory = async (vin) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/RepairsHitories?carVin=${vin}`);
+    return response.data;
+  } catch (error) {
+    console.error('There is no history:', error);
+  }
+};
+
+
+export { getStatusHistory, getRepairHistory, getAllRepairsHistory};
 
