@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0D55A0D8-B52D-4A51-8CB8-939A1592C6D9}|CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.workshop.logic\\functions\\rating\\getratingsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D55A0D8-B52D-4A51-8CB8-939A1592C6D9}|CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj|solutionrelative:cartroublesolver.workshop.logic\\functions\\rating\\getratingsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D55A0D8-B52D-4A51-8CB8-939A1592C6D9}|CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.workshop.logic\\dto\\rating\\ratingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D55A0D8-B52D-4A51-8CB8-939A1592C6D9}|CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj|solutionrelative:cartroublesolver.workshop.logic\\dto\\rating\\ratingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A79C47-C6C1-42D3-99C5-DFC8AEBF8775}|CarTroubleSolver.Workshop.Api\\CarTroubleSolver.Workshop.Api.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.workshop.api\\controllers\\ratingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8A79C47-C6C1-42D3-99C5-DFC8AEBF8775}|CarTroubleSolver.Workshop.Api\\CarTroubleSolver.Workshop.Api.csproj|solutionrelative:cartroublesolver.workshop.api\\controllers\\ratingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
@@ -9,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 298,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,6 +75,66 @@
             {
               "$type": "Bookmark",
               "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GetRatingsQuery.cs",
+              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\Functions\\Rating\\GetRatingsQuery.cs",
+              "RelativeDocumentMoniker": "CarTroubleSolver.Workshop.Logic\\Functions\\Rating\\GetRatingsQuery.cs",
+              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\Functions\\Rating\\GetRatingsQuery.cs",
+              "RelativeToolTip": "CarTroubleSolver.Workshop.Logic\\Functions\\Rating\\GetRatingsQuery.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAgwBkAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T10:45:36.893Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RatingController.cs",
+              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Api\\Controllers\\RatingController.cs",
+              "RelativeDocumentMoniker": "CarTroubleSolver.Workshop.Api\\Controllers\\RatingController.cs",
+              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Api\\Controllers\\RatingController.cs",
+              "RelativeToolTip": "CarTroubleSolver.Workshop.Api\\Controllers\\RatingController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T10:44:10.281Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "b258c0f7-0e0a-4cfb-a895-71bfe1ee80ac",
+        "Display": 2,
+        "X": -5,
+        "Y": 331,
+        "Width": 1551,
+        "Height": 706,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RatingDto.cs",
+              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\Dto\\Rating\\RatingDto.cs",
+              "RelativeDocumentMoniker": "CarTroubleSolver.Workshop.Logic\\Dto\\Rating\\RatingDto.cs",
+              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\Dto\\Rating\\RatingDto.cs",
+              "RelativeToolTip": "CarTroubleSolver.Workshop.Logic\\Dto\\Rating\\RatingDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T10:55:05.919Z",
+              "EditorCaption": ""
             }
           ]
         }

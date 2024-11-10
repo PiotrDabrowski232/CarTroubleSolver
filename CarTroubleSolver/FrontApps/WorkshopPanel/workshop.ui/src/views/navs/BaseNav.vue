@@ -18,8 +18,7 @@
   },
   computed: {
     userComponent(){
-      console.log(this.isAuthenticated)
-      return this.isAuthenticated ;
+      return this.isAuthenticated
     }
   },
   watch: {
