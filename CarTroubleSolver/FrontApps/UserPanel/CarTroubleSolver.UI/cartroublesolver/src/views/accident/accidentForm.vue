@@ -1,9 +1,12 @@
 <template>
   <div class="formMessageContainer">
+    <Toast position="top-center" />
+
     <button type="button" @click="checkWorkshops" class="btn btn-outline-dark button-top-right">Check Workshops</button>
     <form novalidate @submit.prevent="sendMessage" class="formMessage">
       <div class="form-floating">
-        <select ref="workshopSelect" class="form-select" id="floatingSelect" aria-label="Floating label select example" @change="FetchWorkshopServices">
+        <select ref="workshopSelect" class="form-select" id="floatingSelect" aria-label="Floating label select example"
+          @change="FetchWorkshopServices">
           <option value="" disabled selected>Select Workshop</option>
           <option v-for="(item, index) in worskhops" :key="index" :value="item.id">
             {{ index + 1 }}. {{ item.name }} - {{ item.city }}
@@ -34,7 +37,8 @@
         <div v-if="errors.Car" class="text-danger">{{ errors.Car }}</div>
       </div>
       <div class="form-floating">
-        <textarea ref="descriptionTextarea" class="form-control" placeholder="Describe your problem" id="floatingTextarea" style="width: 100%; height: 200%"></textarea>
+        <textarea ref="descriptionTextarea" class="form-control" placeholder="Describe your problem"
+          id="floatingTextarea" style="width: 100%; height: 200%"></textarea>
         <label for="floatingTextarea">Describe problem</label>
         <div v-if="errors.Description" class="text-danger">{{ errors.Description }}</div>
       </div>
@@ -77,10 +81,9 @@ export default {
     },
     async getCars() {
       this.Cars = await fetchUserCars();
-      console.log(this.Cars)
     },
     async FetchWorkshopServices() {
-      const selectedWorkshopId = this.$refs.workshopSelect.value; 
+      const selectedWorkshopId = this.$refs.workshopSelect.value;
       if (selectedWorkshopId) {
         this.sevices = await fetchTypes(selectedWorkshopId);
       } else {
@@ -119,15 +122,22 @@ export default {
         isValid = false;
       }
 
-      if (!isValid) return; 
+      if (!isValid) return;
 
-      const message = { 
+      const message = {
         workshopId: selectedWorkshop,
         service: selectedService,
         carId: selectedCar,
         description: description
       }
-      await sendMessage(message)
+      var result = await sendMessage(message)
+
+      if (result) {
+        this.$toast.add({ severity: 'success', summary: 'Message Send', life: 3000 });
+        setTimeout(() => {
+          this.$router.push("/")
+        }, 3000);
+      }
     }
   }
 }
@@ -143,7 +153,7 @@ export default {
   position: relative;
 }
 
-form > .formMessage {
+form>.formMessage {
   width: fit-content;
   padding: 4vw;
   border: 1px solid #ddd;

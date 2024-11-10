@@ -68,8 +68,7 @@ namespace CarTroubleSolver.Logic.Functions.Workshop
 
                 workshopList.Add(workshopDto);
             }
-
-            return workshopList;
+                return workshopList;
         }
     }
 }
