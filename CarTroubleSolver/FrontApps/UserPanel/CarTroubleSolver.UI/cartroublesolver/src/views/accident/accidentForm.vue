@@ -26,6 +26,9 @@
           <option v-for="(item, index) in Cars" :key="index" :value="item.id">
             {{ index + 1 }}. {{ item.brand }} - {{ item.model }}
           </option>
+          <option v-if="Cars.length < 1" value="" disabled>
+            Add car to be able to add event
+          </option>
         </select>
         <label for="floatingSelect">Car</label>
         <div v-if="errors.Car" class="text-danger">{{ errors.Car }}</div>

@@ -10,6 +10,8 @@ import Accidents from '@/views/Accident/Accidents.vue'
 import AccidentFullInfo from '@/views/Accident/AccidentFullInfo.vue'
 import AddRepairHistory from '@/views/RepairHistory/AddRepairHistory.vue'
 import RepairHistoryDetails from '@/views/RepairHistory/RepairHistoryDetails.vue'
+import Ratings from '@/views/Rating/Ratings.vue'
+
 const routes = [ 
   {
     path: '/',
@@ -63,13 +65,17 @@ const routes = [
     name: 'AddRepairHistory',
     component: AddRepairHistory,
     props: true 
-  }
-  ,
+  },
   {
     path: '/RepairHistoryDetails/:id',
     name: 'RepairHistoryDetails',
     component: RepairHistoryDetails,
     props: true 
+  },
+  {
+    path: '/Ratings',
+    name: 'Ratings',
+    component: Ratings,
   }
 ]
 

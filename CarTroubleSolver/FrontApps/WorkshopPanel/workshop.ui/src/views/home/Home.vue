@@ -7,6 +7,11 @@
     <RouterLink to="/Accidents">
         <h3>Accidents</h3>
     </RouterLink>
+
+    <RouterLink to="/Ratings">
+        <h3>My opinions</h3>
+    </RouterLink>
+
   </div>
 
 </template>

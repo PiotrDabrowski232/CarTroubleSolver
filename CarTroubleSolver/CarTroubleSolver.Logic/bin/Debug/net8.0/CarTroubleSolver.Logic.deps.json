@@ -13,6 +13,8 @@
           "CarTroubleSolver.Shared": "1.0.0",
           "FluentValidation": "11.9.0",
           "FluentValidation.AspNetCore": "11.3.0",
+          "GeoCoordinate.NetCore": "1.0.0.1",
+          "Geocoding.net": "3.6.1",
           "MediatR": "12.2.0",
           "MediatR.Extensions.Microsoft.DependencyInjection": "11.1.0"
         },
@@ -124,6 +126,22 @@
           "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll": {
             "assemblyVersion": "11.0.0.0",
             "fileVersion": "11.5.1.0"
+          }
+        }
+      },
+      "Geocoding.net/3.6.1": {
+        "runtime": {
+          "lib/net40/Geocoding.dll": {
+            "assemblyVersion": "3.6.0.0",
+            "fileVersion": "3.6.0.141"
+          }
+        }
+      },
+      "GeoCoordinate.NetCore/1.0.0.1": {
+        "runtime": {
+          "lib/netstandard1.6/GeoCoordinate.NetCore.dll": {
+            "assemblyVersion": "1.0.0.1",
+            "fileVersion": "1.0.0.1"
           }
         }
       },
@@ -897,6 +915,20 @@
       "sha512": "sha512-iWM0LS1MDYX06pcjMEQKqHirl2zkjHlNV23mEJSoR1IZI7KQmTa0RcTtGEJpj5+iHvBCfrzP2mYKM4FtRKVb+A==",
       "path": "fluentvalidation.dependencyinjectionextensions/11.5.1",
       "hashPath": "fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512"
+    },
+    "Geocoding.net/3.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cVLthPqEF8vR9BZK4W7zTIhv8kx2XJkhiWVfxTkzHE2z6i9FzDOyiCqJTaChdV1FXP3XN4JAmTLPN7UYOtCq7w==",
+      "path": "geocoding.net/3.6.1",
+      "hashPath": "geocoding.net.3.6.1.nupkg.sha512"
+    },
+    "GeoCoordinate.NetCore/1.0.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VrR5MLkh0u2qka79JcQ/GUrgHwGidayCA7nKy2430qYX/JHdrHLgwp1MuBTSsygWs0s2V6GQ0Hp8HUMatHiWFw==",
+      "path": "geocoordinate.netcore/1.0.0.1",
+      "hashPath": "geocoordinate.netcore.1.0.0.1.nupkg.sha512"
     },
     "MediatR/12.2.0": {
       "type": "package",

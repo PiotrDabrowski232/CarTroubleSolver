@@ -1,7 +1,7 @@
 <template>
   <div class="panel">
     <RouterLink class="homeLink" to="/">
-      <h3>Home</h3>
+      <h3>Workshop Trouble Solver</h3>
     </RouterLink>
     <nav>
       <RouterLink class="logoutLink" to="/" @click.prevent="Logout"

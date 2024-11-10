@@ -1,7 +1,10 @@
-﻿using CarTroubleSolver.Logic.Dto.Car;
+﻿using CarTroubleSolver.Logic.Dto;
+using CarTroubleSolver.Logic.Dto.Car;
 using CarTroubleSolver.Logic.Functions.Workshop;
+using CarTroubleSolver.Shared.Models.ExtraModels;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
 
 namespace CarTroubleSolver.Api.Controllers
 {
@@ -13,11 +16,11 @@ namespace CarTroubleSolver.Api.Controllers
 
         [HttpGet]
         [Route("/Workshops")]
-        public async Task<IActionResult> Worskhops()
+        public async Task<IActionResult> Worskhops([FromQuery] GeoDto? geo)
         {
             try
             {
-                var result = await _mediator.Send(new WorkshopInfoQuery());
+                var result = await _mediator.Send(new WorkshopInfoQuery(geo));
 
                 return Ok(result);
             }

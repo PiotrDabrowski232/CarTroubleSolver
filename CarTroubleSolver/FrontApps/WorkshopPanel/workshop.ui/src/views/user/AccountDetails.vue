@@ -35,7 +35,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <table class="table" v-if="ProvidedServices.length > 0">
+            <table class="table" v-if="AddServicesBase.length > 0">
               <thead>
                 <tr>
                   <th scope="col">Service Type</th>
@@ -44,7 +44,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(service, index) in AddServicesBase" :key="index">
+                <tr v-for="(service, index) in AddServicesBase" :key="index" >
                   <td style="text-align: center;">{{ service.serviceType }}</td>
                   <td style="text-align: center;">{{ service.price }}</td>
                   <td style="text-align: center;"><button type="button" class="btn btn-outline-primary"
@@ -52,7 +52,7 @@
                 </tr>
               </tbody>
             </table>
-            <SelectInput v-model="AddService.serviceType" label="Province" type="text" :dataArray="ServiceTypes"
+            <SelectInput v-model="AddService.serviceType" label="Service" type="text" :dataArray="ServiceTypes"
               :width='15' />
             <CustomInput type="number" label="Service Price" v-model="AddService.price" :width='15' />
             <button type="button" class="btn btn-primary" @click="AddToList(AddService)">Add To List</button>
@@ -227,7 +227,6 @@
         };
 
         this.AddServicesBase.push(newService);
-
         this.AddService.serviceType = '';
         this.AddService.price = 0;
       },

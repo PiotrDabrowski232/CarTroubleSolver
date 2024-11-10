@@ -1,6 +1,6 @@
 import AuthService from '../services/AuthService';
 import axios from 'axios';
-import {saveToLocalStorage} from '@/LocalStorage/useLocalStorage';
+import {saveToLocalStorage, getFromLocalStorage} from '@/LocalStorage/useLocalStorage';
 
 const BASE_URL = 'http://localhost:5113';
 
@@ -63,10 +63,23 @@ const ResetPassword = async (ResetModel) => {
 
 const worskhops = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/Workshops`);
+    var geolocation = getFromLocalStorage('geoLocation');
+    var response;
+
+    if (geolocation === null) {
+      response = await axios.get(`${BASE_URL}/Workshops`);
+    } else {
+      response = await axios.get(`${BASE_URL}/Workshops`, {
+        params: { 
+          Latitude: geolocation.Latitude,
+          Longitude: geolocation.Longitude
+        }
+      });
+    }
+
     return response.data;
   } catch (error) {
-    console.error('Error fetching posts:', error);
+    console.error('Error fetching workshops:', error);
     throw error;
   }
 };

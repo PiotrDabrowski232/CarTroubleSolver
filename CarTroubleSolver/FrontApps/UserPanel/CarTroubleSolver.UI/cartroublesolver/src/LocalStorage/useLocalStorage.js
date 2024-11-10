@@ -3,11 +3,8 @@ export function saveToLocalStorage(key, value) {
   }
   
 export function getFromLocalStorage(key) {
-    const storageVal = window.localStorage.getItem(key);
-    if (storageVal) {
-      return JSON.parse(storageVal);
-    }
-    return null;
+  const item = localStorage.getItem(key);
+  return item ? JSON.parse(item) : null; 
   }
 
 

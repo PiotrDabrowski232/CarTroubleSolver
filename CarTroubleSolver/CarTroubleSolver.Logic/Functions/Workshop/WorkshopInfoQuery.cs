@@ -1,13 +1,18 @@
-﻿using CarTroubleSolver.Logic.Dto.Workshop;
+﻿using CarTroubleSolver.Logic.Dto;
+using CarTroubleSolver.Logic.Dto.Workshop;
 using CarTroubleSolver.Shared.Data;
 using CarTroubleSolver.Shared.Models.Enum;
 using CarTroubleSolver.Shared.Services.Interface;
+using GeoCoordinatePortable;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarTroubleSolver.Logic.Functions.Workshop
 {
-    public class WorkshopInfoQuery : IRequest<List<WorkshopInfoDto>>;
+    public class WorkshopInfoQuery(GeoDto? geo) : IRequest<List<WorkshopInfoDto>>
+    {
+        public GeoDto? Geo { get; set; } = geo;
+    }
 
     public class WorkshopInfoQueryHandler : IRequestHandler<WorkshopInfoQuery, List<WorkshopInfoDto>>
     {
@@ -29,7 +34,7 @@ namespace CarTroubleSolver.Logic.Functions.Workshop
                 {
                     x.Id,
                     x.Name,
-                    Services = x.Services.Select(service => service.Service).ToList(), 
+                    Services = x.Services.Select(service => service.Service).ToList(),
                     Rating = x.Ratings.Any() ? x.Ratings.Average(r => r.Rate) : 0,
                     X = x.Location.X,
                     Y = x.Location.Y,
@@ -50,8 +55,16 @@ namespace CarTroubleSolver.Logic.Functions.Workshop
                     Name = item.Name,
                     Services = item.Services.Select(service => Enum.GetName(typeof(ServiceType), service)).ToList(),
                     Rating = item.Rating,
-                    City = cityName 
+                    City = cityName,
                 };
+
+                if (request.Geo != null && request.Geo.Latitude != 0 && request.Geo.Longitude != 0)
+                {
+                    var geoCoord1 = new GeoCoordinate(request.Geo.Longitude, request.Geo.Latitude);
+                    var geoCoord2 = new GeoCoordinate(item.X, item.Y);
+
+                    workshopDto.Distance = geoCoord1.GetDistanceTo(geoCoord2)/1000;
+                }
 
                 workshopList.Add(workshopDto);
             }

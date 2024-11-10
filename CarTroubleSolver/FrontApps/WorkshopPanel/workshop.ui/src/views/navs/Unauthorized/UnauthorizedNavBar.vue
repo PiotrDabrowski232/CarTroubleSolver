@@ -1,6 +1,6 @@
 <template>
     <div class="panel">
-      <RouterLink class="homeLink" to="/"><h3>Home</h3></RouterLink>
+      <RouterLink class="homeLink" to="/"><h3>Workshop Trouble Solver</h3></RouterLink>
       <nav>
         <RouterLink to="/Login">Login</RouterLink>
         <RouterLink to="/Register">Register</RouterLink>

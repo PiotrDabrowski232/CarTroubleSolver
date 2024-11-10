@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <router-link class="navbar-brand router-link" to="/" exact-path>Home</router-link>
+    <router-link class="navbar-brand router-link" to="/" exact-path>Car Trouble Solver</router-link>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <div class="dropdown">
         <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -154,6 +154,28 @@
           }
         }
       },
+      "Geocoding.net/3.6.1": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Geocoding.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Geocoding.dll": {}
+        }
+      },
+      "GeoCoordinate.NetCore/1.0.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.6/GeoCoordinate.NetCore.dll": {
+            "related": ".deps.json"
+          }
+        },
+        "runtime": {
+          "lib/netstandard1.6/GeoCoordinate.NetCore.dll": {
+            "related": ".deps.json"
+          }
+        }
+      },
       "MediatR/12.2.0": {
         "type": "package",
         "dependencies": {
@@ -1605,6 +1627,31 @@
         "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.xml",
         "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll",
         "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.xml"
+      ]
+    },
+    "Geocoding.net/3.6.1": {
+      "sha512": "cVLthPqEF8vR9BZK4W7zTIhv8kx2XJkhiWVfxTkzHE2z6i9FzDOyiCqJTaChdV1FXP3XN4JAmTLPN7UYOtCq7w==",
+      "type": "package",
+      "path": "geocoding.net/3.6.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "geocoding.net.3.6.1.nupkg.sha512",
+        "geocoding.net.nuspec",
+        "lib/net40/Geocoding.dll"
+      ]
+    },
+    "GeoCoordinate.NetCore/1.0.0.1": {
+      "sha512": "VrR5MLkh0u2qka79JcQ/GUrgHwGidayCA7nKy2430qYX/JHdrHLgwp1MuBTSsygWs0s2V6GQ0Hp8HUMatHiWFw==",
+      "type": "package",
+      "path": "geocoordinate.netcore/1.0.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "geocoordinate.netcore.1.0.0.1.nupkg.sha512",
+        "geocoordinate.netcore.nuspec",
+        "lib/netstandard1.6/GeoCoordinate.NetCore.deps.json",
+        "lib/netstandard1.6/GeoCoordinate.NetCore.dll"
       ]
     },
     "MediatR/12.2.0": {
@@ -3666,6 +3713,8 @@
       "CarTroubleSolver.Shared >= 1.0.0",
       "FluentValidation >= 11.9.0",
       "FluentValidation.AspNetCore >= 11.3.0",
+      "GeoCoordinate.NetCore >= 1.0.0.1",
+      "Geocoding.net >= 3.6.1",
       "MediatR >= 12.2.0",
       "MediatR.Extensions.Microsoft.DependencyInjection >= 11.1.0"
     ]
@@ -3740,6 +3789,14 @@
             "target": "Package",
             "version": "[11.3.0, )"
           },
+          "GeoCoordinate.NetCore": {
+            "target": "Package",
+            "version": "[1.0.0.1, )"
+          },
+          "Geocoding.net": {
+            "target": "Package",
+            "version": "[3.6.1, )"
+          },
           "MediatR": {
             "target": "Package",
             "version": "[12.2.0, )"
@@ -3776,6 +3833,16 @@
       "warningLevel": 1,
       "message": "Detected package version outside of dependency constraint: MediatR.Extensions.Microsoft.DependencyInjection 11.1.0 requires MediatR (>= 11.0.0 && < 12.0.0) but version MediatR 12.2.0 was resolved.",
       "libraryId": "MediatR",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Geocoding.net 3.6.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Geocoding.net",
       "targetGraphs": [
         "net8.0"
       ]

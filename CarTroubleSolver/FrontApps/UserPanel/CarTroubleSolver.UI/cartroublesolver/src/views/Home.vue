@@ -3,18 +3,13 @@
     <Toast position="top-center"/>
     <div class="MainContent">
       <button class="home-button" @click="this.WorkshopApoitment()">
-        <p>Workshop appointment</p>
-        <img :src="require('@/assets/workshop.jpg')" >
+        <p>Workshops</p>
+        <img :src="require('@/assets/workshop.png')" >
       </button>
 
       <button class="home-button" @click="this.BreakdownEventForm()">
-        <p>Add Car Breakdown Event</p>
-        <img :src="require('@/assets/workshop.jpg')" >
-      </button>
-
-      <button class="home-button" @click="this.MyEvents()">
-        <p>My Car Breakdown Events</p>
-        <img :src="require('@/assets/mybreakdown.jpg')" >
+        <p>Add Accident</p>
+        <img :src="require('@/assets/mybreakdown.png')" >
       </button>
     </div>
   </div>
@@ -45,7 +40,7 @@ export default {
     },
     WorkshopApoitment(){
       if(this.isLogged()){
-        router.push("/WorkshopApoitment")
+        router.push("/WorkshopList")
       }
       else{
         this.WarningToast();
@@ -53,7 +48,7 @@ export default {
     },
     BreakdownEventForm(){
       if(this.isLogged()){
-        router.push("/BreakdownForm")
+        router.push("/AddAccident")
       }
       else{
         this.WarningToast();

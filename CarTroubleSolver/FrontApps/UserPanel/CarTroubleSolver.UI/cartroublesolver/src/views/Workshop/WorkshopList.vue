@@ -35,12 +35,14 @@
                 <tr v-for="(item, index) in filteredWorkshops" :key="index">
                     <td><a class="workshop-link" v-on:click="WorkshopDetails(item.id)">{{ item.name }}</a></td>
                     <td>
-                        <p style="margin: 0px;" v-for="(subitem, index) in item.services" :key="index">{{ subitem }}</p>    
+                        <p style="margin: 0px;" v-for="(subitem, index) in item.services" :key="index">{{ subitem }}</p>
                     </td>
-                    <td v-if="item.rating !== 0"><a class="workshop-link" v-on:click="WorkshopDetails(item.id)">{{ item.rating }}/5</a></td>
+                    <td v-if="item.rating !== 0"><a class="workshop-link" v-on:click="WorkshopDetails(item.id)">{{
+                            item.rating }}/5</a></td>
                     <td v-if="item.rating === 0">There is no ratings</td>
                     <td>{{ item.city }}</td>
-                    <td>? km</td>
+                    <td v-if="item.distance"> {{ (item.distance).toFixed(2) }} km </td>
+                    <td v-else> ? km</td>
                 </tr>
             </tbody>
         </table>
@@ -49,6 +51,8 @@
 
 <script>
 import { worskhops } from '@/services/UserApiCommunication';
+import { getLocation } from '@/services/Geolocalization';
+import {saveToLocalStorage} from '@/LocalStorage/useLocalStorage';
 
 export default {
     name: 'WorkshopList',
@@ -87,12 +91,18 @@ export default {
                 this.filteredWorkshops.sort((a, b) => b.rating - a.rating);
             }
         },
-        calculateDistance() {
-            alert("Calculating distance...");
+       async calculateDistance() {
+                const position = await getLocation();
+                const geo = {
+                    Latitude: position.coords.latitude,
+                    Longitude: position.coords.longitude,
+                }
+                saveToLocalStorage(`geoLocation`, geo);
+                this.GetWorkshopsData();
         },
-        WorkshopDetails(id){
+        WorkshopDetails(id) {
             console.log(id)
-            this.$router.push({name: "WorkshopDetails", params: {id: id}});
+            this.$router.push({ name: "WorkshopDetails", params: { id: id } });
         }
     }
 }
