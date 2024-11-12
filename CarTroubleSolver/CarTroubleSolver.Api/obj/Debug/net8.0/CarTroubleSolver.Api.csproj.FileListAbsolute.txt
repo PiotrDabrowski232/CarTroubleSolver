@@ -1,11 +1,11 @@
+C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\appsettings.json
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\CarTroubleSolver.Logic.deps.json
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\CarTroubleSolver.Logic.runtimeconfig.json
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\CarTroubleSolver.Shared.deps.json
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\CarTroubleSolver.Shared.runtimeconfig.json
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\CarTroubleSolver.Shared.exe
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\CarTroubleSolver.Logic.exe
-C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\appsettings.json
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\CarTroubleSolver.Api.staticwebassets.runtime.json
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\CarTroubleSolver.Api.exe
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\CarTroubleSolver.Api.deps.json
@@ -22,6 +22,8 @@ C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\FluentValidation.dll
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\Geocoding.dll
+C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\GeoCoordinate.NetCore.dll
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\Humanizer.dll
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\MediatR.dll
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\MediatR.Contracts.dll
@@ -186,5 +188,3 @@ C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\obj\Debug\net8.0\CarTroubleSolver.Api.pdb
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\obj\Debug\net8.0\CarTroubleSolver.Api.genruntimeconfig.cache
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\obj\Debug\net8.0\ref\CarTroubleSolver.Api.dll
-C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\Geocoding.dll
-C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Api\bin\Debug\net8.0\GeoCoordinate.NetCore.dll

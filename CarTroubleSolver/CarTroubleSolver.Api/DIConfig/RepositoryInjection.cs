@@ -8,7 +8,6 @@ namespace CarTroubleSolver.Api.DIConfig
         public static IServiceCollection WithRepositories(this IServiceCollection Services)
         {
             Services.AddScoped<IUserRepository, UserRepository>();
-            Services.AddScoped<IRoleRepository, RoleRepository>();
             Services.AddScoped<ICarRepository, CarRepository>();
             Services.AddScoped<IStatusHistoryRepository, StatusHistoryRepository>();
 

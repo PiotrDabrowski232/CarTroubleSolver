@@ -10,10 +10,9 @@ using System.Security.Claims;
 
 namespace CarTroubleSolver.Logic.Services
 {
-    public class UserService(IUserRepository userRepository, IRoleService roleService, IMapper mapper, IHashingService hashingService, ITokenService tokenService, IHttpContextAccessor httpContextAccessor) : IUserService
+    public class UserService(IUserRepository userRepository, IMapper mapper, IHashingService hashingService, ITokenService tokenService, IHttpContextAccessor httpContextAccessor) : IUserService
     {
         private readonly IUserRepository _userRepository = userRepository;
-        private readonly IRoleService _roleService = roleService;
         private readonly IMapper _mapper = mapper;
         private readonly IHashingService _hashingService = hashingService;
         private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
@@ -121,11 +120,6 @@ namespace CarTroubleSolver.Logic.Services
             }
         }
 
-        public void UpdateUserData(UpdateUserDto updateUser)
-        {
-            throw new NotImplementedException();
-        }
-
         public string GenerateJwt(LoginDto login)
         {
             var user = _userRepository.GetAll().FirstOrDefault(u => u.Email == login.Email);
@@ -134,8 +128,6 @@ namespace CarTroubleSolver.Logic.Services
             {
                 throw new NotFoundException("Email or Password is wrong");
             }
-
-            user.Role = _roleService.GetRole(user.RoleId);
 
             CheckPasswordCoretness(login.Password, user.Id);
 

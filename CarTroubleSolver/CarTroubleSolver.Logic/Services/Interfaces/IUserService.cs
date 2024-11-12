@@ -6,7 +6,6 @@ namespace CarTroubleSolver.Logic.Services.Interfaces
     {
         public UserDto RegisterUser(RegisterUserDto user);
         public UserDto? GetUser();
-        public void UpdateUserData(UpdateUserDto user);
         public void ChangePassword(ChangePasswordUserDto user);
         public void DeleteUser(Guid id);
         public IEnumerable<UserDto> GetUsers();

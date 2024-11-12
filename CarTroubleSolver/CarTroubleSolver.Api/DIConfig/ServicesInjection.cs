@@ -14,9 +14,7 @@ namespace CarTroubleSolver.Api.DIConfig
     {
         public static IServiceCollection WithServices(this IServiceCollection Services, IConfiguration configuration)
         {
-            Services.AddScoped<IRoleService, RoleService>();
             Services.AddScoped<IUserService, UserService>();
-            Services.AddScoped<ICarService, CarService>();
             Services.AddScoped<IFileService, FileService>();
 
             var assemblies = Assembly.Load("CarTroubleSolver.Logic");

@@ -7,10 +7,6 @@ namespace CarTroubleSolver.Shared.Models.UserPanel
     {
         public string Surname { get; set; }
         public DateOnly DateOfBirth { get; set; }
-
-        public Guid RoleId { get; set; }
-        public virtual Role Role { get; set; }
-
         public virtual ICollection<Car> Cars { get; set; }
         public virtual ICollection<Message> SentMessages { get; set; } 
         public virtual ICollection<Message> ReceivedMessages { get; set; }

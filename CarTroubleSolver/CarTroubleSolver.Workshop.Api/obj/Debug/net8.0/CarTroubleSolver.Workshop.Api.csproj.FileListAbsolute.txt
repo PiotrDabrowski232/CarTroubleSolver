@@ -1,11 +1,11 @@
+C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\bin\Debug\net8.0\CarTroubleSolver.Workshop.Logic.deps.json
+C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\bin\Debug\net8.0\CarTroubleSolver.Workshop.Logic.runtimeconfig.json
+C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\bin\Debug\net8.0\appsettings.json
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\bin\Debug\net8.0\CarTroubleSolver.Shared.deps.json
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\bin\Debug\net8.0\CarTroubleSolver.Shared.runtimeconfig.json
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\bin\Debug\net8.0\CarTroubleSolver.Shared.exe
-C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\bin\Debug\net8.0\CarTroubleSolver.Workshop.Logic.deps.json
-C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\bin\Debug\net8.0\CarTroubleSolver.Workshop.Logic.runtimeconfig.json
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\bin\Debug\net8.0\CarTroubleSolver.Workshop.Logic.exe
-C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\bin\Debug\net8.0\appsettings.json
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\bin\Debug\net8.0\CarTroubleSolver.Workshop.Api.exe
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\bin\Debug\net8.0\CarTroubleSolver.Workshop.Api.deps.json
 C:\Users\Piotr\Source\Repos\PiotrDabrowski232\CarTroubleSolver\CarTroubleSolver\CarTroubleSolver.Workshop.Api\bin\Debug\net8.0\CarTroubleSolver.Workshop.Api.runtimeconfig.json

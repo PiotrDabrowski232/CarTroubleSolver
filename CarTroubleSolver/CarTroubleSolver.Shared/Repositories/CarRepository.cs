@@ -1,19 +1,26 @@
 ﻿using CarTroubleSolver.Shared.Data;
 using CarTroubleSolver.Shared.Models.UserPanel;
 using CarTroubleSolver.Shared.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarTroubleSolver.Shared.Repositories
 {
     public class CarRepository(CarTroubleSolverDbContext dbContext) : GenericRepository<Car>(dbContext), IGenericRepository<Car>, ICarRepository
     {
-        public Task DeleteCarByVinNumber(string vin)
+        public async Task<bool> DeleteCarByVinNumber(string vin)
         {
-            var car = dbContext.Cars.First(x => x.VIN == vin);
+            var car = await dbContext.Cars.Where(x => x.VIN == vin)
+                .Include(x => x.Accidents)
+                .Include(x => x.RepairHistory)
+                .FirstOrDefaultAsync(default);
+
+            dbContext.RepairHistory.RemoveRange(car.RepairHistory);
+            dbContext.Accidents.RemoveRange(car.Accidents);
 
             dbContext.Cars.Remove(car);
             dbContext.SaveChanges();
 
-            return Task.CompletedTask;
+            return true;
         }
 
         public Task UpdateImagePath(string Vin, string Path)

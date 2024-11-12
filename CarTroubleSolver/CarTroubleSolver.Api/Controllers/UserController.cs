@@ -80,7 +80,6 @@ namespace CarTroubleSolver.Api.Controllers
         }
 
         [HttpDelete]
-        [Authorize(Roles = "Admin, BasicUser")]
         [Route("/RemoveAccount")]
         public ActionResult Delete(string id)
         {

@@ -79,11 +79,11 @@ namespace CarTroubleSolver.Api.Controllers
         [HttpPost]
         [Route("/Delete")]
         [Authorize]
-        public IActionResult Delete([FromQuery] string VIN)
+        public async Task<IActionResult> Delete([FromQuery] string VIN)
         {
             try
             {
-                var result = _mediator.Send(new RemoveCarCommand(VIN));
+                var result = await _mediator.Send(new RemoveCarCommand(VIN));
                 return Ok(result);
             }
             catch (Exception ex)
