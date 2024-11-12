@@ -1,20 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{CFE0902D-3212-4C4A-AA01-C46C0E3B04AA}|CarTroubleSolver.Tests\\CarTroubleSolver.Tests.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.tests\\query\\workshop\\workshopdetailsquerytest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE0902D-3212-4C4A-AA01-C46C0E3B04AA}|CarTroubleSolver.Tests\\CarTroubleSolver.Tests.csproj|solutionrelative:cartroublesolver.tests\\query\\workshop\\workshopdetailsquerytest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08022DCF-2288-495B-9925-68D0447C7A00}|CarTroubleSolver.Shared\\CarTroubleSolver.Shared.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.shared\\models\\userpanel\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08022DCF-2288-495B-9925-68D0447C7A00}|CarTroubleSolver.Shared\\CarTroubleSolver.Shared.csproj|solutionrelative:cartroublesolver.shared\\models\\userpanel\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08022DCF-2288-495B-9925-68D0447C7A00}|CarTroubleSolver.Shared\\CarTroubleSolver.Shared.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.shared\\models\\extramodels\\streetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08022DCF-2288-495B-9925-68D0447C7A00}|CarTroubleSolver.Shared\\CarTroubleSolver.Shared.csproj|solutionrelative:cartroublesolver.shared\\models\\extramodels\\streetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
@@ -22,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 298,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -75,87 +62,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "WorkshopDetailsQueryTest.cs",
-              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Tests\\Query\\Workshop\\WorkshopDetailsQueryTest.cs",
-              "RelativeDocumentMoniker": "CarTroubleSolver.Tests\\Query\\Workshop\\WorkshopDetailsQueryTest.cs",
-              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Tests\\Query\\Workshop\\WorkshopDetailsQueryTest.cs",
-              "RelativeToolTip": "CarTroubleSolver.Tests\\Query\\Workshop\\WorkshopDetailsQueryTest.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAtwGoAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T10:48:49.509Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "ac6bfc3e-d5dd-4011-b03c-8b35556d2825",
-        "Display": 0,
-        "X": 374,
-        "Y": 174,
-        "Width": 1551,
-        "Height": 669,
-        "WindowState": 2
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "StreetDto.cs",
-              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Shared\\Models\\ExtraModels\\StreetDto.cs",
-              "RelativeDocumentMoniker": "CarTroubleSolver.Shared\\Models\\ExtraModels\\StreetDto.cs",
-              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Shared\\Models\\ExtraModels\\StreetDto.cs",
-              "RelativeToolTip": "CarTroubleSolver.Shared\\Models\\ExtraModels\\StreetDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T10:50:16.54Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "1ad9a3e4-5e53-46b9-ba17-f14a50100af2",
-        "Display": 0,
-        "X": 374,
-        "Y": 195,
-        "Width": 1551,
-        "Height": 669,
-        "WindowState": 2
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Shared\\Models\\UserPanel\\User.cs",
-              "RelativeDocumentMoniker": "CarTroubleSolver.Shared\\Models\\UserPanel\\User.cs",
-              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Shared\\Models\\UserPanel\\User.cs",
-              "RelativeToolTip": "CarTroubleSolver.Shared\\Models\\UserPanel\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T10:53:46.311Z",
-              "EditorCaption": ""
             }
           ]
         }

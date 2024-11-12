@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CarTroubleSolver.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc3e6afabd5b14ddb34ac354e8719db1c1a33238")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+557ed68aea5dcad7cbc8e53728ea25b0ba8b6c83")]
 [assembly: System.Reflection.AssemblyProductAttribute("CarTroubleSolver.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CarTroubleSolver.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
