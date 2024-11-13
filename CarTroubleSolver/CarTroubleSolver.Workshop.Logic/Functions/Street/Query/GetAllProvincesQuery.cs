@@ -9,7 +9,7 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Street.Query
         public ProvincesDto Provinces { get; set; }
     }
 
-    public class GetBasicCarConfigQueryHandler : IRequestHandler<GetAllProvincesQuery, ProvincesDto>
+    public class GetAllProvincesQueryHandler : IRequestHandler<GetAllProvincesQuery, ProvincesDto>
     {
         public Task<ProvincesDto> Handle(GetAllProvincesQuery request, CancellationToken cancellationToken)
         {

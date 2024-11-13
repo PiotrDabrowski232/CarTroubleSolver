@@ -41,14 +41,16 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Command
                         .Where(x => x.Id == workshopId)
                         .FirstOrDefault();
 
-                    if (!_hashingService.VerifyHashedPassword(null, workshop.Password, request.NewPassword.CurrentPassword))
+                    var verificationresult = _hashingService.VerifyHashedPassword(null, workshop.Password, request.NewPassword.CurrentPassword);
+
+                    if (!verificationresult)
                         throw new InvalidProvidedDataException("Incorrect Password");
 
                     workshop.Password = _hashingService.HashPassword(null, request.NewPassword.NewPassword);
 
                     context.Update(workshop);
 
-                    context.SaveChangesAsync();
+                    context.SaveChanges();
                 }
 
 

@@ -63,12 +63,12 @@ namespace CarTroubleSolver.Logic.Functions.Workshop
                     var geoCoord1 = new GeoCoordinate(request.Geo.Longitude, request.Geo.Latitude);
                     var geoCoord2 = new GeoCoordinate(item.X, item.Y);
 
-                    workshopDto.Distance = geoCoord1.GetDistanceTo(geoCoord2)/1000;
+                    workshopDto.Distance = geoCoord1.GetDistanceTo(geoCoord2) / 1000;
                 }
 
                 workshopList.Add(workshopDto);
             }
-                return workshopList;
+            return workshopList;
         }
     }
 }

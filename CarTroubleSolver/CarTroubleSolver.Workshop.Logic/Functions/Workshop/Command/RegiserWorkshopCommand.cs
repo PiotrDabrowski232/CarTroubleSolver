@@ -16,7 +16,7 @@ namespace CarTroubleSolver.Workshop.Logic.Functions.Workshop.Command
             Workshop = workshop;
         }
     }
-    public class AddCarCommandHandler(IWorkshopRepository workshopRepository,
+    public class RegiserWorkshopCommandHandler(IWorkshopRepository workshopRepository,
         IMapper mapper, IGeoLocalizationService geoLocalizationService,
         IHashingService hashingService) : IRequestHandler<RegiserWorkshopCommand, Guid>
     {

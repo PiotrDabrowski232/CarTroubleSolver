@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CFE0902D-3212-4C4A-AA01-C46C0E3B04AA}|CarTroubleSolver.Tests\\CarTroubleSolver.Tests.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.tests\\query\\repairhisotry\\getcarrepairshistoriesquerytest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE0902D-3212-4C4A-AA01-C46C0E3B04AA}|CarTroubleSolver.Tests\\CarTroubleSolver.Tests.csproj|solutionrelative:cartroublesolver.tests\\query\\repairhisotry\\getcarrepairshistoriesquerytest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EF4217A6-9AB5-42D2-8A8B-0287227CE97A}|CarTroubleSolver.Workshop.Tests\\CarTroubleSolver.Workshop.Tests.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.workshop.tests\\services\\addserviceforworkshopcommandtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF4217A6-9AB5-42D2-8A8B-0287227CE97A}|CarTroubleSolver.Workshop.Tests\\CarTroubleSolver.Workshop.Tests.csproj|solutionrelative:cartroublesolver.workshop.tests\\services\\addserviceforworkshopcommandtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF4217A6-9AB5-42D2-8A8B-0287227CE97A}|CarTroubleSolver.Workshop.Tests\\CarTroubleSolver.Workshop.Tests.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.workshop.tests\\accident\\accidentservicedetalsquerytest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF4217A6-9AB5-42D2-8A8B-0287227CE97A}|CarTroubleSolver.Workshop.Tests\\CarTroubleSolver.Workshop.Tests.csproj|solutionrelative:cartroublesolver.workshop.tests\\accident\\accidentservicedetalsquerytest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF4217A6-9AB5-42D2-8A8B-0287227CE97A}|CarTroubleSolver.Workshop.Tests\\CarTroubleSolver.Workshop.Tests.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.workshop.tests\\dbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF4217A6-9AB5-42D2-8A8B-0287227CE97A}|CarTroubleSolver.Workshop.Tests\\CarTroubleSolver.Workshop.Tests.csproj|solutionrelative:cartroublesolver.workshop.tests\\dbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D55A0D8-B52D-4A51-8CB8-939A1592C6D9}|CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.workshop.logic\\functions\\accident\\accidentservicedetailsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D55A0D8-B52D-4A51-8CB8-939A1592C6D9}|CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj|solutionrelative:cartroublesolver.workshop.logic\\functions\\accident\\accidentservicedetailsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D55A0D8-B52D-4A51-8CB8-939A1592C6D9}|CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj|c:\\users\\piotr\\source\\repos\\piotrdabrowski232\\cartroublesolver\\cartroublesolver\\cartroublesolver.workshop.logic\\functions\\hour\\command\\hourconfigurationcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D55A0D8-B52D-4A51-8CB8-939A1592C6D9}|CarTroubleSolver.Workshop.Logic\\CarTroubleSolver.Workshop.Logic.csproj|solutionrelative:cartroublesolver.workshop.logic\\functions\\hour\\command\\hourconfigurationcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +35,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GetCarRepairsHistoriesQueryTest.cs",
-              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Tests\\Query\\RepairHisotry\\GetCarRepairsHistoriesQueryTest.cs",
-              "RelativeDocumentMoniker": "CarTroubleSolver.Tests\\Query\\RepairHisotry\\GetCarRepairsHistoriesQueryTest.cs",
-              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Tests\\Query\\RepairHisotry\\GetCarRepairsHistoriesQueryTest.cs",
-              "RelativeToolTip": "CarTroubleSolver.Tests\\Query\\RepairHisotry\\GetCarRepairsHistoriesQueryTest.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAuwGsAAAAAAAAAAAAAAA==",
+              "Title": "AddServiceForWorkshopCommandTest.cs",
+              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Tests\\Services\\AddServiceForWorkshopCommandTest.cs",
+              "RelativeDocumentMoniker": "CarTroubleSolver.Workshop.Tests\\Services\\AddServiceForWorkshopCommandTest.cs",
+              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Tests\\Services\\AddServiceForWorkshopCommandTest.cs",
+              "RelativeToolTip": "CarTroubleSolver.Workshop.Tests\\Services\\AddServiceForWorkshopCommandTest.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAADwv0cAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T11:00:44.543Z",
+              "WhenOpened": "2024-11-13T12:07:48.037Z",
               "EditorCaption": ""
             },
             {
@@ -80,6 +96,100 @@
             {
               "$type": "Bookmark",
               "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DbContextFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Tests\\DbContextFactory.cs",
+              "RelativeDocumentMoniker": "CarTroubleSolver.Workshop.Tests\\DbContextFactory.cs",
+              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Tests\\DbContextFactory.cs",
+              "RelativeToolTip": "CarTroubleSolver.Workshop.Tests\\DbContextFactory.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAYwDMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T12:07:05.029Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AccidentServiceDetalsQueryTest.cs",
+              "DocumentMoniker": "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Tests\\Accident\\AccidentServiceDetalsQueryTest.cs",
+              "RelativeDocumentMoniker": "CarTroubleSolver.Workshop.Tests\\Accident\\AccidentServiceDetalsQueryTest.cs",
+              "ToolTip": "C:\\Users\\Piotr\\Source\\Repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Tests\\Accident\\AccidentServiceDetalsQueryTest.cs",
+              "RelativeToolTip": "CarTroubleSolver.Workshop.Tests\\Accident\\AccidentServiceDetalsQueryTest.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAowFkAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T11:37:10.071Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "84ca8cac-003d-44d2-9d89-912b39ab94d3",
+        "Display": 0,
+        "X": 172,
+        "Y": 324,
+        "Width": 1551,
+        "Height": 713,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HourConfigurationCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\Functions\\Hour\\Command\\HourConfigurationCommand.cs",
+              "RelativeDocumentMoniker": "CarTroubleSolver.Workshop.Logic\\Functions\\Hour\\Command\\HourConfigurationCommand.cs",
+              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\Functions\\Hour\\Command\\HourConfigurationCommand.cs",
+              "RelativeToolTip": "CarTroubleSolver.Workshop.Logic\\Functions\\Hour\\Command\\HourConfigurationCommand.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAzwCEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T11:23:32.763Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "ebc10746-4a89-456e-9568-7ef7bc4f286b",
+        "Display": 0,
+        "X": 7,
+        "Y": 324,
+        "Width": 1551,
+        "Height": 713,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AccidentServiceDetailsQuery.cs",
+              "DocumentMoniker": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\Functions\\Accident\\AccidentServiceDetailsQuery.cs",
+              "RelativeDocumentMoniker": "CarTroubleSolver.Workshop.Logic\\Functions\\Accident\\AccidentServiceDetailsQuery.cs",
+              "ToolTip": "C:\\Users\\Piotr\\source\\repos\\PiotrDabrowski232\\CarTroubleSolver\\CarTroubleSolver\\CarTroubleSolver.Workshop.Logic\\Functions\\Accident\\AccidentServiceDetailsQuery.cs",
+              "RelativeToolTip": "CarTroubleSolver.Workshop.Logic\\Functions\\Accident\\AccidentServiceDetailsQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T12:03:26.774Z",
+              "EditorCaption": ""
             }
           ]
         }
