@@ -1,11 +1,5 @@
-﻿using CarTroubleSolver.Data.Models.Enums;
-using CarTroubleSolver.Logic.Factories.Car.Model.ModelFactory;
+﻿using CarTroubleSolver.Logic.Factories.Car.Model.ModelFactory;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarTroubleSolver.Logic.Functions.Car.Query
 {
@@ -13,7 +7,7 @@ namespace CarTroubleSolver.Logic.Functions.Car.Query
     {
         public string Brand { get; set; }
 
-        public GetBrandModelsQuery(string brand) 
+        public GetBrandModelsQuery(string brand)
         {
             Brand = brand;
         }

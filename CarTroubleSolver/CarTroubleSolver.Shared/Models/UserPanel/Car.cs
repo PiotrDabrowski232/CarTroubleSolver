@@ -1,0 +1,28 @@
+﻿using CarTroubleSolver.Shared.Models.Enums;
+using CarTroubleSolver.Shared.Models.ExtraModels;
+
+namespace CarTroubleSolver.Shared.Models.UserPanel
+{
+    public class Car
+    {
+        public Guid Id { get; set; }
+        public string VIN { get; set; }
+        public Brand Brand { get; set; }
+        public string Model { get; set; }
+        public long Mileage { get; set; }
+        public string Engine { get; set; }
+        public int DoorCount { get; set; }
+        public DateTime DateOfProduction { get; set; }
+        public CarType CarType { get; set; }
+        public string? ImagePath { get; set; }
+
+        public Guid OwnerId { get; set; }
+        public virtual User Owner { get; set; }
+
+        public Guid ColorId { get; set; }
+        public virtual CarColor Color { get; set; }
+
+        public virtual ICollection<Accident> Accidents { get; set; }
+        public virtual ICollection<RepairHistory> RepairHistory { get; set; }
+    }
+}

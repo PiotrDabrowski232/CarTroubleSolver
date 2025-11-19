@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using CarTroubleSolver.Data.Models;
-using CarTroubleSolver.Data.Models.Enums;
 using CarTroubleSolver.Logic.Dto;
 using CarTroubleSolver.Logic.Dto.Car;
+using CarTroubleSolver.Shared.Models.Enums;
+using CarTroubleSolver.Shared.Models.UserPanel;
 
 namespace CarTroubleSolver.Logic.Maping
 {
@@ -24,20 +24,32 @@ namespace CarTroubleSolver.Logic.Maping
             CreateMap<Car, CarDto>()
                 .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => src.Brand.ToString()))
                 .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.CarType.ToString()))
-                .ForMember(dest => dest.Color, opt => opt.MapFrom(src => src.Color));
+                .ForMember(dest => dest.Color, opt => opt.MapFrom(src => src.Color))
+                .ForMember(dest => dest.VIN, opt => opt.MapFrom(src => src.VIN.ToUpper()));
 
             CreateMap<CarDto, Car>()
                 .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => Enum.Parse<Brand>(src.Brand)))
                 .ForMember(dest => dest.CarType, opt => opt.MapFrom(src => Enum.Parse<CarType>(src.Type)))
-                .ForMember(dest => dest.Color, opt => opt.MapFrom(src => src.Color));
+                .ForMember(dest => dest.Color, opt => opt.MapFrom(src => src.Color))
+                .ForMember(dest => dest.VIN, opt => opt.MapFrom(src => src.VIN.ToUpper()));
 
             CreateMap<Car, UpdateCarDto>()
                 .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => src.Brand.ToString()))
-                .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.CarType.ToString()));
+                .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.CarType.ToString()))
+                .ForMember(dest => dest.VIN, opt => opt.MapFrom(src => src.VIN.ToUpper()));
 
             CreateMap<UpdateCarDto, Car>()
                 .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => Enum.Parse<Brand>(src.Brand)))
-                .ForMember(dest => dest.CarType, opt => opt.MapFrom(src => Enum.Parse<CarType>(src.Type)));
+                .ForMember(dest => dest.CarType, opt => opt.MapFrom(src => Enum.Parse<CarType>(src.Type)))
+                .ForMember(dest => dest.VIN, opt => opt.MapFrom(src => src.VIN.ToUpper()));
+
+            CreateMap<Car, CarBasicInfoDto>()
+                .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => src.Brand.ToString()))
+                .ForMember(dest => dest.VIN, opt => opt.MapFrom(src => src.VIN.ToUpper()));
+
+            CreateMap<CarBasicInfoDto, Car>()
+                .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => Enum.Parse<Brand>(src.Brand)))
+                .ForMember(dest => dest.VIN, opt => opt.MapFrom(src => src.VIN.ToUpper()));
         }
     }
 }

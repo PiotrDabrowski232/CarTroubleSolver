@@ -1,0 +1,19 @@
+input.form-control {
+  color: #020e21; 
+  border-color: #011101; 
+}
+
+input.form-control:focus {
+  outline: none;
+  border-color: #7c7cb7; 
+}
+
+select.form-select {
+  color: #020e21; 
+  border-color: #011101; 
+}
+
+select.form-select:focus {
+  outline: none;
+  border-color: #7c7cb7; 
+}

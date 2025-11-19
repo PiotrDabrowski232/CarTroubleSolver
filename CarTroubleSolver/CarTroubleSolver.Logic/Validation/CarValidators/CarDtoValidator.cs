@@ -1,5 +1,5 @@
-﻿using CarTroubleSolver.Data.Data;
-using CarTroubleSolver.Logic.Dto.Car;
+﻿using CarTroubleSolver.Logic.Dto.Car;
+using CarTroubleSolver.Shared.Data;
 using FluentValidation;
 
 namespace CarTroubleSolver.Logic.Validation.CarValidators
@@ -15,7 +15,7 @@ namespace CarTroubleSolver.Logic.Validation.CarValidators
                 .WithMessage("VIN should have 17 digits")
                 .Custom((value, context) =>
                 {
-                    var vin = dbContext.Cars.Any(u => u.VIN == value);
+                    var vin = dbContext.Cars.Any(u => u.VIN.ToUpper() == value.ToUpper());
 
                     if (vin)
                         context.AddFailure("Vin", "Invalid Vin number");

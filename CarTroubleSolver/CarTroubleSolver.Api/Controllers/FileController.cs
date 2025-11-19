@@ -33,7 +33,7 @@ namespace CarTroubleSolver.Api.Controllers
 
         [HttpGet]
         [Route("/DownloadFile")]
-        public IActionResult DownloadFile(long vin)
+        public IActionResult DownloadFile(string vin)
         {
             try
             {

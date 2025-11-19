@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
-using CarTroubleSolver.Data.Repositories.Interfaces;
 using CarTroubleSolver.Logic.Dto.Car;
+using CarTroubleSolver.Shared.Repositories.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace CarTroubleSolver.Logic.Functions.Car.Command
 {
@@ -13,23 +15,29 @@ namespace CarTroubleSolver.Logic.Functions.Car.Command
         public AddCarCommand(CarDto car) { Car = car; }
     }
 
-    public class AddCarCommandHandler(ICarRepository carRepository, IMapper mapper, IHttpContextAccessor httpContextAccessor) : IRequestHandler<AddCarCommand, CarDto>
+    public class AddCarCommandHandler : IRequestHandler<AddCarCommand, CarDto>
     {
+        private readonly ICarRepository _carRepository;
+        private readonly IMapper _mapper;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        private readonly ICarRepository _carRepository = carRepository;
-        private readonly IMapper _mapper = mapper;
-        private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
-
-        public Task<CarDto> Handle(AddCarCommand request, CancellationToken cancellationToken)
+        public AddCarCommandHandler(ICarRepository carRepository, IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
-            var car = _mapper.Map<Data.Models.Car>(request.Car);
+            _carRepository = carRepository;
+            _mapper = mapper;
+            _httpContextAccessor = httpContextAccessor;
+        }
 
-            car.OwnerId = (Guid.Parse(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)));
+        public async Task<CarDto> Handle(AddCarCommand request, CancellationToken cancellationToken)
+        {
+            var car = _mapper.Map<Shared.Models.UserPanel.Car>(request.Car);
 
+            car.OwnerId = Guid.Parse(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
             car.Id = Guid.NewGuid();
 
-            return _carRepository.Add(car).IsCompletedSuccessfully ? Task.FromResult(request.Car) : throw new Exception();
+            var result = await _carRepository.Add(car);
 
+            return result != null ? request.Car : new CarDto();
         }
     }
 }

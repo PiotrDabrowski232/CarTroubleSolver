@@ -1,10 +1,9 @@
-﻿using CarTroubleSolver.Data.Models.Enums;
-
-namespace CarTroubleSolver.Logic.Dto.Car
+﻿namespace CarTroubleSolver.Logic.Dto.Car
 {
     public class CarBasicInfoDto
     {
-        public long VIN { get; set; }
+        public Guid Id { get; set; }
+        public string VIN { get; set; }
         public Color Color { get; set; }
         public string CarType { get; set; }
         public string Brand { get; set; }

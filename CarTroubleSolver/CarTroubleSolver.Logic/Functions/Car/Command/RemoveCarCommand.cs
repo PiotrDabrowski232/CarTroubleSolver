@@ -1,9 +1,9 @@
-﻿using CarTroubleSolver.Data.Repositories.Interfaces;
+﻿using CarTroubleSolver.Shared.Repositories.Interfaces;
 using MediatR;
 
 namespace CarTroubleSolver.Logic.Functions.Car.Command
 {
-    public class RemoveCarCommand : IRequest
+    public class RemoveCarCommand : IRequest<bool>
     {
         public string VIN { get; set; }
 
@@ -12,7 +12,7 @@ namespace CarTroubleSolver.Logic.Functions.Car.Command
             VIN = vin;
         }
     }
-    public class RemoveCarCommandHandler : IRequestHandler<RemoveCarCommand> 
+    public class RemoveCarCommandHandler : IRequestHandler<RemoveCarCommand, bool>
     {
         private readonly ICarRepository _carRepository;
         public RemoveCarCommandHandler(ICarRepository carRepository)
@@ -20,11 +20,11 @@ namespace CarTroubleSolver.Logic.Functions.Car.Command
             _carRepository = carRepository;
         }
 
-        public Task Handle(RemoveCarCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(RemoveCarCommand request, CancellationToken cancellationToken)
         {
-            var result = _carRepository.DeleteCarByVinNumber(long.Parse(request.VIN));
+            var result = await _carRepository.DeleteCarByVinNumber(request.VIN);
 
-            return Task.FromResult(result);
+            return result;
         }
     }
 }

@@ -1,9 +1,4 @@
 ﻿using CarTroubleSolver.Logic.Dto.User;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarTroubleSolver.Logic.Services.Interfaces
 {
@@ -11,7 +6,6 @@ namespace CarTroubleSolver.Logic.Services.Interfaces
     {
         public UserDto RegisterUser(RegisterUserDto user);
         public UserDto? GetUser();
-        public void UpdateUserData(UpdateUserDto user);
         public void ChangePassword(ChangePasswordUserDto user);
         public void DeleteUser(Guid id);
         public IEnumerable<UserDto> GetUsers();

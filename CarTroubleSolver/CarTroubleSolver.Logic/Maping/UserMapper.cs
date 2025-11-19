@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using CarTroubleSolver.Data.Models;
 using CarTroubleSolver.Logic.Dto.User;
+using CarTroubleSolver.Shared.Models.UserPanel;
 
 namespace CarTroubleSolver.Logic.Maping
 {

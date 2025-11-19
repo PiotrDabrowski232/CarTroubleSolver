@@ -1,0 +1,10 @@
+.mainForm #myForm{
+    padding-left: 40%;
+    padding-top: 15%;
+    width: fit-content;
+    height: fit-content;
+}
+
+.mainForm #myForm button{
+    margin-left: 100%;
+}

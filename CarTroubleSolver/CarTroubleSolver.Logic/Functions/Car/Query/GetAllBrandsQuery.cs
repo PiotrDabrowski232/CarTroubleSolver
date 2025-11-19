@@ -1,5 +1,5 @@
-﻿using CarTroubleSolver.Data.Models.Enums;
-using CarTroubleSolver.Logic.Dto.Car;
+﻿using CarTroubleSolver.Logic.Dto.Car;
+using CarTroubleSolver.Shared.Models.Enums;
 using MediatR;
 
 namespace CarTroubleSolver.Logic.Functions.Car.Query
@@ -10,7 +10,7 @@ namespace CarTroubleSolver.Logic.Functions.Car.Query
         public GetBasicCarConfigQuery()
         {
         }
-        public GetBasicCarConfigQuery(BasicCarConfig basicCarConfig) 
+        public GetBasicCarConfigQuery(BasicCarConfig basicCarConfig)
         {
             BasicCarConfig = basicCarConfig;
         }

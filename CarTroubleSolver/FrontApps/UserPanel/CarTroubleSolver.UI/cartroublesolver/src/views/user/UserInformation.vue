@@ -76,7 +76,7 @@
 
       <div class="functional-buttons">
         <button type="submit" @click="visible = true" class="btn btn-warning">Reset Password</button>
-        <button type="button" class="btn btn-outline-dark">Accident History</button>
+        <button type="button" @click="addAccident" class="btn btn-outline-dark">Ask For Service</button>
       </div>
 
 
@@ -171,6 +171,9 @@ import router from '@/router';
     },
     AddCar(){
       router.push("/CarCreator")
+    },
+    addAccident(){
+      router.push("/AddAccident")
     },
     async TryReset() {
             var PasswordInput = document.getElementById("floatingPassword");

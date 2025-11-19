@@ -1,11 +1,5 @@
-﻿using CarTroubleSolver.Data.Models.Enums;
-using CarTroubleSolver.Data.Models.Enums.Models;
-using CarTroubleSolver.Logic.Factories.Car.Model.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CarTroubleSolver.Logic.Factories.Car.Model.Interfaces;
+using CarTroubleSolver.Shared.Models.Enums.Models;
 
 namespace CarTroubleSolver.Logic.Factories.Car.Model
 {
@@ -13,7 +7,7 @@ namespace CarTroubleSolver.Logic.Factories.Car.Model
     {
         public IList<string> Models()
         {
-            return  Enum.GetNames<AudiModels>().ToList();
+            return Enum.GetNames<AudiModels>().ToList();
         }
     }
 }
